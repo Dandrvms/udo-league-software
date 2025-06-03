@@ -1,8 +1,9 @@
 "use client";
-
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Formulario() {
+  const router = useRouter();
   const [categorias, setCategorias] = useState(1); // Valor por defecto
   const [formData, setFormData] = useState({
     nombreCompeticion: "",
@@ -42,7 +43,7 @@ export default function Formulario() {
 
     try {
       // Enviar la competición y obtener el ID generado
-      const resCompeticion = await fetch("/administrador/api/campeonato", {
+      const resCompeticion = await fetch("/api/campeonato", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nombre: formData.nombreCompeticion, categorias: categorias }),
@@ -54,7 +55,7 @@ export default function Formulario() {
       // Enviar cada categoría con el ID de la competición
       await Promise.all(
         formData.categorias.map(async (categoria) => {
-        await fetch("/administrador/api/categoria", {
+        await fetch("/api/categoria", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -71,6 +72,7 @@ export default function Formulario() {
     } catch (error) {
       console.error("Error al enviar los datos:", error);
     }
+    router.back()
   };
 
   return (
@@ -84,7 +86,7 @@ export default function Formulario() {
           <input
             type="text"
             name="nombreCompeticion"
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+            className="text-black w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
             value={formData.nombreCompeticion}
             onChange={handleChangeCompeticion}
             required
@@ -96,7 +98,7 @@ export default function Formulario() {
           <label className="text-sm font-medium text-gray-600">Cantidad de categorías:</label>
           <select
             name="cantidadCategorias"
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+            className="text-black w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
             value={categorias}
             onChange={handleChangeCategorias}
           >
@@ -112,7 +114,7 @@ export default function Formulario() {
             <label className="text-sm font-medium text-gray-600">Nombre de la categoría {index + 1}:</label>
             <input
               type="text"
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+              className="text-black w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
               value={categoria.nombreCategoria}
               onChange={(e) => handleChangeCategoria(index, "nombreCategoria", e.target.value)}
               required
@@ -120,7 +122,7 @@ export default function Formulario() {
 
             <label className="text-sm font-medium text-gray-600 mt-2">Cantidad de equipos:</label>
             <select
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+              className="text-black w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
               value={categoria.equipos}
               onChange={(e) => handleChangeCategoria(index, "equipos", e.target.value)}
             >
