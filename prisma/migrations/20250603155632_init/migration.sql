@@ -1,0 +1,7 @@
+-- CreateTable
+CREATE TABLE "Categoria" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "nombre" TEXT NOT NULL,
+    "equipos" INTEGER NOT NULL,
+    "creacion" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
