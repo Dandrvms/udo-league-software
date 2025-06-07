@@ -21,11 +21,12 @@ export default function ListaCampeonatos({ camps }) {
         <div className="mt-5 grid grid-cols-4 gap-4">
            
                 {campeonatos.map((campeonato) => (
-                    <div key={campeonato.id} className="bg-blue-500 text-white border p-4 rounded-md cursor-pointer hover:bg-blue-700 transition duration-300"
+                    <div key={campeonato.id} className="relative bg-gray-100 text-gray-800 shadow-md p-6 rounded-lg cursor-pointer overflow-hidden transition duration-200 hover:scale-105 hover:font-bold"
+                        
                     onClick={() => window.location.href = `/administrador/campeonato/${campeonato.id}`}
                     >
                         {/* <span className="text-gray-600 text-xs px-2">{campeonato.id}</span> */}
-                        <span className="font-bold text-sm">{campeonato.nombre}</span>
+                        <span className="text-sm font-medium">{campeonato.nombre}</span>
                     </div>
                 ))}
             
