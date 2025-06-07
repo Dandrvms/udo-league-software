@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import {Inter} from 'next/font/google';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -11,13 +12,19 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const lato = Inter({
+  subsets: ["latin"],
+  weight: ["300","400", "500", "700"],
+  style: ["normal", "italic"],
+});
+
 export default function RootLayout({ children }) {
   return (
     <html>
       <head>
         <title>UDO Software League</title>
       </head>
-        <body>
+        <body className={lato.className}>
           {children}
         </body>
     </html>
