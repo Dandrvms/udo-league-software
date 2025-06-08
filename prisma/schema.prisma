@@ -14,14 +14,30 @@ datasource db {
 model Campeonato {
   id          Int      @id @default(autoincrement())
   nombre      String
-  categorias   Int
+  categorias   Categoria[]
+  equipos Equipo[]
   creacion   DateTime @default(now())
 }
 
 model Categoria {
   id          Int      @id @default(autoincrement())
   idCampeonato Int
+  campeonato Campeonato @relation(references: [id], fields: [idCampeonato])
   nombre      String
-  equipos   Int
+  nEquipos Int @default(0)
+  equipos   Equipo[]
   creacion   DateTime @default(now())
+}
+
+model Equipo {
+  id Int @id @default(autoincrement())
+  nombre String
+  abreviatura String
+  idCategoria Int
+  categoria Categoria @relation(references: [id], fields: [idCategoria])
+  idCampeonato Int
+  campeonato Campeonato @relation(references: [id], fields: [idCampeonato])
+  email String
+  telefono String
+  url_logo String
 }

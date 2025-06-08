@@ -120,7 +120,6 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 exports.Prisma.CampeonatoScalarFieldEnum = {
   id: 'id',
   nombre: 'nombre',
-  categorias: 'categorias',
   creacion: 'creacion'
 };
 
@@ -128,8 +127,19 @@ exports.Prisma.CategoriaScalarFieldEnum = {
   id: 'id',
   idCampeonato: 'idCampeonato',
   nombre: 'nombre',
-  equipos: 'equipos',
+  nEquipos: 'nEquipos',
   creacion: 'creacion'
+};
+
+exports.Prisma.EquipoScalarFieldEnum = {
+  id: 'id',
+  nombre: 'nombre',
+  abreviatura: 'abreviatura',
+  idCategoria: 'idCategoria',
+  idCampeonato: 'idCampeonato',
+  email: 'email',
+  telefono: 'telefono',
+  url_logo: 'url_logo'
 };
 
 exports.Prisma.SortOrder = {
@@ -140,7 +150,8 @@ exports.Prisma.SortOrder = {
 
 exports.Prisma.ModelName = {
   Campeonato: 'Campeonato',
-  Categoria: 'Categoria'
+  Categoria: 'Categoria',
+  Equipo: 'Equipo'
 };
 
 /**
