@@ -25,7 +25,7 @@ export default function Formulario() {
       ...formData,
       categorias: Array.from({ length: cantidad }, (_, index) => ({
         nombreCategoria: "",
-        equipos: 4, // Valor por defecto
+        nEquipos: 4, // Valor por defecto
       })),
     });
   };
@@ -46,7 +46,7 @@ export default function Formulario() {
       const resCompeticion = await fetch("/api/campeonato", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nombre: formData.nombreCompeticion, categorias: categorias }),
+        body: JSON.stringify({ nombre: formData.nombreCompeticion }),
       });
 
       const competicionGuardada = await resCompeticion.json();
@@ -61,7 +61,7 @@ export default function Formulario() {
             body: JSON.stringify({
             idCampeonato: competicionId, // Enviar ID correcto
             nombre: categoria.nombreCategoria,
-            equipos: parseInt(categoria.equipos, 10),
+            nEquipos: parseInt(categoria.nEquipos, 10),
       }),
     });
   })
@@ -123,7 +123,7 @@ export default function Formulario() {
             <label className="text-sm font-medium text-gray-600 mt-2">Cantidad de equipos:</label>
             <select
               className="text-black w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
-              value={categoria.equipos}
+              value={categoria.nEquipos}
               onChange={(e) => handleChangeCategoria(index, "equipos", e.target.value)}
             >
               {Array.from({ length: 13 }, (_, i) => 4 + i).map((num) => (

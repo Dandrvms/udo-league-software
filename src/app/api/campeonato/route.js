@@ -2,17 +2,20 @@ import { NextResponse } from "next/server";
 import { prisma } from '@/libs/prisma';
 
 export async function GET() {
-    const campeonatos = await prisma.campeonato.findMany();
+    const campeonatos = await prisma.campeonato.findMany({
+        include: {
+            categorias: true,
+        }
+    });
     return NextResponse.json(campeonatos)
 }
 
 export async function POST(request) {
     try {
-        const { nombre, categorias } = await request.json();
+        const { nombre } = await request.json();
         const Nuevocampeonato = await prisma.campeonato.create({
             data: {
-                nombre,
-                categorias
+                nombre
             }
         });
         return NextResponse.json(Nuevocampeonato);

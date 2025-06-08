@@ -18,18 +18,21 @@ export default function ListaCampeonatos({ camps }) {
 
 
     return (
-        <div className="mt-5 grid grid-cols-4 gap-4">
-           
+        campeonatos.length === 0 ? (
+            <div className="flex flex-col p-20 justify-center text-center">No hay campeonatos</div>
+        ) : (
+            <div className="mt-5 grid grid-cols-4 gap-4">
                 {campeonatos.map((campeonato) => (
-                    <div key={campeonato.id} className="relative bg-gray-100 text-gray-800 shadow-md p-6 rounded-lg cursor-pointer overflow-hidden transition duration-200 hover:scale-105 hover:font-bold"
-                        
-                    onClick={() => window.location.href = `/administrador/campeonato/${campeonato.id}`}
+                    <div
+                        key={campeonato.id}
+                        className="relative bg-gray-100 text-gray-800 shadow-md p-6 rounded-lg cursor-pointer overflow-hidden transition duration-200 hover:scale-105 hover:font-bold"
+                        onClick={() => window.location.href = `/administrador/campeonato/${campeonato.id}`}
                     >
                         {/* <span className="text-gray-600 text-xs px-2">{campeonato.id}</span> */}
                         <span className="text-sm font-medium">{campeonato.nombre}</span>
                     </div>
                 ))}
-            
-        </div>
+            </div>
+        )
     );
 }

@@ -7,12 +7,12 @@ export async function GET() {
 }
 
 export async function POST(request) {
-    const {idCampeonato, nombre, equipos}= await request.json();
+    const {idCampeonato, nombre, nEquipos}= await request.json();
     const nuevaCategoria = await prisma.categoria.create({
         data: {
             idCampeonato: idCampeonato,
             nombre: nombre,
-            equipos: equipos
+            nEquipos: nEquipos
         }
     });
     return NextResponse.json(nuevaCategoria)
