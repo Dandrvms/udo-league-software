@@ -124,7 +124,7 @@ export default function Formulario() {
             <select
               className="text-black w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
               value={categoria.nEquipos}
-              onChange={(e) => handleChangeCategoria(index, "equipos", e.target.value)}
+              onChange={(e) => handleChangeCategoria(index, "nEquipos", e.target.value)}
             >
               {Array.from({ length: 13 }, (_, i) => 4 + i).map((num) => (
                 <option key={num} value={num}>{num}</option>

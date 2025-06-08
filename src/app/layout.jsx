@@ -23,6 +23,7 @@ export default function RootLayout({ children }) {
     <html>
       <head>
         <title>UDO Software League</title>
+        <link rel="icon" href="/favicon.ico" /> 
       </head>
         <body className={lato.className}>
           {children}
