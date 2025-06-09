@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from '@/libs/prisma';
 
 export async function GET(request, { params }) {
-  const { idCategoria } = params;
+  const { idCategoria } = await params;
 
   try {
 
@@ -11,6 +11,7 @@ export async function GET(request, { params }) {
         where: { id: Number(idCategoria) },
         include: {
         equipos: true, // Incluye los equipos de la categoría
+        jornadas: true
         },
     });
 
@@ -19,17 +20,19 @@ export async function GET(request, { params }) {
     }
 
     // Busca si ya existe un calendario para esta categoría
-    const calendario = await prisma.calendario.findFirst({
-        where: { idCategoria: Number(idCategoria) },
-    });
+    // const calendario = await prisma.calendario.findFirst({
+    //     where: { idCategoria: Number(idCategoria) },
+    // });
 
-    return NextResponse.json({
-        id: categoria.id,
-        nombre: categoria.nombre,
-        nEquipos: categoria.nEquipos,
-        equipos: categoria.equipos.map(e => ({ id: e.id, nombre: e.nombre })),
-        calendario: calendario ? calendario : null,
-    });
+    // return NextResponse.json({
+    //     id: categoria.id,
+    //     nombre: categoria.nombre,
+    //     nEquipos: categoria.nEquipos,
+    //     equipos: categoria.equipos.map(e => ({ id: e.id, nombre: e.nombre })),
+    //     calendario: calendario ? calendario : null,
+    // });
+
+    return NextResponse.json(categoria)
     }
     catch (error) {
     console.error("Error al obtener la categoría:", error);

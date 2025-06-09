@@ -7,7 +7,10 @@ export default function Formulario() {
   const [categorias, setCategorias] = useState(1); // Valor por defecto
   const [formData, setFormData] = useState({
     nombreCompeticion: "",
-    categorias: [],
+    categorias: [{
+      nombreCategoria: "",
+      nEquipos: 4,
+    }],
   });
 
   // Maneja cambios en el input principal

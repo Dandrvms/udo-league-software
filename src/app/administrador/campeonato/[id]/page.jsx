@@ -1,21 +1,25 @@
 // app/campeonato/[id]/page.js
 import { prisma } from "@/libs/prisma";
 import InfoCampeonato from "@/app/components/infocampeonato";
-import SideBar from "@/app/components/sideBar";
+
 
 export default async function CampeonatoPage({ params }) {
   const { id } = await params;
   const campeonato = await prisma.campeonato.findUnique({
     where: { id: Number(id) },
     include: {
-      categorias: true
+      categorias: {
+        include: {
+          equipos: true
+        }
+      }
     }
   });
 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="flex">
-        <SideBar campeonatoId={id} />
+       
         <div className="flex-1 px-4 py-6 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6">
             <div>
@@ -37,7 +41,7 @@ export default async function CampeonatoPage({ params }) {
               </button>
             </div>
           </div>
-          
+
           <div className="mt-5">
             <InfoCampeonato campeonato={campeonato} />
           </div>
