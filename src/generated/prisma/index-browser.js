@@ -153,25 +153,17 @@ exports.Prisma.JugadorScalarFieldEnum = {
   dorsal: 'dorsal'
 };
 
-exports.Prisma.CalendarioScalarFieldEnum = {
+exports.Prisma.JornadaScalarFieldEnum = {
   id: 'id',
-  idCampeonato: 'idCampeonato',
-  idCategoria: 'idCategoria',
   jornada: 'jornada',
-  fecha: 'fecha',
-  local: 'local',
-  visitante: 'visitante',
-  estado: 'estado'
+  idLocal: 'idLocal',
+  idVisitante: 'idVisitante',
+  idCategoria: 'idCategoria'
 };
 
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
-};
-
-exports.Prisma.NullsOrder = {
-  first: 'first',
-  last: 'last'
 };
 
 
@@ -180,7 +172,7 @@ exports.Prisma.ModelName = {
   Categoria: 'Categoria',
   Equipo: 'Equipo',
   Jugador: 'Jugador',
-  Calendario: 'Calendario'
+  Jornada: 'Jornada'
 };
 
 /**

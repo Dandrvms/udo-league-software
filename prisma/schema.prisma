@@ -26,7 +26,9 @@ model Categoria {
   nombre      String
   nEquipos Int @default(0)
   equipos   Equipo[]
+  jornadas Jornada[]
   creacion   DateTime @default(now())
+  
 }
 
 model Equipo {
@@ -41,6 +43,8 @@ model Equipo {
   telefono String
   url_logo String
   jugadores Jugador[]
+  localJornadas Jornada[] @relation("LocalEquipo")
+  visitanteJornadas Jornada[] @relation("VisitanteEquipo")
 }
 
 model Jugador {
@@ -55,13 +59,15 @@ model Jugador {
   dorsal Int
 }
 
-model Calendario {
-  id           Int      @id @default(autoincrement())
-  idCampeonato Int
-  idCategoria  Int
-  jornada      Int
-  fecha        DateTime?
-  local        Int
-  visitante    Int
-  estado       String   @default("pendiente") // "pendiente", "jugado", "cancelado"
+
+
+model Jornada {
+  id Int @id @default(autoincrement())
+  jornada Int
+  idLocal Int
+  idVisitante Int
+  idCategoria Int
+  categoria Categoria @relation(fields: [idCategoria], references: [id])
+  local Equipo @relation("LocalEquipo", fields: [idLocal], references: [id])
+  visitante Equipo @relation("VisitanteEquipo", fields: [idVisitante], references: [id])
 }

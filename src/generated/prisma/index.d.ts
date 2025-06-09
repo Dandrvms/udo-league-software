@@ -34,10 +34,10 @@ export type Equipo = $Result.DefaultSelection<Prisma.$EquipoPayload>
  */
 export type Jugador = $Result.DefaultSelection<Prisma.$JugadorPayload>
 /**
- * Model Calendario
+ * Model Jornada
  * 
  */
-export type Calendario = $Result.DefaultSelection<Prisma.$CalendarioPayload>
+export type Jornada = $Result.DefaultSelection<Prisma.$JornadaPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -205,14 +205,14 @@ export class PrismaClient<
   get jugador(): Prisma.JugadorDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.calendario`: Exposes CRUD operations for the **Calendario** model.
+   * `prisma.jornada`: Exposes CRUD operations for the **Jornada** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Calendarios
-    * const calendarios = await prisma.calendario.findMany()
+    * // Fetch zero or more Jornadas
+    * const jornadas = await prisma.jornada.findMany()
     * ```
     */
-  get calendario(): Prisma.CalendarioDelegate<ExtArgs, ClientOptions>;
+  get jornada(): Prisma.JornadaDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -657,7 +657,7 @@ export namespace Prisma {
     Categoria: 'Categoria',
     Equipo: 'Equipo',
     Jugador: 'Jugador',
-    Calendario: 'Calendario'
+    Jornada: 'Jornada'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -676,7 +676,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "campeonato" | "categoria" | "equipo" | "jugador" | "calendario"
+      modelProps: "campeonato" | "categoria" | "equipo" | "jugador" | "jornada"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -976,77 +976,77 @@ export namespace Prisma {
           }
         }
       }
-      Calendario: {
-        payload: Prisma.$CalendarioPayload<ExtArgs>
-        fields: Prisma.CalendarioFieldRefs
+      Jornada: {
+        payload: Prisma.$JornadaPayload<ExtArgs>
+        fields: Prisma.JornadaFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.CalendarioFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload> | null
+            args: Prisma.JornadaFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JornadaPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.CalendarioFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload>
+            args: Prisma.JornadaFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JornadaPayload>
           }
           findFirst: {
-            args: Prisma.CalendarioFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload> | null
+            args: Prisma.JornadaFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JornadaPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.CalendarioFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload>
+            args: Prisma.JornadaFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JornadaPayload>
           }
           findMany: {
-            args: Prisma.CalendarioFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload>[]
+            args: Prisma.JornadaFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JornadaPayload>[]
           }
           create: {
-            args: Prisma.CalendarioCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload>
+            args: Prisma.JornadaCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JornadaPayload>
           }
           createMany: {
-            args: Prisma.CalendarioCreateManyArgs<ExtArgs>
+            args: Prisma.JornadaCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.CalendarioCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload>[]
+            args: Prisma.JornadaCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JornadaPayload>[]
           }
           delete: {
-            args: Prisma.CalendarioDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload>
+            args: Prisma.JornadaDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JornadaPayload>
           }
           update: {
-            args: Prisma.CalendarioUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload>
+            args: Prisma.JornadaUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JornadaPayload>
           }
           deleteMany: {
-            args: Prisma.CalendarioDeleteManyArgs<ExtArgs>
+            args: Prisma.JornadaDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.CalendarioUpdateManyArgs<ExtArgs>
+            args: Prisma.JornadaUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.CalendarioUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload>[]
+            args: Prisma.JornadaUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JornadaPayload>[]
           }
           upsert: {
-            args: Prisma.CalendarioUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload>
+            args: Prisma.JornadaUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JornadaPayload>
           }
           aggregate: {
-            args: Prisma.CalendarioAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateCalendario>
+            args: Prisma.JornadaAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateJornada>
           }
           groupBy: {
-            args: Prisma.CalendarioGroupByArgs<ExtArgs>
-            result: $Utils.Optional<CalendarioGroupByOutputType>[]
+            args: Prisma.JornadaGroupByArgs<ExtArgs>
+            result: $Utils.Optional<JornadaGroupByOutputType>[]
           }
           count: {
-            args: Prisma.CalendarioCountArgs<ExtArgs>
-            result: $Utils.Optional<CalendarioCountAggregateOutputType> | number
+            args: Prisma.JornadaCountArgs<ExtArgs>
+            result: $Utils.Optional<JornadaCountAggregateOutputType> | number
           }
         }
       }
@@ -1138,7 +1138,7 @@ export namespace Prisma {
     categoria?: CategoriaOmit
     equipo?: EquipoOmit
     jugador?: JugadorOmit
-    calendario?: CalendarioOmit
+    jornada?: JornadaOmit
   }
 
   /* Types for Logging */
@@ -1274,10 +1274,12 @@ export namespace Prisma {
 
   export type CategoriaCountOutputType = {
     equipos: number
+    jornadas: number
   }
 
   export type CategoriaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     equipos?: boolean | CategoriaCountOutputTypeCountEquiposArgs
+    jornadas?: boolean | CategoriaCountOutputTypeCountJornadasArgs
   }
 
   // Custom InputTypes
@@ -1298,6 +1300,13 @@ export namespace Prisma {
     where?: EquipoWhereInput
   }
 
+  /**
+   * CategoriaCountOutputType without action
+   */
+  export type CategoriaCountOutputTypeCountJornadasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JornadaWhereInput
+  }
+
 
   /**
    * Count Type EquipoCountOutputType
@@ -1305,10 +1314,14 @@ export namespace Prisma {
 
   export type EquipoCountOutputType = {
     jugadores: number
+    localJornadas: number
+    visitanteJornadas: number
   }
 
   export type EquipoCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     jugadores?: boolean | EquipoCountOutputTypeCountJugadoresArgs
+    localJornadas?: boolean | EquipoCountOutputTypeCountLocalJornadasArgs
+    visitanteJornadas?: boolean | EquipoCountOutputTypeCountVisitanteJornadasArgs
   }
 
   // Custom InputTypes
@@ -1327,6 +1340,20 @@ export namespace Prisma {
    */
   export type EquipoCountOutputTypeCountJugadoresArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: JugadorWhereInput
+  }
+
+  /**
+   * EquipoCountOutputType without action
+   */
+  export type EquipoCountOutputTypeCountLocalJornadasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JornadaWhereInput
+  }
+
+  /**
+   * EquipoCountOutputType without action
+   */
+  export type EquipoCountOutputTypeCountVisitanteJornadasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JornadaWhereInput
   }
 
 
@@ -2646,6 +2673,7 @@ export namespace Prisma {
     creacion?: boolean
     campeonato?: boolean | CampeonatoDefaultArgs<ExtArgs>
     equipos?: boolean | Categoria$equiposArgs<ExtArgs>
+    jornadas?: boolean | Categoria$jornadasArgs<ExtArgs>
     _count?: boolean | CategoriaCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["categoria"]>
 
@@ -2679,6 +2707,7 @@ export namespace Prisma {
   export type CategoriaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     campeonato?: boolean | CampeonatoDefaultArgs<ExtArgs>
     equipos?: boolean | Categoria$equiposArgs<ExtArgs>
+    jornadas?: boolean | Categoria$jornadasArgs<ExtArgs>
     _count?: boolean | CategoriaCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type CategoriaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2693,6 +2722,7 @@ export namespace Prisma {
     objects: {
       campeonato: Prisma.$CampeonatoPayload<ExtArgs>
       equipos: Prisma.$EquipoPayload<ExtArgs>[]
+      jornadas: Prisma.$JornadaPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -3096,6 +3126,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     campeonato<T extends CampeonatoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CampeonatoDefaultArgs<ExtArgs>>): Prisma__CampeonatoClient<$Result.GetResult<Prisma.$CampeonatoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     equipos<T extends Categoria$equiposArgs<ExtArgs> = {}>(args?: Subset<T, Categoria$equiposArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EquipoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    jornadas<T extends Categoria$jornadasArgs<ExtArgs> = {}>(args?: Subset<T, Categoria$jornadasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JornadaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3548,6 +3579,30 @@ export namespace Prisma {
   }
 
   /**
+   * Categoria.jornadas
+   */
+  export type Categoria$jornadasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jornada
+     */
+    select?: JornadaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jornada
+     */
+    omit?: JornadaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JornadaInclude<ExtArgs> | null
+    where?: JornadaWhereInput
+    orderBy?: JornadaOrderByWithRelationInput | JornadaOrderByWithRelationInput[]
+    cursor?: JornadaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JornadaScalarFieldEnum | JornadaScalarFieldEnum[]
+  }
+
+  /**
    * Categoria without action
    */
   export type CategoriaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3799,6 +3854,8 @@ export namespace Prisma {
     categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
     campeonato?: boolean | CampeonatoDefaultArgs<ExtArgs>
     jugadores?: boolean | Equipo$jugadoresArgs<ExtArgs>
+    localJornadas?: boolean | Equipo$localJornadasArgs<ExtArgs>
+    visitanteJornadas?: boolean | Equipo$visitanteJornadasArgs<ExtArgs>
     _count?: boolean | EquipoCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["equipo"]>
 
@@ -3844,6 +3901,8 @@ export namespace Prisma {
     categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
     campeonato?: boolean | CampeonatoDefaultArgs<ExtArgs>
     jugadores?: boolean | Equipo$jugadoresArgs<ExtArgs>
+    localJornadas?: boolean | Equipo$localJornadasArgs<ExtArgs>
+    visitanteJornadas?: boolean | Equipo$visitanteJornadasArgs<ExtArgs>
     _count?: boolean | EquipoCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type EquipoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3861,6 +3920,8 @@ export namespace Prisma {
       categoria: Prisma.$CategoriaPayload<ExtArgs>
       campeonato: Prisma.$CampeonatoPayload<ExtArgs>
       jugadores: Prisma.$JugadorPayload<ExtArgs>[]
+      localJornadas: Prisma.$JornadaPayload<ExtArgs>[]
+      visitanteJornadas: Prisma.$JornadaPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4268,6 +4329,8 @@ export namespace Prisma {
     categoria<T extends CategoriaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CategoriaDefaultArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     campeonato<T extends CampeonatoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CampeonatoDefaultArgs<ExtArgs>>): Prisma__CampeonatoClient<$Result.GetResult<Prisma.$CampeonatoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     jugadores<T extends Equipo$jugadoresArgs<ExtArgs> = {}>(args?: Subset<T, Equipo$jugadoresArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JugadorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    localJornadas<T extends Equipo$localJornadasArgs<ExtArgs> = {}>(args?: Subset<T, Equipo$localJornadasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JornadaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    visitanteJornadas<T extends Equipo$visitanteJornadasArgs<ExtArgs> = {}>(args?: Subset<T, Equipo$visitanteJornadasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JornadaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4720,6 +4783,54 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: JugadorScalarFieldEnum | JugadorScalarFieldEnum[]
+  }
+
+  /**
+   * Equipo.localJornadas
+   */
+  export type Equipo$localJornadasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jornada
+     */
+    select?: JornadaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jornada
+     */
+    omit?: JornadaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JornadaInclude<ExtArgs> | null
+    where?: JornadaWhereInput
+    orderBy?: JornadaOrderByWithRelationInput | JornadaOrderByWithRelationInput[]
+    cursor?: JornadaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JornadaScalarFieldEnum | JornadaScalarFieldEnum[]
+  }
+
+  /**
+   * Equipo.visitanteJornadas
+   */
+  export type Equipo$visitanteJornadasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jornada
+     */
+    select?: JornadaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jornada
+     */
+    omit?: JornadaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JornadaInclude<ExtArgs> | null
+    where?: JornadaWhereInput
+    orderBy?: JornadaOrderByWithRelationInput | JornadaOrderByWithRelationInput[]
+    cursor?: JornadaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JornadaScalarFieldEnum | JornadaScalarFieldEnum[]
   }
 
   /**
@@ -5887,426 +5998,414 @@ export namespace Prisma {
 
 
   /**
-   * Model Calendario
+   * Model Jornada
    */
 
-  export type AggregateCalendario = {
-    _count: CalendarioCountAggregateOutputType | null
-    _avg: CalendarioAvgAggregateOutputType | null
-    _sum: CalendarioSumAggregateOutputType | null
-    _min: CalendarioMinAggregateOutputType | null
-    _max: CalendarioMaxAggregateOutputType | null
+  export type AggregateJornada = {
+    _count: JornadaCountAggregateOutputType | null
+    _avg: JornadaAvgAggregateOutputType | null
+    _sum: JornadaSumAggregateOutputType | null
+    _min: JornadaMinAggregateOutputType | null
+    _max: JornadaMaxAggregateOutputType | null
   }
 
-  export type CalendarioAvgAggregateOutputType = {
+  export type JornadaAvgAggregateOutputType = {
     id: number | null
-    idCampeonato: number | null
-    idCategoria: number | null
     jornada: number | null
-    local: number | null
-    visitante: number | null
+    idLocal: number | null
+    idVisitante: number | null
+    idCategoria: number | null
   }
 
-  export type CalendarioSumAggregateOutputType = {
+  export type JornadaSumAggregateOutputType = {
     id: number | null
-    idCampeonato: number | null
-    idCategoria: number | null
     jornada: number | null
-    local: number | null
-    visitante: number | null
+    idLocal: number | null
+    idVisitante: number | null
+    idCategoria: number | null
   }
 
-  export type CalendarioMinAggregateOutputType = {
+  export type JornadaMinAggregateOutputType = {
     id: number | null
-    idCampeonato: number | null
-    idCategoria: number | null
     jornada: number | null
-    fecha: Date | null
-    local: number | null
-    visitante: number | null
-    estado: string | null
+    idLocal: number | null
+    idVisitante: number | null
+    idCategoria: number | null
   }
 
-  export type CalendarioMaxAggregateOutputType = {
+  export type JornadaMaxAggregateOutputType = {
     id: number | null
-    idCampeonato: number | null
-    idCategoria: number | null
     jornada: number | null
-    fecha: Date | null
-    local: number | null
-    visitante: number | null
-    estado: string | null
+    idLocal: number | null
+    idVisitante: number | null
+    idCategoria: number | null
   }
 
-  export type CalendarioCountAggregateOutputType = {
+  export type JornadaCountAggregateOutputType = {
     id: number
-    idCampeonato: number
-    idCategoria: number
     jornada: number
-    fecha: number
-    local: number
-    visitante: number
-    estado: number
+    idLocal: number
+    idVisitante: number
+    idCategoria: number
     _all: number
   }
 
 
-  export type CalendarioAvgAggregateInputType = {
+  export type JornadaAvgAggregateInputType = {
     id?: true
-    idCampeonato?: true
-    idCategoria?: true
     jornada?: true
-    local?: true
-    visitante?: true
+    idLocal?: true
+    idVisitante?: true
+    idCategoria?: true
   }
 
-  export type CalendarioSumAggregateInputType = {
+  export type JornadaSumAggregateInputType = {
     id?: true
-    idCampeonato?: true
-    idCategoria?: true
     jornada?: true
-    local?: true
-    visitante?: true
+    idLocal?: true
+    idVisitante?: true
+    idCategoria?: true
   }
 
-  export type CalendarioMinAggregateInputType = {
+  export type JornadaMinAggregateInputType = {
     id?: true
-    idCampeonato?: true
-    idCategoria?: true
     jornada?: true
-    fecha?: true
-    local?: true
-    visitante?: true
-    estado?: true
+    idLocal?: true
+    idVisitante?: true
+    idCategoria?: true
   }
 
-  export type CalendarioMaxAggregateInputType = {
+  export type JornadaMaxAggregateInputType = {
     id?: true
-    idCampeonato?: true
-    idCategoria?: true
     jornada?: true
-    fecha?: true
-    local?: true
-    visitante?: true
-    estado?: true
+    idLocal?: true
+    idVisitante?: true
+    idCategoria?: true
   }
 
-  export type CalendarioCountAggregateInputType = {
+  export type JornadaCountAggregateInputType = {
     id?: true
-    idCampeonato?: true
-    idCategoria?: true
     jornada?: true
-    fecha?: true
-    local?: true
-    visitante?: true
-    estado?: true
+    idLocal?: true
+    idVisitante?: true
+    idCategoria?: true
     _all?: true
   }
 
-  export type CalendarioAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type JornadaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Calendario to aggregate.
+     * Filter which Jornada to aggregate.
      */
-    where?: CalendarioWhereInput
+    where?: JornadaWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Calendarios to fetch.
+     * Determine the order of Jornadas to fetch.
      */
-    orderBy?: CalendarioOrderByWithRelationInput | CalendarioOrderByWithRelationInput[]
+    orderBy?: JornadaOrderByWithRelationInput | JornadaOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: CalendarioWhereUniqueInput
+    cursor?: JornadaWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Calendarios from the position of the cursor.
+     * Take `±n` Jornadas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Calendarios.
+     * Skip the first `n` Jornadas.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Calendarios
+     * Count returned Jornadas
     **/
-    _count?: true | CalendarioCountAggregateInputType
+    _count?: true | JornadaCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: CalendarioAvgAggregateInputType
+    _avg?: JornadaAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: CalendarioSumAggregateInputType
+    _sum?: JornadaSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: CalendarioMinAggregateInputType
+    _min?: JornadaMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: CalendarioMaxAggregateInputType
+    _max?: JornadaMaxAggregateInputType
   }
 
-  export type GetCalendarioAggregateType<T extends CalendarioAggregateArgs> = {
-        [P in keyof T & keyof AggregateCalendario]: P extends '_count' | 'count'
+  export type GetJornadaAggregateType<T extends JornadaAggregateArgs> = {
+        [P in keyof T & keyof AggregateJornada]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateCalendario[P]>
-      : GetScalarType<T[P], AggregateCalendario[P]>
+        : GetScalarType<T[P], AggregateJornada[P]>
+      : GetScalarType<T[P], AggregateJornada[P]>
   }
 
 
 
 
-  export type CalendarioGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CalendarioWhereInput
-    orderBy?: CalendarioOrderByWithAggregationInput | CalendarioOrderByWithAggregationInput[]
-    by: CalendarioScalarFieldEnum[] | CalendarioScalarFieldEnum
-    having?: CalendarioScalarWhereWithAggregatesInput
+  export type JornadaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JornadaWhereInput
+    orderBy?: JornadaOrderByWithAggregationInput | JornadaOrderByWithAggregationInput[]
+    by: JornadaScalarFieldEnum[] | JornadaScalarFieldEnum
+    having?: JornadaScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: CalendarioCountAggregateInputType | true
-    _avg?: CalendarioAvgAggregateInputType
-    _sum?: CalendarioSumAggregateInputType
-    _min?: CalendarioMinAggregateInputType
-    _max?: CalendarioMaxAggregateInputType
+    _count?: JornadaCountAggregateInputType | true
+    _avg?: JornadaAvgAggregateInputType
+    _sum?: JornadaSumAggregateInputType
+    _min?: JornadaMinAggregateInputType
+    _max?: JornadaMaxAggregateInputType
   }
 
-  export type CalendarioGroupByOutputType = {
+  export type JornadaGroupByOutputType = {
     id: number
-    idCampeonato: number
-    idCategoria: number
     jornada: number
-    fecha: Date | null
-    local: number
-    visitante: number
-    estado: string
-    _count: CalendarioCountAggregateOutputType | null
-    _avg: CalendarioAvgAggregateOutputType | null
-    _sum: CalendarioSumAggregateOutputType | null
-    _min: CalendarioMinAggregateOutputType | null
-    _max: CalendarioMaxAggregateOutputType | null
+    idLocal: number
+    idVisitante: number
+    idCategoria: number
+    _count: JornadaCountAggregateOutputType | null
+    _avg: JornadaAvgAggregateOutputType | null
+    _sum: JornadaSumAggregateOutputType | null
+    _min: JornadaMinAggregateOutputType | null
+    _max: JornadaMaxAggregateOutputType | null
   }
 
-  type GetCalendarioGroupByPayload<T extends CalendarioGroupByArgs> = Prisma.PrismaPromise<
+  type GetJornadaGroupByPayload<T extends JornadaGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<CalendarioGroupByOutputType, T['by']> &
+      PickEnumerable<JornadaGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof CalendarioGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof JornadaGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], CalendarioGroupByOutputType[P]>
-            : GetScalarType<T[P], CalendarioGroupByOutputType[P]>
+              : GetScalarType<T[P], JornadaGroupByOutputType[P]>
+            : GetScalarType<T[P], JornadaGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type CalendarioSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type JornadaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    idCampeonato?: boolean
-    idCategoria?: boolean
     jornada?: boolean
-    fecha?: boolean
-    local?: boolean
-    visitante?: boolean
-    estado?: boolean
-  }, ExtArgs["result"]["calendario"]>
+    idLocal?: boolean
+    idVisitante?: boolean
+    idCategoria?: boolean
+    categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
+    local?: boolean | EquipoDefaultArgs<ExtArgs>
+    visitante?: boolean | EquipoDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["jornada"]>
 
-  export type CalendarioSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type JornadaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    idCampeonato?: boolean
-    idCategoria?: boolean
     jornada?: boolean
-    fecha?: boolean
-    local?: boolean
-    visitante?: boolean
-    estado?: boolean
-  }, ExtArgs["result"]["calendario"]>
+    idLocal?: boolean
+    idVisitante?: boolean
+    idCategoria?: boolean
+    categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
+    local?: boolean | EquipoDefaultArgs<ExtArgs>
+    visitante?: boolean | EquipoDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["jornada"]>
 
-  export type CalendarioSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type JornadaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    idCampeonato?: boolean
-    idCategoria?: boolean
     jornada?: boolean
-    fecha?: boolean
-    local?: boolean
-    visitante?: boolean
-    estado?: boolean
-  }, ExtArgs["result"]["calendario"]>
+    idLocal?: boolean
+    idVisitante?: boolean
+    idCategoria?: boolean
+    categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
+    local?: boolean | EquipoDefaultArgs<ExtArgs>
+    visitante?: boolean | EquipoDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["jornada"]>
 
-  export type CalendarioSelectScalar = {
+  export type JornadaSelectScalar = {
     id?: boolean
-    idCampeonato?: boolean
-    idCategoria?: boolean
     jornada?: boolean
-    fecha?: boolean
-    local?: boolean
-    visitante?: boolean
-    estado?: boolean
+    idLocal?: boolean
+    idVisitante?: boolean
+    idCategoria?: boolean
   }
 
-  export type CalendarioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "idCampeonato" | "idCategoria" | "jornada" | "fecha" | "local" | "visitante" | "estado", ExtArgs["result"]["calendario"]>
+  export type JornadaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "jornada" | "idLocal" | "idVisitante" | "idCategoria", ExtArgs["result"]["jornada"]>
+  export type JornadaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
+    local?: boolean | EquipoDefaultArgs<ExtArgs>
+    visitante?: boolean | EquipoDefaultArgs<ExtArgs>
+  }
+  export type JornadaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
+    local?: boolean | EquipoDefaultArgs<ExtArgs>
+    visitante?: boolean | EquipoDefaultArgs<ExtArgs>
+  }
+  export type JornadaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
+    local?: boolean | EquipoDefaultArgs<ExtArgs>
+    visitante?: boolean | EquipoDefaultArgs<ExtArgs>
+  }
 
-  export type $CalendarioPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Calendario"
-    objects: {}
+  export type $JornadaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Jornada"
+    objects: {
+      categoria: Prisma.$CategoriaPayload<ExtArgs>
+      local: Prisma.$EquipoPayload<ExtArgs>
+      visitante: Prisma.$EquipoPayload<ExtArgs>
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      idCampeonato: number
-      idCategoria: number
       jornada: number
-      fecha: Date | null
-      local: number
-      visitante: number
-      estado: string
-    }, ExtArgs["result"]["calendario"]>
+      idLocal: number
+      idVisitante: number
+      idCategoria: number
+    }, ExtArgs["result"]["jornada"]>
     composites: {}
   }
 
-  type CalendarioGetPayload<S extends boolean | null | undefined | CalendarioDefaultArgs> = $Result.GetResult<Prisma.$CalendarioPayload, S>
+  type JornadaGetPayload<S extends boolean | null | undefined | JornadaDefaultArgs> = $Result.GetResult<Prisma.$JornadaPayload, S>
 
-  type CalendarioCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<CalendarioFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: CalendarioCountAggregateInputType | true
+  type JornadaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<JornadaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: JornadaCountAggregateInputType | true
     }
 
-  export interface CalendarioDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Calendario'], meta: { name: 'Calendario' } }
+  export interface JornadaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Jornada'], meta: { name: 'Jornada' } }
     /**
-     * Find zero or one Calendario that matches the filter.
-     * @param {CalendarioFindUniqueArgs} args - Arguments to find a Calendario
+     * Find zero or one Jornada that matches the filter.
+     * @param {JornadaFindUniqueArgs} args - Arguments to find a Jornada
      * @example
-     * // Get one Calendario
-     * const calendario = await prisma.calendario.findUnique({
+     * // Get one Jornada
+     * const jornada = await prisma.jornada.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends CalendarioFindUniqueArgs>(args: SelectSubset<T, CalendarioFindUniqueArgs<ExtArgs>>): Prisma__CalendarioClient<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends JornadaFindUniqueArgs>(args: SelectSubset<T, JornadaFindUniqueArgs<ExtArgs>>): Prisma__JornadaClient<$Result.GetResult<Prisma.$JornadaPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Calendario that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Jornada that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {CalendarioFindUniqueOrThrowArgs} args - Arguments to find a Calendario
+     * @param {JornadaFindUniqueOrThrowArgs} args - Arguments to find a Jornada
      * @example
-     * // Get one Calendario
-     * const calendario = await prisma.calendario.findUniqueOrThrow({
+     * // Get one Jornada
+     * const jornada = await prisma.jornada.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends CalendarioFindUniqueOrThrowArgs>(args: SelectSubset<T, CalendarioFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CalendarioClient<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends JornadaFindUniqueOrThrowArgs>(args: SelectSubset<T, JornadaFindUniqueOrThrowArgs<ExtArgs>>): Prisma__JornadaClient<$Result.GetResult<Prisma.$JornadaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Calendario that matches the filter.
+     * Find the first Jornada that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CalendarioFindFirstArgs} args - Arguments to find a Calendario
+     * @param {JornadaFindFirstArgs} args - Arguments to find a Jornada
      * @example
-     * // Get one Calendario
-     * const calendario = await prisma.calendario.findFirst({
+     * // Get one Jornada
+     * const jornada = await prisma.jornada.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends CalendarioFindFirstArgs>(args?: SelectSubset<T, CalendarioFindFirstArgs<ExtArgs>>): Prisma__CalendarioClient<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends JornadaFindFirstArgs>(args?: SelectSubset<T, JornadaFindFirstArgs<ExtArgs>>): Prisma__JornadaClient<$Result.GetResult<Prisma.$JornadaPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Calendario that matches the filter or
+     * Find the first Jornada that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CalendarioFindFirstOrThrowArgs} args - Arguments to find a Calendario
+     * @param {JornadaFindFirstOrThrowArgs} args - Arguments to find a Jornada
      * @example
-     * // Get one Calendario
-     * const calendario = await prisma.calendario.findFirstOrThrow({
+     * // Get one Jornada
+     * const jornada = await prisma.jornada.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends CalendarioFindFirstOrThrowArgs>(args?: SelectSubset<T, CalendarioFindFirstOrThrowArgs<ExtArgs>>): Prisma__CalendarioClient<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends JornadaFindFirstOrThrowArgs>(args?: SelectSubset<T, JornadaFindFirstOrThrowArgs<ExtArgs>>): Prisma__JornadaClient<$Result.GetResult<Prisma.$JornadaPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Calendarios that matches the filter.
+     * Find zero or more Jornadas that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CalendarioFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {JornadaFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Calendarios
-     * const calendarios = await prisma.calendario.findMany()
+     * // Get all Jornadas
+     * const jornadas = await prisma.jornada.findMany()
      * 
-     * // Get first 10 Calendarios
-     * const calendarios = await prisma.calendario.findMany({ take: 10 })
+     * // Get first 10 Jornadas
+     * const jornadas = await prisma.jornada.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const calendarioWithIdOnly = await prisma.calendario.findMany({ select: { id: true } })
+     * const jornadaWithIdOnly = await prisma.jornada.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends CalendarioFindManyArgs>(args?: SelectSubset<T, CalendarioFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends JornadaFindManyArgs>(args?: SelectSubset<T, JornadaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JornadaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Calendario.
-     * @param {CalendarioCreateArgs} args - Arguments to create a Calendario.
+     * Create a Jornada.
+     * @param {JornadaCreateArgs} args - Arguments to create a Jornada.
      * @example
-     * // Create one Calendario
-     * const Calendario = await prisma.calendario.create({
+     * // Create one Jornada
+     * const Jornada = await prisma.jornada.create({
      *   data: {
-     *     // ... data to create a Calendario
+     *     // ... data to create a Jornada
      *   }
      * })
      * 
      */
-    create<T extends CalendarioCreateArgs>(args: SelectSubset<T, CalendarioCreateArgs<ExtArgs>>): Prisma__CalendarioClient<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends JornadaCreateArgs>(args: SelectSubset<T, JornadaCreateArgs<ExtArgs>>): Prisma__JornadaClient<$Result.GetResult<Prisma.$JornadaPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Calendarios.
-     * @param {CalendarioCreateManyArgs} args - Arguments to create many Calendarios.
+     * Create many Jornadas.
+     * @param {JornadaCreateManyArgs} args - Arguments to create many Jornadas.
      * @example
-     * // Create many Calendarios
-     * const calendario = await prisma.calendario.createMany({
+     * // Create many Jornadas
+     * const jornada = await prisma.jornada.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends CalendarioCreateManyArgs>(args?: SelectSubset<T, CalendarioCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends JornadaCreateManyArgs>(args?: SelectSubset<T, JornadaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Calendarios and returns the data saved in the database.
-     * @param {CalendarioCreateManyAndReturnArgs} args - Arguments to create many Calendarios.
+     * Create many Jornadas and returns the data saved in the database.
+     * @param {JornadaCreateManyAndReturnArgs} args - Arguments to create many Jornadas.
      * @example
-     * // Create many Calendarios
-     * const calendario = await prisma.calendario.createManyAndReturn({
+     * // Create many Jornadas
+     * const jornada = await prisma.jornada.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Calendarios and only return the `id`
-     * const calendarioWithIdOnly = await prisma.calendario.createManyAndReturn({
+     * // Create many Jornadas and only return the `id`
+     * const jornadaWithIdOnly = await prisma.jornada.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -6316,28 +6415,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends CalendarioCreateManyAndReturnArgs>(args?: SelectSubset<T, CalendarioCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends JornadaCreateManyAndReturnArgs>(args?: SelectSubset<T, JornadaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JornadaPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Calendario.
-     * @param {CalendarioDeleteArgs} args - Arguments to delete one Calendario.
+     * Delete a Jornada.
+     * @param {JornadaDeleteArgs} args - Arguments to delete one Jornada.
      * @example
-     * // Delete one Calendario
-     * const Calendario = await prisma.calendario.delete({
+     * // Delete one Jornada
+     * const Jornada = await prisma.jornada.delete({
      *   where: {
-     *     // ... filter to delete one Calendario
+     *     // ... filter to delete one Jornada
      *   }
      * })
      * 
      */
-    delete<T extends CalendarioDeleteArgs>(args: SelectSubset<T, CalendarioDeleteArgs<ExtArgs>>): Prisma__CalendarioClient<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends JornadaDeleteArgs>(args: SelectSubset<T, JornadaDeleteArgs<ExtArgs>>): Prisma__JornadaClient<$Result.GetResult<Prisma.$JornadaPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Calendario.
-     * @param {CalendarioUpdateArgs} args - Arguments to update one Calendario.
+     * Update one Jornada.
+     * @param {JornadaUpdateArgs} args - Arguments to update one Jornada.
      * @example
-     * // Update one Calendario
-     * const calendario = await prisma.calendario.update({
+     * // Update one Jornada
+     * const jornada = await prisma.jornada.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6347,30 +6446,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends CalendarioUpdateArgs>(args: SelectSubset<T, CalendarioUpdateArgs<ExtArgs>>): Prisma__CalendarioClient<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends JornadaUpdateArgs>(args: SelectSubset<T, JornadaUpdateArgs<ExtArgs>>): Prisma__JornadaClient<$Result.GetResult<Prisma.$JornadaPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Calendarios.
-     * @param {CalendarioDeleteManyArgs} args - Arguments to filter Calendarios to delete.
+     * Delete zero or more Jornadas.
+     * @param {JornadaDeleteManyArgs} args - Arguments to filter Jornadas to delete.
      * @example
-     * // Delete a few Calendarios
-     * const { count } = await prisma.calendario.deleteMany({
+     * // Delete a few Jornadas
+     * const { count } = await prisma.jornada.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends CalendarioDeleteManyArgs>(args?: SelectSubset<T, CalendarioDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends JornadaDeleteManyArgs>(args?: SelectSubset<T, JornadaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Calendarios.
+     * Update zero or more Jornadas.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CalendarioUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {JornadaUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Calendarios
-     * const calendario = await prisma.calendario.updateMany({
+     * // Update many Jornadas
+     * const jornada = await prisma.jornada.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6380,14 +6479,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends CalendarioUpdateManyArgs>(args: SelectSubset<T, CalendarioUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends JornadaUpdateManyArgs>(args: SelectSubset<T, JornadaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Calendarios and returns the data updated in the database.
-     * @param {CalendarioUpdateManyAndReturnArgs} args - Arguments to update many Calendarios.
+     * Update zero or more Jornadas and returns the data updated in the database.
+     * @param {JornadaUpdateManyAndReturnArgs} args - Arguments to update many Jornadas.
      * @example
-     * // Update many Calendarios
-     * const calendario = await prisma.calendario.updateManyAndReturn({
+     * // Update many Jornadas
+     * const jornada = await prisma.jornada.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6396,8 +6495,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Calendarios and only return the `id`
-     * const calendarioWithIdOnly = await prisma.calendario.updateManyAndReturn({
+     * // Update zero or more Jornadas and only return the `id`
+     * const jornadaWithIdOnly = await prisma.jornada.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -6410,56 +6509,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends CalendarioUpdateManyAndReturnArgs>(args: SelectSubset<T, CalendarioUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends JornadaUpdateManyAndReturnArgs>(args: SelectSubset<T, JornadaUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JornadaPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Calendario.
-     * @param {CalendarioUpsertArgs} args - Arguments to update or create a Calendario.
+     * Create or update one Jornada.
+     * @param {JornadaUpsertArgs} args - Arguments to update or create a Jornada.
      * @example
-     * // Update or create a Calendario
-     * const calendario = await prisma.calendario.upsert({
+     * // Update or create a Jornada
+     * const jornada = await prisma.jornada.upsert({
      *   create: {
-     *     // ... data to create a Calendario
+     *     // ... data to create a Jornada
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Calendario we want to update
+     *     // ... the filter for the Jornada we want to update
      *   }
      * })
      */
-    upsert<T extends CalendarioUpsertArgs>(args: SelectSubset<T, CalendarioUpsertArgs<ExtArgs>>): Prisma__CalendarioClient<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends JornadaUpsertArgs>(args: SelectSubset<T, JornadaUpsertArgs<ExtArgs>>): Prisma__JornadaClient<$Result.GetResult<Prisma.$JornadaPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Calendarios.
+     * Count the number of Jornadas.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CalendarioCountArgs} args - Arguments to filter Calendarios to count.
+     * @param {JornadaCountArgs} args - Arguments to filter Jornadas to count.
      * @example
-     * // Count the number of Calendarios
-     * const count = await prisma.calendario.count({
+     * // Count the number of Jornadas
+     * const count = await prisma.jornada.count({
      *   where: {
-     *     // ... the filter for the Calendarios we want to count
+     *     // ... the filter for the Jornadas we want to count
      *   }
      * })
     **/
-    count<T extends CalendarioCountArgs>(
-      args?: Subset<T, CalendarioCountArgs>,
+    count<T extends JornadaCountArgs>(
+      args?: Subset<T, JornadaCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], CalendarioCountAggregateOutputType>
+          : GetScalarType<T['select'], JornadaCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Calendario.
+     * Allows you to perform aggregations operations on a Jornada.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CalendarioAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {JornadaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -6479,13 +6578,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends CalendarioAggregateArgs>(args: Subset<T, CalendarioAggregateArgs>): Prisma.PrismaPromise<GetCalendarioAggregateType<T>>
+    aggregate<T extends JornadaAggregateArgs>(args: Subset<T, JornadaAggregateArgs>): Prisma.PrismaPromise<GetJornadaAggregateType<T>>
 
     /**
-     * Group by Calendario.
+     * Group by Jornada.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CalendarioGroupByArgs} args - Group by arguments.
+     * @param {JornadaGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -6500,14 +6599,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends CalendarioGroupByArgs,
+      T extends JornadaGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: CalendarioGroupByArgs['orderBy'] }
-        : { orderBy?: CalendarioGroupByArgs['orderBy'] },
+        ? { orderBy: JornadaGroupByArgs['orderBy'] }
+        : { orderBy?: JornadaGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -6556,21 +6655,24 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, CalendarioGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCalendarioGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, JornadaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJornadaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Calendario model
+   * Fields of the Jornada model
    */
-  readonly fields: CalendarioFieldRefs;
+  readonly fields: JornadaFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Calendario.
+   * The delegate class that acts as a "Promise-like" for Jornada.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__CalendarioClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__JornadaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    categoria<T extends CategoriaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CategoriaDefaultArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    local<T extends EquipoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EquipoDefaultArgs<ExtArgs>>): Prisma__EquipoClient<$Result.GetResult<Prisma.$EquipoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    visitante<T extends EquipoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EquipoDefaultArgs<ExtArgs>>): Prisma__EquipoClient<$Result.GetResult<Prisma.$EquipoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6597,378 +6699,423 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Calendario model
+   * Fields of the Jornada model
    */
-  interface CalendarioFieldRefs {
-    readonly id: FieldRef<"Calendario", 'Int'>
-    readonly idCampeonato: FieldRef<"Calendario", 'Int'>
-    readonly idCategoria: FieldRef<"Calendario", 'Int'>
-    readonly jornada: FieldRef<"Calendario", 'Int'>
-    readonly fecha: FieldRef<"Calendario", 'DateTime'>
-    readonly local: FieldRef<"Calendario", 'Int'>
-    readonly visitante: FieldRef<"Calendario", 'Int'>
-    readonly estado: FieldRef<"Calendario", 'String'>
+  interface JornadaFieldRefs {
+    readonly id: FieldRef<"Jornada", 'Int'>
+    readonly jornada: FieldRef<"Jornada", 'Int'>
+    readonly idLocal: FieldRef<"Jornada", 'Int'>
+    readonly idVisitante: FieldRef<"Jornada", 'Int'>
+    readonly idCategoria: FieldRef<"Jornada", 'Int'>
   }
     
 
   // Custom InputTypes
   /**
-   * Calendario findUnique
+   * Jornada findUnique
    */
-  export type CalendarioFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type JornadaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calendario
+     * Select specific fields to fetch from the Jornada
      */
-    select?: CalendarioSelect<ExtArgs> | null
+    select?: JornadaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Calendario
+     * Omit specific fields from the Jornada
      */
-    omit?: CalendarioOmit<ExtArgs> | null
+    omit?: JornadaOmit<ExtArgs> | null
     /**
-     * Filter, which Calendario to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: CalendarioWhereUniqueInput
+    include?: JornadaInclude<ExtArgs> | null
+    /**
+     * Filter, which Jornada to fetch.
+     */
+    where: JornadaWhereUniqueInput
   }
 
   /**
-   * Calendario findUniqueOrThrow
+   * Jornada findUniqueOrThrow
    */
-  export type CalendarioFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type JornadaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calendario
+     * Select specific fields to fetch from the Jornada
      */
-    select?: CalendarioSelect<ExtArgs> | null
+    select?: JornadaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Calendario
+     * Omit specific fields from the Jornada
      */
-    omit?: CalendarioOmit<ExtArgs> | null
+    omit?: JornadaOmit<ExtArgs> | null
     /**
-     * Filter, which Calendario to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: CalendarioWhereUniqueInput
+    include?: JornadaInclude<ExtArgs> | null
+    /**
+     * Filter, which Jornada to fetch.
+     */
+    where: JornadaWhereUniqueInput
   }
 
   /**
-   * Calendario findFirst
+   * Jornada findFirst
    */
-  export type CalendarioFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type JornadaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calendario
+     * Select specific fields to fetch from the Jornada
      */
-    select?: CalendarioSelect<ExtArgs> | null
+    select?: JornadaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Calendario
+     * Omit specific fields from the Jornada
      */
-    omit?: CalendarioOmit<ExtArgs> | null
+    omit?: JornadaOmit<ExtArgs> | null
     /**
-     * Filter, which Calendario to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: CalendarioWhereInput
+    include?: JornadaInclude<ExtArgs> | null
+    /**
+     * Filter, which Jornada to fetch.
+     */
+    where?: JornadaWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Calendarios to fetch.
+     * Determine the order of Jornadas to fetch.
      */
-    orderBy?: CalendarioOrderByWithRelationInput | CalendarioOrderByWithRelationInput[]
+    orderBy?: JornadaOrderByWithRelationInput | JornadaOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Calendarios.
+     * Sets the position for searching for Jornadas.
      */
-    cursor?: CalendarioWhereUniqueInput
+    cursor?: JornadaWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Calendarios from the position of the cursor.
+     * Take `±n` Jornadas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Calendarios.
+     * Skip the first `n` Jornadas.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Calendarios.
+     * Filter by unique combinations of Jornadas.
      */
-    distinct?: CalendarioScalarFieldEnum | CalendarioScalarFieldEnum[]
+    distinct?: JornadaScalarFieldEnum | JornadaScalarFieldEnum[]
   }
 
   /**
-   * Calendario findFirstOrThrow
+   * Jornada findFirstOrThrow
    */
-  export type CalendarioFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type JornadaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calendario
+     * Select specific fields to fetch from the Jornada
      */
-    select?: CalendarioSelect<ExtArgs> | null
+    select?: JornadaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Calendario
+     * Omit specific fields from the Jornada
      */
-    omit?: CalendarioOmit<ExtArgs> | null
+    omit?: JornadaOmit<ExtArgs> | null
     /**
-     * Filter, which Calendario to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: CalendarioWhereInput
+    include?: JornadaInclude<ExtArgs> | null
+    /**
+     * Filter, which Jornada to fetch.
+     */
+    where?: JornadaWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Calendarios to fetch.
+     * Determine the order of Jornadas to fetch.
      */
-    orderBy?: CalendarioOrderByWithRelationInput | CalendarioOrderByWithRelationInput[]
+    orderBy?: JornadaOrderByWithRelationInput | JornadaOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Calendarios.
+     * Sets the position for searching for Jornadas.
      */
-    cursor?: CalendarioWhereUniqueInput
+    cursor?: JornadaWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Calendarios from the position of the cursor.
+     * Take `±n` Jornadas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Calendarios.
+     * Skip the first `n` Jornadas.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Calendarios.
+     * Filter by unique combinations of Jornadas.
      */
-    distinct?: CalendarioScalarFieldEnum | CalendarioScalarFieldEnum[]
+    distinct?: JornadaScalarFieldEnum | JornadaScalarFieldEnum[]
   }
 
   /**
-   * Calendario findMany
+   * Jornada findMany
    */
-  export type CalendarioFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type JornadaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calendario
+     * Select specific fields to fetch from the Jornada
      */
-    select?: CalendarioSelect<ExtArgs> | null
+    select?: JornadaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Calendario
+     * Omit specific fields from the Jornada
      */
-    omit?: CalendarioOmit<ExtArgs> | null
+    omit?: JornadaOmit<ExtArgs> | null
     /**
-     * Filter, which Calendarios to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: CalendarioWhereInput
+    include?: JornadaInclude<ExtArgs> | null
+    /**
+     * Filter, which Jornadas to fetch.
+     */
+    where?: JornadaWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Calendarios to fetch.
+     * Determine the order of Jornadas to fetch.
      */
-    orderBy?: CalendarioOrderByWithRelationInput | CalendarioOrderByWithRelationInput[]
+    orderBy?: JornadaOrderByWithRelationInput | JornadaOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Calendarios.
+     * Sets the position for listing Jornadas.
      */
-    cursor?: CalendarioWhereUniqueInput
+    cursor?: JornadaWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Calendarios from the position of the cursor.
+     * Take `±n` Jornadas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Calendarios.
+     * Skip the first `n` Jornadas.
      */
     skip?: number
-    distinct?: CalendarioScalarFieldEnum | CalendarioScalarFieldEnum[]
+    distinct?: JornadaScalarFieldEnum | JornadaScalarFieldEnum[]
   }
 
   /**
-   * Calendario create
+   * Jornada create
    */
-  export type CalendarioCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type JornadaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calendario
+     * Select specific fields to fetch from the Jornada
      */
-    select?: CalendarioSelect<ExtArgs> | null
+    select?: JornadaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Calendario
+     * Omit specific fields from the Jornada
      */
-    omit?: CalendarioOmit<ExtArgs> | null
+    omit?: JornadaOmit<ExtArgs> | null
     /**
-     * The data needed to create a Calendario.
+     * Choose, which related nodes to fetch as well
      */
-    data: XOR<CalendarioCreateInput, CalendarioUncheckedCreateInput>
+    include?: JornadaInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Jornada.
+     */
+    data: XOR<JornadaCreateInput, JornadaUncheckedCreateInput>
   }
 
   /**
-   * Calendario createMany
+   * Jornada createMany
    */
-  export type CalendarioCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type JornadaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Calendarios.
+     * The data used to create many Jornadas.
      */
-    data: CalendarioCreateManyInput | CalendarioCreateManyInput[]
+    data: JornadaCreateManyInput | JornadaCreateManyInput[]
   }
 
   /**
-   * Calendario createManyAndReturn
+   * Jornada createManyAndReturn
    */
-  export type CalendarioCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type JornadaCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calendario
+     * Select specific fields to fetch from the Jornada
      */
-    select?: CalendarioSelectCreateManyAndReturn<ExtArgs> | null
+    select?: JornadaSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Calendario
+     * Omit specific fields from the Jornada
      */
-    omit?: CalendarioOmit<ExtArgs> | null
+    omit?: JornadaOmit<ExtArgs> | null
     /**
-     * The data used to create many Calendarios.
+     * The data used to create many Jornadas.
      */
-    data: CalendarioCreateManyInput | CalendarioCreateManyInput[]
+    data: JornadaCreateManyInput | JornadaCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JornadaIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Calendario update
+   * Jornada update
    */
-  export type CalendarioUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type JornadaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calendario
+     * Select specific fields to fetch from the Jornada
      */
-    select?: CalendarioSelect<ExtArgs> | null
+    select?: JornadaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Calendario
+     * Omit specific fields from the Jornada
      */
-    omit?: CalendarioOmit<ExtArgs> | null
+    omit?: JornadaOmit<ExtArgs> | null
     /**
-     * The data needed to update a Calendario.
+     * Choose, which related nodes to fetch as well
      */
-    data: XOR<CalendarioUpdateInput, CalendarioUncheckedUpdateInput>
+    include?: JornadaInclude<ExtArgs> | null
     /**
-     * Choose, which Calendario to update.
+     * The data needed to update a Jornada.
      */
-    where: CalendarioWhereUniqueInput
+    data: XOR<JornadaUpdateInput, JornadaUncheckedUpdateInput>
+    /**
+     * Choose, which Jornada to update.
+     */
+    where: JornadaWhereUniqueInput
   }
 
   /**
-   * Calendario updateMany
+   * Jornada updateMany
    */
-  export type CalendarioUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type JornadaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Calendarios.
+     * The data used to update Jornadas.
      */
-    data: XOR<CalendarioUpdateManyMutationInput, CalendarioUncheckedUpdateManyInput>
+    data: XOR<JornadaUpdateManyMutationInput, JornadaUncheckedUpdateManyInput>
     /**
-     * Filter which Calendarios to update
+     * Filter which Jornadas to update
      */
-    where?: CalendarioWhereInput
+    where?: JornadaWhereInput
     /**
-     * Limit how many Calendarios to update.
+     * Limit how many Jornadas to update.
      */
     limit?: number
   }
 
   /**
-   * Calendario updateManyAndReturn
+   * Jornada updateManyAndReturn
    */
-  export type CalendarioUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type JornadaUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calendario
+     * Select specific fields to fetch from the Jornada
      */
-    select?: CalendarioSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: JornadaSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Calendario
+     * Omit specific fields from the Jornada
      */
-    omit?: CalendarioOmit<ExtArgs> | null
+    omit?: JornadaOmit<ExtArgs> | null
     /**
-     * The data used to update Calendarios.
+     * The data used to update Jornadas.
      */
-    data: XOR<CalendarioUpdateManyMutationInput, CalendarioUncheckedUpdateManyInput>
+    data: XOR<JornadaUpdateManyMutationInput, JornadaUncheckedUpdateManyInput>
     /**
-     * Filter which Calendarios to update
+     * Filter which Jornadas to update
      */
-    where?: CalendarioWhereInput
+    where?: JornadaWhereInput
     /**
-     * Limit how many Calendarios to update.
+     * Limit how many Jornadas to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JornadaIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Jornada upsert
+   */
+  export type JornadaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jornada
+     */
+    select?: JornadaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jornada
+     */
+    omit?: JornadaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JornadaInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Jornada to update in case it exists.
+     */
+    where: JornadaWhereUniqueInput
+    /**
+     * In case the Jornada found by the `where` argument doesn't exist, create a new Jornada with this data.
+     */
+    create: XOR<JornadaCreateInput, JornadaUncheckedCreateInput>
+    /**
+     * In case the Jornada was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<JornadaUpdateInput, JornadaUncheckedUpdateInput>
+  }
+
+  /**
+   * Jornada delete
+   */
+  export type JornadaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jornada
+     */
+    select?: JornadaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jornada
+     */
+    omit?: JornadaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JornadaInclude<ExtArgs> | null
+    /**
+     * Filter which Jornada to delete.
+     */
+    where: JornadaWhereUniqueInput
+  }
+
+  /**
+   * Jornada deleteMany
+   */
+  export type JornadaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Jornadas to delete
+     */
+    where?: JornadaWhereInput
+    /**
+     * Limit how many Jornadas to delete.
      */
     limit?: number
   }
 
   /**
-   * Calendario upsert
+   * Jornada without action
    */
-  export type CalendarioUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type JornadaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Calendario
+     * Select specific fields to fetch from the Jornada
      */
-    select?: CalendarioSelect<ExtArgs> | null
+    select?: JornadaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Calendario
+     * Omit specific fields from the Jornada
      */
-    omit?: CalendarioOmit<ExtArgs> | null
+    omit?: JornadaOmit<ExtArgs> | null
     /**
-     * The filter to search for the Calendario to update in case it exists.
+     * Choose, which related nodes to fetch as well
      */
-    where: CalendarioWhereUniqueInput
-    /**
-     * In case the Calendario found by the `where` argument doesn't exist, create a new Calendario with this data.
-     */
-    create: XOR<CalendarioCreateInput, CalendarioUncheckedCreateInput>
-    /**
-     * In case the Calendario was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<CalendarioUpdateInput, CalendarioUncheckedUpdateInput>
-  }
-
-  /**
-   * Calendario delete
-   */
-  export type CalendarioDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Calendario
-     */
-    select?: CalendarioSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Calendario
-     */
-    omit?: CalendarioOmit<ExtArgs> | null
-    /**
-     * Filter which Calendario to delete.
-     */
-    where: CalendarioWhereUniqueInput
-  }
-
-  /**
-   * Calendario deleteMany
-   */
-  export type CalendarioDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Calendarios to delete
-     */
-    where?: CalendarioWhereInput
-    /**
-     * Limit how many Calendarios to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Calendario without action
-   */
-  export type CalendarioDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Calendario
-     */
-    select?: CalendarioSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Calendario
-     */
-    omit?: CalendarioOmit<ExtArgs> | null
+    include?: JornadaInclude<ExtArgs> | null
   }
 
 
@@ -7031,18 +7178,15 @@ export namespace Prisma {
   export type JugadorScalarFieldEnum = (typeof JugadorScalarFieldEnum)[keyof typeof JugadorScalarFieldEnum]
 
 
-  export const CalendarioScalarFieldEnum: {
+  export const JornadaScalarFieldEnum: {
     id: 'id',
-    idCampeonato: 'idCampeonato',
-    idCategoria: 'idCategoria',
     jornada: 'jornada',
-    fecha: 'fecha',
-    local: 'local',
-    visitante: 'visitante',
-    estado: 'estado'
+    idLocal: 'idLocal',
+    idVisitante: 'idVisitante',
+    idCategoria: 'idCategoria'
   };
 
-  export type CalendarioScalarFieldEnum = (typeof CalendarioScalarFieldEnum)[keyof typeof CalendarioScalarFieldEnum]
+  export type JornadaScalarFieldEnum = (typeof JornadaScalarFieldEnum)[keyof typeof JornadaScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -7051,14 +7195,6 @@ export namespace Prisma {
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
-
-
-  export const NullsOrder: {
-    first: 'first',
-    last: 'last'
-  };
-
-  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -7158,6 +7294,7 @@ export namespace Prisma {
     creacion?: DateTimeFilter<"Categoria"> | Date | string
     campeonato?: XOR<CampeonatoScalarRelationFilter, CampeonatoWhereInput>
     equipos?: EquipoListRelationFilter
+    jornadas?: JornadaListRelationFilter
   }
 
   export type CategoriaOrderByWithRelationInput = {
@@ -7168,6 +7305,7 @@ export namespace Prisma {
     creacion?: SortOrder
     campeonato?: CampeonatoOrderByWithRelationInput
     equipos?: EquipoOrderByRelationAggregateInput
+    jornadas?: JornadaOrderByRelationAggregateInput
   }
 
   export type CategoriaWhereUniqueInput = Prisma.AtLeast<{
@@ -7181,6 +7319,7 @@ export namespace Prisma {
     creacion?: DateTimeFilter<"Categoria"> | Date | string
     campeonato?: XOR<CampeonatoScalarRelationFilter, CampeonatoWhereInput>
     equipos?: EquipoListRelationFilter
+    jornadas?: JornadaListRelationFilter
   }, "id">
 
   export type CategoriaOrderByWithAggregationInput = {
@@ -7222,6 +7361,8 @@ export namespace Prisma {
     categoria?: XOR<CategoriaScalarRelationFilter, CategoriaWhereInput>
     campeonato?: XOR<CampeonatoScalarRelationFilter, CampeonatoWhereInput>
     jugadores?: JugadorListRelationFilter
+    localJornadas?: JornadaListRelationFilter
+    visitanteJornadas?: JornadaListRelationFilter
   }
 
   export type EquipoOrderByWithRelationInput = {
@@ -7236,6 +7377,8 @@ export namespace Prisma {
     categoria?: CategoriaOrderByWithRelationInput
     campeonato?: CampeonatoOrderByWithRelationInput
     jugadores?: JugadorOrderByRelationAggregateInput
+    localJornadas?: JornadaOrderByRelationAggregateInput
+    visitanteJornadas?: JornadaOrderByRelationAggregateInput
   }
 
   export type EquipoWhereUniqueInput = Prisma.AtLeast<{
@@ -7253,6 +7396,8 @@ export namespace Prisma {
     categoria?: XOR<CategoriaScalarRelationFilter, CategoriaWhereInput>
     campeonato?: XOR<CampeonatoScalarRelationFilter, CampeonatoWhereInput>
     jugadores?: JugadorListRelationFilter
+    localJornadas?: JornadaListRelationFilter
+    visitanteJornadas?: JornadaListRelationFilter
   }, "id">
 
   export type EquipoOrderByWithAggregationInput = {
@@ -7357,73 +7502,67 @@ export namespace Prisma {
     dorsal?: IntWithAggregatesFilter<"Jugador"> | number
   }
 
-  export type CalendarioWhereInput = {
-    AND?: CalendarioWhereInput | CalendarioWhereInput[]
-    OR?: CalendarioWhereInput[]
-    NOT?: CalendarioWhereInput | CalendarioWhereInput[]
-    id?: IntFilter<"Calendario"> | number
-    idCampeonato?: IntFilter<"Calendario"> | number
-    idCategoria?: IntFilter<"Calendario"> | number
-    jornada?: IntFilter<"Calendario"> | number
-    fecha?: DateTimeNullableFilter<"Calendario"> | Date | string | null
-    local?: IntFilter<"Calendario"> | number
-    visitante?: IntFilter<"Calendario"> | number
-    estado?: StringFilter<"Calendario"> | string
+  export type JornadaWhereInput = {
+    AND?: JornadaWhereInput | JornadaWhereInput[]
+    OR?: JornadaWhereInput[]
+    NOT?: JornadaWhereInput | JornadaWhereInput[]
+    id?: IntFilter<"Jornada"> | number
+    jornada?: IntFilter<"Jornada"> | number
+    idLocal?: IntFilter<"Jornada"> | number
+    idVisitante?: IntFilter<"Jornada"> | number
+    idCategoria?: IntFilter<"Jornada"> | number
+    categoria?: XOR<CategoriaScalarRelationFilter, CategoriaWhereInput>
+    local?: XOR<EquipoScalarRelationFilter, EquipoWhereInput>
+    visitante?: XOR<EquipoScalarRelationFilter, EquipoWhereInput>
   }
 
-  export type CalendarioOrderByWithRelationInput = {
+  export type JornadaOrderByWithRelationInput = {
     id?: SortOrder
-    idCampeonato?: SortOrder
-    idCategoria?: SortOrder
     jornada?: SortOrder
-    fecha?: SortOrderInput | SortOrder
-    local?: SortOrder
-    visitante?: SortOrder
-    estado?: SortOrder
+    idLocal?: SortOrder
+    idVisitante?: SortOrder
+    idCategoria?: SortOrder
+    categoria?: CategoriaOrderByWithRelationInput
+    local?: EquipoOrderByWithRelationInput
+    visitante?: EquipoOrderByWithRelationInput
   }
 
-  export type CalendarioWhereUniqueInput = Prisma.AtLeast<{
+  export type JornadaWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: CalendarioWhereInput | CalendarioWhereInput[]
-    OR?: CalendarioWhereInput[]
-    NOT?: CalendarioWhereInput | CalendarioWhereInput[]
-    idCampeonato?: IntFilter<"Calendario"> | number
-    idCategoria?: IntFilter<"Calendario"> | number
-    jornada?: IntFilter<"Calendario"> | number
-    fecha?: DateTimeNullableFilter<"Calendario"> | Date | string | null
-    local?: IntFilter<"Calendario"> | number
-    visitante?: IntFilter<"Calendario"> | number
-    estado?: StringFilter<"Calendario"> | string
+    AND?: JornadaWhereInput | JornadaWhereInput[]
+    OR?: JornadaWhereInput[]
+    NOT?: JornadaWhereInput | JornadaWhereInput[]
+    jornada?: IntFilter<"Jornada"> | number
+    idLocal?: IntFilter<"Jornada"> | number
+    idVisitante?: IntFilter<"Jornada"> | number
+    idCategoria?: IntFilter<"Jornada"> | number
+    categoria?: XOR<CategoriaScalarRelationFilter, CategoriaWhereInput>
+    local?: XOR<EquipoScalarRelationFilter, EquipoWhereInput>
+    visitante?: XOR<EquipoScalarRelationFilter, EquipoWhereInput>
   }, "id">
 
-  export type CalendarioOrderByWithAggregationInput = {
+  export type JornadaOrderByWithAggregationInput = {
     id?: SortOrder
-    idCampeonato?: SortOrder
-    idCategoria?: SortOrder
     jornada?: SortOrder
-    fecha?: SortOrderInput | SortOrder
-    local?: SortOrder
-    visitante?: SortOrder
-    estado?: SortOrder
-    _count?: CalendarioCountOrderByAggregateInput
-    _avg?: CalendarioAvgOrderByAggregateInput
-    _max?: CalendarioMaxOrderByAggregateInput
-    _min?: CalendarioMinOrderByAggregateInput
-    _sum?: CalendarioSumOrderByAggregateInput
+    idLocal?: SortOrder
+    idVisitante?: SortOrder
+    idCategoria?: SortOrder
+    _count?: JornadaCountOrderByAggregateInput
+    _avg?: JornadaAvgOrderByAggregateInput
+    _max?: JornadaMaxOrderByAggregateInput
+    _min?: JornadaMinOrderByAggregateInput
+    _sum?: JornadaSumOrderByAggregateInput
   }
 
-  export type CalendarioScalarWhereWithAggregatesInput = {
-    AND?: CalendarioScalarWhereWithAggregatesInput | CalendarioScalarWhereWithAggregatesInput[]
-    OR?: CalendarioScalarWhereWithAggregatesInput[]
-    NOT?: CalendarioScalarWhereWithAggregatesInput | CalendarioScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Calendario"> | number
-    idCampeonato?: IntWithAggregatesFilter<"Calendario"> | number
-    idCategoria?: IntWithAggregatesFilter<"Calendario"> | number
-    jornada?: IntWithAggregatesFilter<"Calendario"> | number
-    fecha?: DateTimeNullableWithAggregatesFilter<"Calendario"> | Date | string | null
-    local?: IntWithAggregatesFilter<"Calendario"> | number
-    visitante?: IntWithAggregatesFilter<"Calendario"> | number
-    estado?: StringWithAggregatesFilter<"Calendario"> | string
+  export type JornadaScalarWhereWithAggregatesInput = {
+    AND?: JornadaScalarWhereWithAggregatesInput | JornadaScalarWhereWithAggregatesInput[]
+    OR?: JornadaScalarWhereWithAggregatesInput[]
+    NOT?: JornadaScalarWhereWithAggregatesInput | JornadaScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Jornada"> | number
+    jornada?: IntWithAggregatesFilter<"Jornada"> | number
+    idLocal?: IntWithAggregatesFilter<"Jornada"> | number
+    idVisitante?: IntWithAggregatesFilter<"Jornada"> | number
+    idCategoria?: IntWithAggregatesFilter<"Jornada"> | number
   }
 
   export type CampeonatoCreateInput = {
@@ -7479,6 +7618,7 @@ export namespace Prisma {
     creacion?: Date | string
     campeonato: CampeonatoCreateNestedOneWithoutCategoriasInput
     equipos?: EquipoCreateNestedManyWithoutCategoriaInput
+    jornadas?: JornadaCreateNestedManyWithoutCategoriaInput
   }
 
   export type CategoriaUncheckedCreateInput = {
@@ -7488,6 +7628,7 @@ export namespace Prisma {
     nEquipos?: number
     creacion?: Date | string
     equipos?: EquipoUncheckedCreateNestedManyWithoutCategoriaInput
+    jornadas?: JornadaUncheckedCreateNestedManyWithoutCategoriaInput
   }
 
   export type CategoriaUpdateInput = {
@@ -7496,6 +7637,7 @@ export namespace Prisma {
     creacion?: DateTimeFieldUpdateOperationsInput | Date | string
     campeonato?: CampeonatoUpdateOneRequiredWithoutCategoriasNestedInput
     equipos?: EquipoUpdateManyWithoutCategoriaNestedInput
+    jornadas?: JornadaUpdateManyWithoutCategoriaNestedInput
   }
 
   export type CategoriaUncheckedUpdateInput = {
@@ -7505,6 +7647,7 @@ export namespace Prisma {
     nEquipos?: IntFieldUpdateOperationsInput | number
     creacion?: DateTimeFieldUpdateOperationsInput | Date | string
     equipos?: EquipoUncheckedUpdateManyWithoutCategoriaNestedInput
+    jornadas?: JornadaUncheckedUpdateManyWithoutCategoriaNestedInput
   }
 
   export type CategoriaCreateManyInput = {
@@ -7538,6 +7681,8 @@ export namespace Prisma {
     categoria: CategoriaCreateNestedOneWithoutEquiposInput
     campeonato: CampeonatoCreateNestedOneWithoutEquiposInput
     jugadores?: JugadorCreateNestedManyWithoutEquipoRefInput
+    localJornadas?: JornadaCreateNestedManyWithoutLocalInput
+    visitanteJornadas?: JornadaCreateNestedManyWithoutVisitanteInput
   }
 
   export type EquipoUncheckedCreateInput = {
@@ -7550,6 +7695,8 @@ export namespace Prisma {
     telefono: string
     url_logo: string
     jugadores?: JugadorUncheckedCreateNestedManyWithoutEquipoRefInput
+    localJornadas?: JornadaUncheckedCreateNestedManyWithoutLocalInput
+    visitanteJornadas?: JornadaUncheckedCreateNestedManyWithoutVisitanteInput
   }
 
   export type EquipoUpdateInput = {
@@ -7561,6 +7708,8 @@ export namespace Prisma {
     categoria?: CategoriaUpdateOneRequiredWithoutEquiposNestedInput
     campeonato?: CampeonatoUpdateOneRequiredWithoutEquiposNestedInput
     jugadores?: JugadorUpdateManyWithoutEquipoRefNestedInput
+    localJornadas?: JornadaUpdateManyWithoutLocalNestedInput
+    visitanteJornadas?: JornadaUpdateManyWithoutVisitanteNestedInput
   }
 
   export type EquipoUncheckedUpdateInput = {
@@ -7573,6 +7722,8 @@ export namespace Prisma {
     telefono?: StringFieldUpdateOperationsInput | string
     url_logo?: StringFieldUpdateOperationsInput | string
     jugadores?: JugadorUncheckedUpdateManyWithoutEquipoRefNestedInput
+    localJornadas?: JornadaUncheckedUpdateManyWithoutLocalNestedInput
+    visitanteJornadas?: JornadaUncheckedUpdateManyWithoutVisitanteNestedInput
   }
 
   export type EquipoCreateManyInput = {
@@ -7678,78 +7829,54 @@ export namespace Prisma {
     dorsal?: IntFieldUpdateOperationsInput | number
   }
 
-  export type CalendarioCreateInput = {
-    idCampeonato: number
-    idCategoria: number
+  export type JornadaCreateInput = {
     jornada: number
-    fecha?: Date | string | null
-    local: number
-    visitante: number
-    estado?: string
+    categoria: CategoriaCreateNestedOneWithoutJornadasInput
+    local: EquipoCreateNestedOneWithoutLocalJornadasInput
+    visitante: EquipoCreateNestedOneWithoutVisitanteJornadasInput
   }
 
-  export type CalendarioUncheckedCreateInput = {
+  export type JornadaUncheckedCreateInput = {
     id?: number
-    idCampeonato: number
-    idCategoria: number
     jornada: number
-    fecha?: Date | string | null
-    local: number
-    visitante: number
-    estado?: string
+    idLocal: number
+    idVisitante: number
+    idCategoria: number
   }
 
-  export type CalendarioUpdateInput = {
-    idCampeonato?: IntFieldUpdateOperationsInput | number
-    idCategoria?: IntFieldUpdateOperationsInput | number
+  export type JornadaUpdateInput = {
     jornada?: IntFieldUpdateOperationsInput | number
-    fecha?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    local?: IntFieldUpdateOperationsInput | number
-    visitante?: IntFieldUpdateOperationsInput | number
-    estado?: StringFieldUpdateOperationsInput | string
+    categoria?: CategoriaUpdateOneRequiredWithoutJornadasNestedInput
+    local?: EquipoUpdateOneRequiredWithoutLocalJornadasNestedInput
+    visitante?: EquipoUpdateOneRequiredWithoutVisitanteJornadasNestedInput
   }
 
-  export type CalendarioUncheckedUpdateInput = {
+  export type JornadaUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    idCampeonato?: IntFieldUpdateOperationsInput | number
-    idCategoria?: IntFieldUpdateOperationsInput | number
     jornada?: IntFieldUpdateOperationsInput | number
-    fecha?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    local?: IntFieldUpdateOperationsInput | number
-    visitante?: IntFieldUpdateOperationsInput | number
-    estado?: StringFieldUpdateOperationsInput | string
+    idLocal?: IntFieldUpdateOperationsInput | number
+    idVisitante?: IntFieldUpdateOperationsInput | number
+    idCategoria?: IntFieldUpdateOperationsInput | number
   }
 
-  export type CalendarioCreateManyInput = {
+  export type JornadaCreateManyInput = {
     id?: number
-    idCampeonato: number
-    idCategoria: number
     jornada: number
-    fecha?: Date | string | null
-    local: number
-    visitante: number
-    estado?: string
+    idLocal: number
+    idVisitante: number
+    idCategoria: number
   }
 
-  export type CalendarioUpdateManyMutationInput = {
-    idCampeonato?: IntFieldUpdateOperationsInput | number
-    idCategoria?: IntFieldUpdateOperationsInput | number
+  export type JornadaUpdateManyMutationInput = {
     jornada?: IntFieldUpdateOperationsInput | number
-    fecha?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    local?: IntFieldUpdateOperationsInput | number
-    visitante?: IntFieldUpdateOperationsInput | number
-    estado?: StringFieldUpdateOperationsInput | string
   }
 
-  export type CalendarioUncheckedUpdateManyInput = {
+  export type JornadaUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    idCampeonato?: IntFieldUpdateOperationsInput | number
-    idCategoria?: IntFieldUpdateOperationsInput | number
     jornada?: IntFieldUpdateOperationsInput | number
-    fecha?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    local?: IntFieldUpdateOperationsInput | number
-    visitante?: IntFieldUpdateOperationsInput | number
-    estado?: StringFieldUpdateOperationsInput | string
+    idLocal?: IntFieldUpdateOperationsInput | number
+    idVisitante?: IntFieldUpdateOperationsInput | number
+    idCategoria?: IntFieldUpdateOperationsInput | number
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -7884,6 +8011,16 @@ export namespace Prisma {
   export type CampeonatoScalarRelationFilter = {
     is?: CampeonatoWhereInput
     isNot?: CampeonatoWhereInput
+  }
+
+  export type JornadaListRelationFilter = {
+    every?: JornadaWhereInput
+    some?: JornadaWhereInput
+    none?: JornadaWhereInput
+  }
+
+  export type JornadaOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type CategoriaCountOrderByAggregateInput = {
@@ -8036,85 +8173,44 @@ export namespace Prisma {
     dorsal?: SortOrder
   }
 
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | null
-    notIn?: Date[] | string[] | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
-  }
-
-  export type CalendarioCountOrderByAggregateInput = {
+  export type JornadaCountOrderByAggregateInput = {
     id?: SortOrder
-    idCampeonato?: SortOrder
-    idCategoria?: SortOrder
     jornada?: SortOrder
-    fecha?: SortOrder
-    local?: SortOrder
-    visitante?: SortOrder
-    estado?: SortOrder
+    idLocal?: SortOrder
+    idVisitante?: SortOrder
+    idCategoria?: SortOrder
   }
 
-  export type CalendarioAvgOrderByAggregateInput = {
+  export type JornadaAvgOrderByAggregateInput = {
     id?: SortOrder
-    idCampeonato?: SortOrder
-    idCategoria?: SortOrder
     jornada?: SortOrder
-    local?: SortOrder
-    visitante?: SortOrder
+    idLocal?: SortOrder
+    idVisitante?: SortOrder
+    idCategoria?: SortOrder
   }
 
-  export type CalendarioMaxOrderByAggregateInput = {
+  export type JornadaMaxOrderByAggregateInput = {
     id?: SortOrder
-    idCampeonato?: SortOrder
-    idCategoria?: SortOrder
     jornada?: SortOrder
-    fecha?: SortOrder
-    local?: SortOrder
-    visitante?: SortOrder
-    estado?: SortOrder
+    idLocal?: SortOrder
+    idVisitante?: SortOrder
+    idCategoria?: SortOrder
   }
 
-  export type CalendarioMinOrderByAggregateInput = {
+  export type JornadaMinOrderByAggregateInput = {
     id?: SortOrder
-    idCampeonato?: SortOrder
-    idCategoria?: SortOrder
     jornada?: SortOrder
-    fecha?: SortOrder
-    local?: SortOrder
-    visitante?: SortOrder
-    estado?: SortOrder
+    idLocal?: SortOrder
+    idVisitante?: SortOrder
+    idCategoria?: SortOrder
   }
 
-  export type CalendarioSumOrderByAggregateInput = {
+  export type JornadaSumOrderByAggregateInput = {
     id?: SortOrder
-    idCampeonato?: SortOrder
-    idCategoria?: SortOrder
     jornada?: SortOrder
-    local?: SortOrder
-    visitante?: SortOrder
-  }
-
-  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | null
-    notIn?: Date[] | string[] | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+    idLocal?: SortOrder
+    idVisitante?: SortOrder
+    idCategoria?: SortOrder
   }
 
   export type CategoriaCreateNestedManyWithoutCampeonatoInput = {
@@ -8230,11 +8326,25 @@ export namespace Prisma {
     connect?: EquipoWhereUniqueInput | EquipoWhereUniqueInput[]
   }
 
+  export type JornadaCreateNestedManyWithoutCategoriaInput = {
+    create?: XOR<JornadaCreateWithoutCategoriaInput, JornadaUncheckedCreateWithoutCategoriaInput> | JornadaCreateWithoutCategoriaInput[] | JornadaUncheckedCreateWithoutCategoriaInput[]
+    connectOrCreate?: JornadaCreateOrConnectWithoutCategoriaInput | JornadaCreateOrConnectWithoutCategoriaInput[]
+    createMany?: JornadaCreateManyCategoriaInputEnvelope
+    connect?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+  }
+
   export type EquipoUncheckedCreateNestedManyWithoutCategoriaInput = {
     create?: XOR<EquipoCreateWithoutCategoriaInput, EquipoUncheckedCreateWithoutCategoriaInput> | EquipoCreateWithoutCategoriaInput[] | EquipoUncheckedCreateWithoutCategoriaInput[]
     connectOrCreate?: EquipoCreateOrConnectWithoutCategoriaInput | EquipoCreateOrConnectWithoutCategoriaInput[]
     createMany?: EquipoCreateManyCategoriaInputEnvelope
     connect?: EquipoWhereUniqueInput | EquipoWhereUniqueInput[]
+  }
+
+  export type JornadaUncheckedCreateNestedManyWithoutCategoriaInput = {
+    create?: XOR<JornadaCreateWithoutCategoriaInput, JornadaUncheckedCreateWithoutCategoriaInput> | JornadaCreateWithoutCategoriaInput[] | JornadaUncheckedCreateWithoutCategoriaInput[]
+    connectOrCreate?: JornadaCreateOrConnectWithoutCategoriaInput | JornadaCreateOrConnectWithoutCategoriaInput[]
+    createMany?: JornadaCreateManyCategoriaInputEnvelope
+    connect?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
   }
 
   export type CampeonatoUpdateOneRequiredWithoutCategoriasNestedInput = {
@@ -8259,6 +8369,20 @@ export namespace Prisma {
     deleteMany?: EquipoScalarWhereInput | EquipoScalarWhereInput[]
   }
 
+  export type JornadaUpdateManyWithoutCategoriaNestedInput = {
+    create?: XOR<JornadaCreateWithoutCategoriaInput, JornadaUncheckedCreateWithoutCategoriaInput> | JornadaCreateWithoutCategoriaInput[] | JornadaUncheckedCreateWithoutCategoriaInput[]
+    connectOrCreate?: JornadaCreateOrConnectWithoutCategoriaInput | JornadaCreateOrConnectWithoutCategoriaInput[]
+    upsert?: JornadaUpsertWithWhereUniqueWithoutCategoriaInput | JornadaUpsertWithWhereUniqueWithoutCategoriaInput[]
+    createMany?: JornadaCreateManyCategoriaInputEnvelope
+    set?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    disconnect?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    delete?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    connect?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    update?: JornadaUpdateWithWhereUniqueWithoutCategoriaInput | JornadaUpdateWithWhereUniqueWithoutCategoriaInput[]
+    updateMany?: JornadaUpdateManyWithWhereWithoutCategoriaInput | JornadaUpdateManyWithWhereWithoutCategoriaInput[]
+    deleteMany?: JornadaScalarWhereInput | JornadaScalarWhereInput[]
+  }
+
   export type EquipoUncheckedUpdateManyWithoutCategoriaNestedInput = {
     create?: XOR<EquipoCreateWithoutCategoriaInput, EquipoUncheckedCreateWithoutCategoriaInput> | EquipoCreateWithoutCategoriaInput[] | EquipoUncheckedCreateWithoutCategoriaInput[]
     connectOrCreate?: EquipoCreateOrConnectWithoutCategoriaInput | EquipoCreateOrConnectWithoutCategoriaInput[]
@@ -8271,6 +8395,20 @@ export namespace Prisma {
     update?: EquipoUpdateWithWhereUniqueWithoutCategoriaInput | EquipoUpdateWithWhereUniqueWithoutCategoriaInput[]
     updateMany?: EquipoUpdateManyWithWhereWithoutCategoriaInput | EquipoUpdateManyWithWhereWithoutCategoriaInput[]
     deleteMany?: EquipoScalarWhereInput | EquipoScalarWhereInput[]
+  }
+
+  export type JornadaUncheckedUpdateManyWithoutCategoriaNestedInput = {
+    create?: XOR<JornadaCreateWithoutCategoriaInput, JornadaUncheckedCreateWithoutCategoriaInput> | JornadaCreateWithoutCategoriaInput[] | JornadaUncheckedCreateWithoutCategoriaInput[]
+    connectOrCreate?: JornadaCreateOrConnectWithoutCategoriaInput | JornadaCreateOrConnectWithoutCategoriaInput[]
+    upsert?: JornadaUpsertWithWhereUniqueWithoutCategoriaInput | JornadaUpsertWithWhereUniqueWithoutCategoriaInput[]
+    createMany?: JornadaCreateManyCategoriaInputEnvelope
+    set?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    disconnect?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    delete?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    connect?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    update?: JornadaUpdateWithWhereUniqueWithoutCategoriaInput | JornadaUpdateWithWhereUniqueWithoutCategoriaInput[]
+    updateMany?: JornadaUpdateManyWithWhereWithoutCategoriaInput | JornadaUpdateManyWithWhereWithoutCategoriaInput[]
+    deleteMany?: JornadaScalarWhereInput | JornadaScalarWhereInput[]
   }
 
   export type CategoriaCreateNestedOneWithoutEquiposInput = {
@@ -8292,11 +8430,39 @@ export namespace Prisma {
     connect?: JugadorWhereUniqueInput | JugadorWhereUniqueInput[]
   }
 
+  export type JornadaCreateNestedManyWithoutLocalInput = {
+    create?: XOR<JornadaCreateWithoutLocalInput, JornadaUncheckedCreateWithoutLocalInput> | JornadaCreateWithoutLocalInput[] | JornadaUncheckedCreateWithoutLocalInput[]
+    connectOrCreate?: JornadaCreateOrConnectWithoutLocalInput | JornadaCreateOrConnectWithoutLocalInput[]
+    createMany?: JornadaCreateManyLocalInputEnvelope
+    connect?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+  }
+
+  export type JornadaCreateNestedManyWithoutVisitanteInput = {
+    create?: XOR<JornadaCreateWithoutVisitanteInput, JornadaUncheckedCreateWithoutVisitanteInput> | JornadaCreateWithoutVisitanteInput[] | JornadaUncheckedCreateWithoutVisitanteInput[]
+    connectOrCreate?: JornadaCreateOrConnectWithoutVisitanteInput | JornadaCreateOrConnectWithoutVisitanteInput[]
+    createMany?: JornadaCreateManyVisitanteInputEnvelope
+    connect?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+  }
+
   export type JugadorUncheckedCreateNestedManyWithoutEquipoRefInput = {
     create?: XOR<JugadorCreateWithoutEquipoRefInput, JugadorUncheckedCreateWithoutEquipoRefInput> | JugadorCreateWithoutEquipoRefInput[] | JugadorUncheckedCreateWithoutEquipoRefInput[]
     connectOrCreate?: JugadorCreateOrConnectWithoutEquipoRefInput | JugadorCreateOrConnectWithoutEquipoRefInput[]
     createMany?: JugadorCreateManyEquipoRefInputEnvelope
     connect?: JugadorWhereUniqueInput | JugadorWhereUniqueInput[]
+  }
+
+  export type JornadaUncheckedCreateNestedManyWithoutLocalInput = {
+    create?: XOR<JornadaCreateWithoutLocalInput, JornadaUncheckedCreateWithoutLocalInput> | JornadaCreateWithoutLocalInput[] | JornadaUncheckedCreateWithoutLocalInput[]
+    connectOrCreate?: JornadaCreateOrConnectWithoutLocalInput | JornadaCreateOrConnectWithoutLocalInput[]
+    createMany?: JornadaCreateManyLocalInputEnvelope
+    connect?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+  }
+
+  export type JornadaUncheckedCreateNestedManyWithoutVisitanteInput = {
+    create?: XOR<JornadaCreateWithoutVisitanteInput, JornadaUncheckedCreateWithoutVisitanteInput> | JornadaCreateWithoutVisitanteInput[] | JornadaUncheckedCreateWithoutVisitanteInput[]
+    connectOrCreate?: JornadaCreateOrConnectWithoutVisitanteInput | JornadaCreateOrConnectWithoutVisitanteInput[]
+    createMany?: JornadaCreateManyVisitanteInputEnvelope
+    connect?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
   }
 
   export type CategoriaUpdateOneRequiredWithoutEquiposNestedInput = {
@@ -8329,6 +8495,34 @@ export namespace Prisma {
     deleteMany?: JugadorScalarWhereInput | JugadorScalarWhereInput[]
   }
 
+  export type JornadaUpdateManyWithoutLocalNestedInput = {
+    create?: XOR<JornadaCreateWithoutLocalInput, JornadaUncheckedCreateWithoutLocalInput> | JornadaCreateWithoutLocalInput[] | JornadaUncheckedCreateWithoutLocalInput[]
+    connectOrCreate?: JornadaCreateOrConnectWithoutLocalInput | JornadaCreateOrConnectWithoutLocalInput[]
+    upsert?: JornadaUpsertWithWhereUniqueWithoutLocalInput | JornadaUpsertWithWhereUniqueWithoutLocalInput[]
+    createMany?: JornadaCreateManyLocalInputEnvelope
+    set?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    disconnect?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    delete?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    connect?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    update?: JornadaUpdateWithWhereUniqueWithoutLocalInput | JornadaUpdateWithWhereUniqueWithoutLocalInput[]
+    updateMany?: JornadaUpdateManyWithWhereWithoutLocalInput | JornadaUpdateManyWithWhereWithoutLocalInput[]
+    deleteMany?: JornadaScalarWhereInput | JornadaScalarWhereInput[]
+  }
+
+  export type JornadaUpdateManyWithoutVisitanteNestedInput = {
+    create?: XOR<JornadaCreateWithoutVisitanteInput, JornadaUncheckedCreateWithoutVisitanteInput> | JornadaCreateWithoutVisitanteInput[] | JornadaUncheckedCreateWithoutVisitanteInput[]
+    connectOrCreate?: JornadaCreateOrConnectWithoutVisitanteInput | JornadaCreateOrConnectWithoutVisitanteInput[]
+    upsert?: JornadaUpsertWithWhereUniqueWithoutVisitanteInput | JornadaUpsertWithWhereUniqueWithoutVisitanteInput[]
+    createMany?: JornadaCreateManyVisitanteInputEnvelope
+    set?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    disconnect?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    delete?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    connect?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    update?: JornadaUpdateWithWhereUniqueWithoutVisitanteInput | JornadaUpdateWithWhereUniqueWithoutVisitanteInput[]
+    updateMany?: JornadaUpdateManyWithWhereWithoutVisitanteInput | JornadaUpdateManyWithWhereWithoutVisitanteInput[]
+    deleteMany?: JornadaScalarWhereInput | JornadaScalarWhereInput[]
+  }
+
   export type JugadorUncheckedUpdateManyWithoutEquipoRefNestedInput = {
     create?: XOR<JugadorCreateWithoutEquipoRefInput, JugadorUncheckedCreateWithoutEquipoRefInput> | JugadorCreateWithoutEquipoRefInput[] | JugadorUncheckedCreateWithoutEquipoRefInput[]
     connectOrCreate?: JugadorCreateOrConnectWithoutEquipoRefInput | JugadorCreateOrConnectWithoutEquipoRefInput[]
@@ -8341,6 +8535,34 @@ export namespace Prisma {
     update?: JugadorUpdateWithWhereUniqueWithoutEquipoRefInput | JugadorUpdateWithWhereUniqueWithoutEquipoRefInput[]
     updateMany?: JugadorUpdateManyWithWhereWithoutEquipoRefInput | JugadorUpdateManyWithWhereWithoutEquipoRefInput[]
     deleteMany?: JugadorScalarWhereInput | JugadorScalarWhereInput[]
+  }
+
+  export type JornadaUncheckedUpdateManyWithoutLocalNestedInput = {
+    create?: XOR<JornadaCreateWithoutLocalInput, JornadaUncheckedCreateWithoutLocalInput> | JornadaCreateWithoutLocalInput[] | JornadaUncheckedCreateWithoutLocalInput[]
+    connectOrCreate?: JornadaCreateOrConnectWithoutLocalInput | JornadaCreateOrConnectWithoutLocalInput[]
+    upsert?: JornadaUpsertWithWhereUniqueWithoutLocalInput | JornadaUpsertWithWhereUniqueWithoutLocalInput[]
+    createMany?: JornadaCreateManyLocalInputEnvelope
+    set?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    disconnect?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    delete?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    connect?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    update?: JornadaUpdateWithWhereUniqueWithoutLocalInput | JornadaUpdateWithWhereUniqueWithoutLocalInput[]
+    updateMany?: JornadaUpdateManyWithWhereWithoutLocalInput | JornadaUpdateManyWithWhereWithoutLocalInput[]
+    deleteMany?: JornadaScalarWhereInput | JornadaScalarWhereInput[]
+  }
+
+  export type JornadaUncheckedUpdateManyWithoutVisitanteNestedInput = {
+    create?: XOR<JornadaCreateWithoutVisitanteInput, JornadaUncheckedCreateWithoutVisitanteInput> | JornadaCreateWithoutVisitanteInput[] | JornadaUncheckedCreateWithoutVisitanteInput[]
+    connectOrCreate?: JornadaCreateOrConnectWithoutVisitanteInput | JornadaCreateOrConnectWithoutVisitanteInput[]
+    upsert?: JornadaUpsertWithWhereUniqueWithoutVisitanteInput | JornadaUpsertWithWhereUniqueWithoutVisitanteInput[]
+    createMany?: JornadaCreateManyVisitanteInputEnvelope
+    set?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    disconnect?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    delete?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    connect?: JornadaWhereUniqueInput | JornadaWhereUniqueInput[]
+    update?: JornadaUpdateWithWhereUniqueWithoutVisitanteInput | JornadaUpdateWithWhereUniqueWithoutVisitanteInput[]
+    updateMany?: JornadaUpdateManyWithWhereWithoutVisitanteInput | JornadaUpdateManyWithWhereWithoutVisitanteInput[]
+    deleteMany?: JornadaScalarWhereInput | JornadaScalarWhereInput[]
   }
 
   export type EquipoCreateNestedOneWithoutJugadoresInput = {
@@ -8357,8 +8579,46 @@ export namespace Prisma {
     update?: XOR<XOR<EquipoUpdateToOneWithWhereWithoutJugadoresInput, EquipoUpdateWithoutJugadoresInput>, EquipoUncheckedUpdateWithoutJugadoresInput>
   }
 
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
+  export type CategoriaCreateNestedOneWithoutJornadasInput = {
+    create?: XOR<CategoriaCreateWithoutJornadasInput, CategoriaUncheckedCreateWithoutJornadasInput>
+    connectOrCreate?: CategoriaCreateOrConnectWithoutJornadasInput
+    connect?: CategoriaWhereUniqueInput
+  }
+
+  export type EquipoCreateNestedOneWithoutLocalJornadasInput = {
+    create?: XOR<EquipoCreateWithoutLocalJornadasInput, EquipoUncheckedCreateWithoutLocalJornadasInput>
+    connectOrCreate?: EquipoCreateOrConnectWithoutLocalJornadasInput
+    connect?: EquipoWhereUniqueInput
+  }
+
+  export type EquipoCreateNestedOneWithoutVisitanteJornadasInput = {
+    create?: XOR<EquipoCreateWithoutVisitanteJornadasInput, EquipoUncheckedCreateWithoutVisitanteJornadasInput>
+    connectOrCreate?: EquipoCreateOrConnectWithoutVisitanteJornadasInput
+    connect?: EquipoWhereUniqueInput
+  }
+
+  export type CategoriaUpdateOneRequiredWithoutJornadasNestedInput = {
+    create?: XOR<CategoriaCreateWithoutJornadasInput, CategoriaUncheckedCreateWithoutJornadasInput>
+    connectOrCreate?: CategoriaCreateOrConnectWithoutJornadasInput
+    upsert?: CategoriaUpsertWithoutJornadasInput
+    connect?: CategoriaWhereUniqueInput
+    update?: XOR<XOR<CategoriaUpdateToOneWithWhereWithoutJornadasInput, CategoriaUpdateWithoutJornadasInput>, CategoriaUncheckedUpdateWithoutJornadasInput>
+  }
+
+  export type EquipoUpdateOneRequiredWithoutLocalJornadasNestedInput = {
+    create?: XOR<EquipoCreateWithoutLocalJornadasInput, EquipoUncheckedCreateWithoutLocalJornadasInput>
+    connectOrCreate?: EquipoCreateOrConnectWithoutLocalJornadasInput
+    upsert?: EquipoUpsertWithoutLocalJornadasInput
+    connect?: EquipoWhereUniqueInput
+    update?: XOR<XOR<EquipoUpdateToOneWithWhereWithoutLocalJornadasInput, EquipoUpdateWithoutLocalJornadasInput>, EquipoUncheckedUpdateWithoutLocalJornadasInput>
+  }
+
+  export type EquipoUpdateOneRequiredWithoutVisitanteJornadasNestedInput = {
+    create?: XOR<EquipoCreateWithoutVisitanteJornadasInput, EquipoUncheckedCreateWithoutVisitanteJornadasInput>
+    connectOrCreate?: EquipoCreateOrConnectWithoutVisitanteJornadasInput
+    upsert?: EquipoUpsertWithoutVisitanteJornadasInput
+    connect?: EquipoWhereUniqueInput
+    update?: XOR<XOR<EquipoUpdateToOneWithWhereWithoutVisitanteJornadasInput, EquipoUpdateWithoutVisitanteJornadasInput>, EquipoUncheckedUpdateWithoutVisitanteJornadasInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -8455,47 +8715,12 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | null
-    notIn?: Date[] | string[] | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
-  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | null
-    notIn?: Date[] | string[] | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
-  }
-
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type CategoriaCreateWithoutCampeonatoInput = {
     nombre: string
     nEquipos?: number
     creacion?: Date | string
     equipos?: EquipoCreateNestedManyWithoutCategoriaInput
+    jornadas?: JornadaCreateNestedManyWithoutCategoriaInput
   }
 
   export type CategoriaUncheckedCreateWithoutCampeonatoInput = {
@@ -8504,6 +8729,7 @@ export namespace Prisma {
     nEquipos?: number
     creacion?: Date | string
     equipos?: EquipoUncheckedCreateNestedManyWithoutCategoriaInput
+    jornadas?: JornadaUncheckedCreateNestedManyWithoutCategoriaInput
   }
 
   export type CategoriaCreateOrConnectWithoutCampeonatoInput = {
@@ -8523,6 +8749,8 @@ export namespace Prisma {
     url_logo: string
     categoria: CategoriaCreateNestedOneWithoutEquiposInput
     jugadores?: JugadorCreateNestedManyWithoutEquipoRefInput
+    localJornadas?: JornadaCreateNestedManyWithoutLocalInput
+    visitanteJornadas?: JornadaCreateNestedManyWithoutVisitanteInput
   }
 
   export type EquipoUncheckedCreateWithoutCampeonatoInput = {
@@ -8534,6 +8762,8 @@ export namespace Prisma {
     telefono: string
     url_logo: string
     jugadores?: JugadorUncheckedCreateNestedManyWithoutEquipoRefInput
+    localJornadas?: JornadaUncheckedCreateNestedManyWithoutLocalInput
+    visitanteJornadas?: JornadaUncheckedCreateNestedManyWithoutVisitanteInput
   }
 
   export type EquipoCreateOrConnectWithoutCampeonatoInput = {
@@ -8628,6 +8858,8 @@ export namespace Prisma {
     url_logo: string
     campeonato: CampeonatoCreateNestedOneWithoutEquiposInput
     jugadores?: JugadorCreateNestedManyWithoutEquipoRefInput
+    localJornadas?: JornadaCreateNestedManyWithoutLocalInput
+    visitanteJornadas?: JornadaCreateNestedManyWithoutVisitanteInput
   }
 
   export type EquipoUncheckedCreateWithoutCategoriaInput = {
@@ -8639,6 +8871,8 @@ export namespace Prisma {
     telefono: string
     url_logo: string
     jugadores?: JugadorUncheckedCreateNestedManyWithoutEquipoRefInput
+    localJornadas?: JornadaUncheckedCreateNestedManyWithoutLocalInput
+    visitanteJornadas?: JornadaUncheckedCreateNestedManyWithoutVisitanteInput
   }
 
   export type EquipoCreateOrConnectWithoutCategoriaInput = {
@@ -8648,6 +8882,28 @@ export namespace Prisma {
 
   export type EquipoCreateManyCategoriaInputEnvelope = {
     data: EquipoCreateManyCategoriaInput | EquipoCreateManyCategoriaInput[]
+  }
+
+  export type JornadaCreateWithoutCategoriaInput = {
+    jornada: number
+    local: EquipoCreateNestedOneWithoutLocalJornadasInput
+    visitante: EquipoCreateNestedOneWithoutVisitanteJornadasInput
+  }
+
+  export type JornadaUncheckedCreateWithoutCategoriaInput = {
+    id?: number
+    jornada: number
+    idLocal: number
+    idVisitante: number
+  }
+
+  export type JornadaCreateOrConnectWithoutCategoriaInput = {
+    where: JornadaWhereUniqueInput
+    create: XOR<JornadaCreateWithoutCategoriaInput, JornadaUncheckedCreateWithoutCategoriaInput>
+  }
+
+  export type JornadaCreateManyCategoriaInputEnvelope = {
+    data: JornadaCreateManyCategoriaInput | JornadaCreateManyCategoriaInput[]
   }
 
   export type CampeonatoUpsertWithoutCategoriasInput = {
@@ -8690,11 +8946,39 @@ export namespace Prisma {
     data: XOR<EquipoUpdateManyMutationInput, EquipoUncheckedUpdateManyWithoutCategoriaInput>
   }
 
+  export type JornadaUpsertWithWhereUniqueWithoutCategoriaInput = {
+    where: JornadaWhereUniqueInput
+    update: XOR<JornadaUpdateWithoutCategoriaInput, JornadaUncheckedUpdateWithoutCategoriaInput>
+    create: XOR<JornadaCreateWithoutCategoriaInput, JornadaUncheckedCreateWithoutCategoriaInput>
+  }
+
+  export type JornadaUpdateWithWhereUniqueWithoutCategoriaInput = {
+    where: JornadaWhereUniqueInput
+    data: XOR<JornadaUpdateWithoutCategoriaInput, JornadaUncheckedUpdateWithoutCategoriaInput>
+  }
+
+  export type JornadaUpdateManyWithWhereWithoutCategoriaInput = {
+    where: JornadaScalarWhereInput
+    data: XOR<JornadaUpdateManyMutationInput, JornadaUncheckedUpdateManyWithoutCategoriaInput>
+  }
+
+  export type JornadaScalarWhereInput = {
+    AND?: JornadaScalarWhereInput | JornadaScalarWhereInput[]
+    OR?: JornadaScalarWhereInput[]
+    NOT?: JornadaScalarWhereInput | JornadaScalarWhereInput[]
+    id?: IntFilter<"Jornada"> | number
+    jornada?: IntFilter<"Jornada"> | number
+    idLocal?: IntFilter<"Jornada"> | number
+    idVisitante?: IntFilter<"Jornada"> | number
+    idCategoria?: IntFilter<"Jornada"> | number
+  }
+
   export type CategoriaCreateWithoutEquiposInput = {
     nombre: string
     nEquipos?: number
     creacion?: Date | string
     campeonato: CampeonatoCreateNestedOneWithoutCategoriasInput
+    jornadas?: JornadaCreateNestedManyWithoutCategoriaInput
   }
 
   export type CategoriaUncheckedCreateWithoutEquiposInput = {
@@ -8703,6 +8987,7 @@ export namespace Prisma {
     nombre: string
     nEquipos?: number
     creacion?: Date | string
+    jornadas?: JornadaUncheckedCreateNestedManyWithoutCategoriaInput
   }
 
   export type CategoriaCreateOrConnectWithoutEquiposInput = {
@@ -8756,6 +9041,50 @@ export namespace Prisma {
     data: JugadorCreateManyEquipoRefInput | JugadorCreateManyEquipoRefInput[]
   }
 
+  export type JornadaCreateWithoutLocalInput = {
+    jornada: number
+    categoria: CategoriaCreateNestedOneWithoutJornadasInput
+    visitante: EquipoCreateNestedOneWithoutVisitanteJornadasInput
+  }
+
+  export type JornadaUncheckedCreateWithoutLocalInput = {
+    id?: number
+    jornada: number
+    idVisitante: number
+    idCategoria: number
+  }
+
+  export type JornadaCreateOrConnectWithoutLocalInput = {
+    where: JornadaWhereUniqueInput
+    create: XOR<JornadaCreateWithoutLocalInput, JornadaUncheckedCreateWithoutLocalInput>
+  }
+
+  export type JornadaCreateManyLocalInputEnvelope = {
+    data: JornadaCreateManyLocalInput | JornadaCreateManyLocalInput[]
+  }
+
+  export type JornadaCreateWithoutVisitanteInput = {
+    jornada: number
+    categoria: CategoriaCreateNestedOneWithoutJornadasInput
+    local: EquipoCreateNestedOneWithoutLocalJornadasInput
+  }
+
+  export type JornadaUncheckedCreateWithoutVisitanteInput = {
+    id?: number
+    jornada: number
+    idLocal: number
+    idCategoria: number
+  }
+
+  export type JornadaCreateOrConnectWithoutVisitanteInput = {
+    where: JornadaWhereUniqueInput
+    create: XOR<JornadaCreateWithoutVisitanteInput, JornadaUncheckedCreateWithoutVisitanteInput>
+  }
+
+  export type JornadaCreateManyVisitanteInputEnvelope = {
+    data: JornadaCreateManyVisitanteInput | JornadaCreateManyVisitanteInput[]
+  }
+
   export type CategoriaUpsertWithoutEquiposInput = {
     update: XOR<CategoriaUpdateWithoutEquiposInput, CategoriaUncheckedUpdateWithoutEquiposInput>
     create: XOR<CategoriaCreateWithoutEquiposInput, CategoriaUncheckedCreateWithoutEquiposInput>
@@ -8772,6 +9101,7 @@ export namespace Prisma {
     nEquipos?: IntFieldUpdateOperationsInput | number
     creacion?: DateTimeFieldUpdateOperationsInput | Date | string
     campeonato?: CampeonatoUpdateOneRequiredWithoutCategoriasNestedInput
+    jornadas?: JornadaUpdateManyWithoutCategoriaNestedInput
   }
 
   export type CategoriaUncheckedUpdateWithoutEquiposInput = {
@@ -8780,6 +9110,7 @@ export namespace Prisma {
     nombre?: StringFieldUpdateOperationsInput | string
     nEquipos?: IntFieldUpdateOperationsInput | number
     creacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    jornadas?: JornadaUncheckedUpdateManyWithoutCategoriaNestedInput
   }
 
   export type CampeonatoUpsertWithoutEquiposInput = {
@@ -8836,6 +9167,38 @@ export namespace Prisma {
     dorsal?: IntFilter<"Jugador"> | number
   }
 
+  export type JornadaUpsertWithWhereUniqueWithoutLocalInput = {
+    where: JornadaWhereUniqueInput
+    update: XOR<JornadaUpdateWithoutLocalInput, JornadaUncheckedUpdateWithoutLocalInput>
+    create: XOR<JornadaCreateWithoutLocalInput, JornadaUncheckedCreateWithoutLocalInput>
+  }
+
+  export type JornadaUpdateWithWhereUniqueWithoutLocalInput = {
+    where: JornadaWhereUniqueInput
+    data: XOR<JornadaUpdateWithoutLocalInput, JornadaUncheckedUpdateWithoutLocalInput>
+  }
+
+  export type JornadaUpdateManyWithWhereWithoutLocalInput = {
+    where: JornadaScalarWhereInput
+    data: XOR<JornadaUpdateManyMutationInput, JornadaUncheckedUpdateManyWithoutLocalInput>
+  }
+
+  export type JornadaUpsertWithWhereUniqueWithoutVisitanteInput = {
+    where: JornadaWhereUniqueInput
+    update: XOR<JornadaUpdateWithoutVisitanteInput, JornadaUncheckedUpdateWithoutVisitanteInput>
+    create: XOR<JornadaCreateWithoutVisitanteInput, JornadaUncheckedCreateWithoutVisitanteInput>
+  }
+
+  export type JornadaUpdateWithWhereUniqueWithoutVisitanteInput = {
+    where: JornadaWhereUniqueInput
+    data: XOR<JornadaUpdateWithoutVisitanteInput, JornadaUncheckedUpdateWithoutVisitanteInput>
+  }
+
+  export type JornadaUpdateManyWithWhereWithoutVisitanteInput = {
+    where: JornadaScalarWhereInput
+    data: XOR<JornadaUpdateManyMutationInput, JornadaUncheckedUpdateManyWithoutVisitanteInput>
+  }
+
   export type EquipoCreateWithoutJugadoresInput = {
     nombre: string
     abreviatura: string
@@ -8844,6 +9207,8 @@ export namespace Prisma {
     url_logo: string
     categoria: CategoriaCreateNestedOneWithoutEquiposInput
     campeonato: CampeonatoCreateNestedOneWithoutEquiposInput
+    localJornadas?: JornadaCreateNestedManyWithoutLocalInput
+    visitanteJornadas?: JornadaCreateNestedManyWithoutVisitanteInput
   }
 
   export type EquipoUncheckedCreateWithoutJugadoresInput = {
@@ -8855,6 +9220,8 @@ export namespace Prisma {
     email: string
     telefono: string
     url_logo: string
+    localJornadas?: JornadaUncheckedCreateNestedManyWithoutLocalInput
+    visitanteJornadas?: JornadaUncheckedCreateNestedManyWithoutVisitanteInput
   }
 
   export type EquipoCreateOrConnectWithoutJugadoresInput = {
@@ -8881,6 +9248,8 @@ export namespace Prisma {
     url_logo?: StringFieldUpdateOperationsInput | string
     categoria?: CategoriaUpdateOneRequiredWithoutEquiposNestedInput
     campeonato?: CampeonatoUpdateOneRequiredWithoutEquiposNestedInput
+    localJornadas?: JornadaUpdateManyWithoutLocalNestedInput
+    visitanteJornadas?: JornadaUpdateManyWithoutVisitanteNestedInput
   }
 
   export type EquipoUncheckedUpdateWithoutJugadoresInput = {
@@ -8892,6 +9261,190 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     telefono?: StringFieldUpdateOperationsInput | string
     url_logo?: StringFieldUpdateOperationsInput | string
+    localJornadas?: JornadaUncheckedUpdateManyWithoutLocalNestedInput
+    visitanteJornadas?: JornadaUncheckedUpdateManyWithoutVisitanteNestedInput
+  }
+
+  export type CategoriaCreateWithoutJornadasInput = {
+    nombre: string
+    nEquipos?: number
+    creacion?: Date | string
+    campeonato: CampeonatoCreateNestedOneWithoutCategoriasInput
+    equipos?: EquipoCreateNestedManyWithoutCategoriaInput
+  }
+
+  export type CategoriaUncheckedCreateWithoutJornadasInput = {
+    id?: number
+    idCampeonato: number
+    nombre: string
+    nEquipos?: number
+    creacion?: Date | string
+    equipos?: EquipoUncheckedCreateNestedManyWithoutCategoriaInput
+  }
+
+  export type CategoriaCreateOrConnectWithoutJornadasInput = {
+    where: CategoriaWhereUniqueInput
+    create: XOR<CategoriaCreateWithoutJornadasInput, CategoriaUncheckedCreateWithoutJornadasInput>
+  }
+
+  export type EquipoCreateWithoutLocalJornadasInput = {
+    nombre: string
+    abreviatura: string
+    email: string
+    telefono: string
+    url_logo: string
+    categoria: CategoriaCreateNestedOneWithoutEquiposInput
+    campeonato: CampeonatoCreateNestedOneWithoutEquiposInput
+    jugadores?: JugadorCreateNestedManyWithoutEquipoRefInput
+    visitanteJornadas?: JornadaCreateNestedManyWithoutVisitanteInput
+  }
+
+  export type EquipoUncheckedCreateWithoutLocalJornadasInput = {
+    id?: number
+    nombre: string
+    abreviatura: string
+    idCategoria: number
+    idCampeonato: number
+    email: string
+    telefono: string
+    url_logo: string
+    jugadores?: JugadorUncheckedCreateNestedManyWithoutEquipoRefInput
+    visitanteJornadas?: JornadaUncheckedCreateNestedManyWithoutVisitanteInput
+  }
+
+  export type EquipoCreateOrConnectWithoutLocalJornadasInput = {
+    where: EquipoWhereUniqueInput
+    create: XOR<EquipoCreateWithoutLocalJornadasInput, EquipoUncheckedCreateWithoutLocalJornadasInput>
+  }
+
+  export type EquipoCreateWithoutVisitanteJornadasInput = {
+    nombre: string
+    abreviatura: string
+    email: string
+    telefono: string
+    url_logo: string
+    categoria: CategoriaCreateNestedOneWithoutEquiposInput
+    campeonato: CampeonatoCreateNestedOneWithoutEquiposInput
+    jugadores?: JugadorCreateNestedManyWithoutEquipoRefInput
+    localJornadas?: JornadaCreateNestedManyWithoutLocalInput
+  }
+
+  export type EquipoUncheckedCreateWithoutVisitanteJornadasInput = {
+    id?: number
+    nombre: string
+    abreviatura: string
+    idCategoria: number
+    idCampeonato: number
+    email: string
+    telefono: string
+    url_logo: string
+    jugadores?: JugadorUncheckedCreateNestedManyWithoutEquipoRefInput
+    localJornadas?: JornadaUncheckedCreateNestedManyWithoutLocalInput
+  }
+
+  export type EquipoCreateOrConnectWithoutVisitanteJornadasInput = {
+    where: EquipoWhereUniqueInput
+    create: XOR<EquipoCreateWithoutVisitanteJornadasInput, EquipoUncheckedCreateWithoutVisitanteJornadasInput>
+  }
+
+  export type CategoriaUpsertWithoutJornadasInput = {
+    update: XOR<CategoriaUpdateWithoutJornadasInput, CategoriaUncheckedUpdateWithoutJornadasInput>
+    create: XOR<CategoriaCreateWithoutJornadasInput, CategoriaUncheckedCreateWithoutJornadasInput>
+    where?: CategoriaWhereInput
+  }
+
+  export type CategoriaUpdateToOneWithWhereWithoutJornadasInput = {
+    where?: CategoriaWhereInput
+    data: XOR<CategoriaUpdateWithoutJornadasInput, CategoriaUncheckedUpdateWithoutJornadasInput>
+  }
+
+  export type CategoriaUpdateWithoutJornadasInput = {
+    nombre?: StringFieldUpdateOperationsInput | string
+    nEquipos?: IntFieldUpdateOperationsInput | number
+    creacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    campeonato?: CampeonatoUpdateOneRequiredWithoutCategoriasNestedInput
+    equipos?: EquipoUpdateManyWithoutCategoriaNestedInput
+  }
+
+  export type CategoriaUncheckedUpdateWithoutJornadasInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    idCampeonato?: IntFieldUpdateOperationsInput | number
+    nombre?: StringFieldUpdateOperationsInput | string
+    nEquipos?: IntFieldUpdateOperationsInput | number
+    creacion?: DateTimeFieldUpdateOperationsInput | Date | string
+    equipos?: EquipoUncheckedUpdateManyWithoutCategoriaNestedInput
+  }
+
+  export type EquipoUpsertWithoutLocalJornadasInput = {
+    update: XOR<EquipoUpdateWithoutLocalJornadasInput, EquipoUncheckedUpdateWithoutLocalJornadasInput>
+    create: XOR<EquipoCreateWithoutLocalJornadasInput, EquipoUncheckedCreateWithoutLocalJornadasInput>
+    where?: EquipoWhereInput
+  }
+
+  export type EquipoUpdateToOneWithWhereWithoutLocalJornadasInput = {
+    where?: EquipoWhereInput
+    data: XOR<EquipoUpdateWithoutLocalJornadasInput, EquipoUncheckedUpdateWithoutLocalJornadasInput>
+  }
+
+  export type EquipoUpdateWithoutLocalJornadasInput = {
+    nombre?: StringFieldUpdateOperationsInput | string
+    abreviatura?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    telefono?: StringFieldUpdateOperationsInput | string
+    url_logo?: StringFieldUpdateOperationsInput | string
+    categoria?: CategoriaUpdateOneRequiredWithoutEquiposNestedInput
+    campeonato?: CampeonatoUpdateOneRequiredWithoutEquiposNestedInput
+    jugadores?: JugadorUpdateManyWithoutEquipoRefNestedInput
+    visitanteJornadas?: JornadaUpdateManyWithoutVisitanteNestedInput
+  }
+
+  export type EquipoUncheckedUpdateWithoutLocalJornadasInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nombre?: StringFieldUpdateOperationsInput | string
+    abreviatura?: StringFieldUpdateOperationsInput | string
+    idCategoria?: IntFieldUpdateOperationsInput | number
+    idCampeonato?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    telefono?: StringFieldUpdateOperationsInput | string
+    url_logo?: StringFieldUpdateOperationsInput | string
+    jugadores?: JugadorUncheckedUpdateManyWithoutEquipoRefNestedInput
+    visitanteJornadas?: JornadaUncheckedUpdateManyWithoutVisitanteNestedInput
+  }
+
+  export type EquipoUpsertWithoutVisitanteJornadasInput = {
+    update: XOR<EquipoUpdateWithoutVisitanteJornadasInput, EquipoUncheckedUpdateWithoutVisitanteJornadasInput>
+    create: XOR<EquipoCreateWithoutVisitanteJornadasInput, EquipoUncheckedCreateWithoutVisitanteJornadasInput>
+    where?: EquipoWhereInput
+  }
+
+  export type EquipoUpdateToOneWithWhereWithoutVisitanteJornadasInput = {
+    where?: EquipoWhereInput
+    data: XOR<EquipoUpdateWithoutVisitanteJornadasInput, EquipoUncheckedUpdateWithoutVisitanteJornadasInput>
+  }
+
+  export type EquipoUpdateWithoutVisitanteJornadasInput = {
+    nombre?: StringFieldUpdateOperationsInput | string
+    abreviatura?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    telefono?: StringFieldUpdateOperationsInput | string
+    url_logo?: StringFieldUpdateOperationsInput | string
+    categoria?: CategoriaUpdateOneRequiredWithoutEquiposNestedInput
+    campeonato?: CampeonatoUpdateOneRequiredWithoutEquiposNestedInput
+    jugadores?: JugadorUpdateManyWithoutEquipoRefNestedInput
+    localJornadas?: JornadaUpdateManyWithoutLocalNestedInput
+  }
+
+  export type EquipoUncheckedUpdateWithoutVisitanteJornadasInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nombre?: StringFieldUpdateOperationsInput | string
+    abreviatura?: StringFieldUpdateOperationsInput | string
+    idCategoria?: IntFieldUpdateOperationsInput | number
+    idCampeonato?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    telefono?: StringFieldUpdateOperationsInput | string
+    url_logo?: StringFieldUpdateOperationsInput | string
+    jugadores?: JugadorUncheckedUpdateManyWithoutEquipoRefNestedInput
+    localJornadas?: JornadaUncheckedUpdateManyWithoutLocalNestedInput
   }
 
   export type CategoriaCreateManyCampeonatoInput = {
@@ -8916,6 +9469,7 @@ export namespace Prisma {
     nEquipos?: IntFieldUpdateOperationsInput | number
     creacion?: DateTimeFieldUpdateOperationsInput | Date | string
     equipos?: EquipoUpdateManyWithoutCategoriaNestedInput
+    jornadas?: JornadaUpdateManyWithoutCategoriaNestedInput
   }
 
   export type CategoriaUncheckedUpdateWithoutCampeonatoInput = {
@@ -8924,6 +9478,7 @@ export namespace Prisma {
     nEquipos?: IntFieldUpdateOperationsInput | number
     creacion?: DateTimeFieldUpdateOperationsInput | Date | string
     equipos?: EquipoUncheckedUpdateManyWithoutCategoriaNestedInput
+    jornadas?: JornadaUncheckedUpdateManyWithoutCategoriaNestedInput
   }
 
   export type CategoriaUncheckedUpdateManyWithoutCampeonatoInput = {
@@ -8941,6 +9496,8 @@ export namespace Prisma {
     url_logo?: StringFieldUpdateOperationsInput | string
     categoria?: CategoriaUpdateOneRequiredWithoutEquiposNestedInput
     jugadores?: JugadorUpdateManyWithoutEquipoRefNestedInput
+    localJornadas?: JornadaUpdateManyWithoutLocalNestedInput
+    visitanteJornadas?: JornadaUpdateManyWithoutVisitanteNestedInput
   }
 
   export type EquipoUncheckedUpdateWithoutCampeonatoInput = {
@@ -8952,6 +9509,8 @@ export namespace Prisma {
     telefono?: StringFieldUpdateOperationsInput | string
     url_logo?: StringFieldUpdateOperationsInput | string
     jugadores?: JugadorUncheckedUpdateManyWithoutEquipoRefNestedInput
+    localJornadas?: JornadaUncheckedUpdateManyWithoutLocalNestedInput
+    visitanteJornadas?: JornadaUncheckedUpdateManyWithoutVisitanteNestedInput
   }
 
   export type EquipoUncheckedUpdateManyWithoutCampeonatoInput = {
@@ -8974,6 +9533,13 @@ export namespace Prisma {
     url_logo: string
   }
 
+  export type JornadaCreateManyCategoriaInput = {
+    id?: number
+    jornada: number
+    idLocal: number
+    idVisitante: number
+  }
+
   export type EquipoUpdateWithoutCategoriaInput = {
     nombre?: StringFieldUpdateOperationsInput | string
     abreviatura?: StringFieldUpdateOperationsInput | string
@@ -8982,6 +9548,8 @@ export namespace Prisma {
     url_logo?: StringFieldUpdateOperationsInput | string
     campeonato?: CampeonatoUpdateOneRequiredWithoutEquiposNestedInput
     jugadores?: JugadorUpdateManyWithoutEquipoRefNestedInput
+    localJornadas?: JornadaUpdateManyWithoutLocalNestedInput
+    visitanteJornadas?: JornadaUpdateManyWithoutVisitanteNestedInput
   }
 
   export type EquipoUncheckedUpdateWithoutCategoriaInput = {
@@ -8993,6 +9561,8 @@ export namespace Prisma {
     telefono?: StringFieldUpdateOperationsInput | string
     url_logo?: StringFieldUpdateOperationsInput | string
     jugadores?: JugadorUncheckedUpdateManyWithoutEquipoRefNestedInput
+    localJornadas?: JornadaUncheckedUpdateManyWithoutLocalNestedInput
+    visitanteJornadas?: JornadaUncheckedUpdateManyWithoutVisitanteNestedInput
   }
 
   export type EquipoUncheckedUpdateManyWithoutCategoriaInput = {
@@ -9005,6 +9575,26 @@ export namespace Prisma {
     url_logo?: StringFieldUpdateOperationsInput | string
   }
 
+  export type JornadaUpdateWithoutCategoriaInput = {
+    jornada?: IntFieldUpdateOperationsInput | number
+    local?: EquipoUpdateOneRequiredWithoutLocalJornadasNestedInput
+    visitante?: EquipoUpdateOneRequiredWithoutVisitanteJornadasNestedInput
+  }
+
+  export type JornadaUncheckedUpdateWithoutCategoriaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    jornada?: IntFieldUpdateOperationsInput | number
+    idLocal?: IntFieldUpdateOperationsInput | number
+    idVisitante?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type JornadaUncheckedUpdateManyWithoutCategoriaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    jornada?: IntFieldUpdateOperationsInput | number
+    idLocal?: IntFieldUpdateOperationsInput | number
+    idVisitante?: IntFieldUpdateOperationsInput | number
+  }
+
   export type JugadorCreateManyEquipoRefInput = {
     id?: number
     idCategoria: number
@@ -9013,6 +9603,20 @@ export namespace Prisma {
     edad: number
     posicion: string
     dorsal: number
+  }
+
+  export type JornadaCreateManyLocalInput = {
+    id?: number
+    jornada: number
+    idVisitante: number
+    idCategoria: number
+  }
+
+  export type JornadaCreateManyVisitanteInput = {
+    id?: number
+    jornada: number
+    idLocal: number
+    idCategoria: number
   }
 
   export type JugadorUpdateWithoutEquipoRefInput = {
@@ -9042,6 +9646,46 @@ export namespace Prisma {
     edad?: IntFieldUpdateOperationsInput | number
     posicion?: StringFieldUpdateOperationsInput | string
     dorsal?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type JornadaUpdateWithoutLocalInput = {
+    jornada?: IntFieldUpdateOperationsInput | number
+    categoria?: CategoriaUpdateOneRequiredWithoutJornadasNestedInput
+    visitante?: EquipoUpdateOneRequiredWithoutVisitanteJornadasNestedInput
+  }
+
+  export type JornadaUncheckedUpdateWithoutLocalInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    jornada?: IntFieldUpdateOperationsInput | number
+    idVisitante?: IntFieldUpdateOperationsInput | number
+    idCategoria?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type JornadaUncheckedUpdateManyWithoutLocalInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    jornada?: IntFieldUpdateOperationsInput | number
+    idVisitante?: IntFieldUpdateOperationsInput | number
+    idCategoria?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type JornadaUpdateWithoutVisitanteInput = {
+    jornada?: IntFieldUpdateOperationsInput | number
+    categoria?: CategoriaUpdateOneRequiredWithoutJornadasNestedInput
+    local?: EquipoUpdateOneRequiredWithoutLocalJornadasNestedInput
+  }
+
+  export type JornadaUncheckedUpdateWithoutVisitanteInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    jornada?: IntFieldUpdateOperationsInput | number
+    idLocal?: IntFieldUpdateOperationsInput | number
+    idCategoria?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type JornadaUncheckedUpdateManyWithoutVisitanteInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    jornada?: IntFieldUpdateOperationsInput | number
+    idLocal?: IntFieldUpdateOperationsInput | number
+    idCategoria?: IntFieldUpdateOperationsInput | number
   }
 
 

@@ -3,16 +3,17 @@ import { useRouter } from "next/navigation"
 
 
 export default function EquiposList({ categoria }) {
+   
     const router = useRouter()
     return (
         <>
-            <div className="bg-white m-3 ">
+            <div className="bg-white m-3 max-w-full">
                 <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
                     <h3 className="text-lg font-semibold text-gray-800">Equipos de la categoría {categoria.nombre}</h3>
                 </div>
                 {categoria.equipos.length === 0 ? (
                     <>
-                        <div className="overflow-x-auto">
+                        <div className="overflow-x-auto ">
                             <table className="min-w-full divide-y divide-gray-200 shadow-xl">
                                 <thead className="bg-blue-300 ">
                                     <tr>
@@ -99,7 +100,7 @@ export default function EquiposList({ categoria }) {
                     </>
                 ) : (
                     <>
-                        <div className="overflow-x-auto">
+                        <div className="overflow-x-auto max-w-full">
                             <table className="min-w-full divide-y divide-gray-200">
                                 <thead className="bg-blue-300">
                                     <tr>
@@ -152,18 +153,20 @@ export default function EquiposList({ categoria }) {
                         </div>
 
                         <>
-                            {categoria.equipos[0].length === 0 ? (
-                                <div className="flex mt-20 justify-center">
-                                    <button className=" flex items-center justify-center px-3 py-2 bg-green-600 cursor-pointer text-white rounded-md font-medium hover:bg-green-700 transition hover:scale-110"
-                                        onClick={() => router.push(`/administrador/campeonato/${categoria.idCampeonato}/categoria/${categoria.id}/jugadores/cargar`)}
-                                    >
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                        </svg>
-                                        Cargar Jugadores
-                                    </button>
-                                </div>
-                            ) : (null)}
+
+                            {categoria.equipos.length > 0 && categoria.equipos.every(eq => !eq.jugadores || eq.jugadores.length === 0) && (
+                                    <div className="flex mt-20 justify-center">
+                                        <button
+                                            className="flex items-center justify-center px-3 py-2 bg-green-600 cursor-pointer text-white rounded-md font-medium hover:bg-green-700 transition hover:scale-110"
+                                            onClick={() => router.push(`/administrador/campeonato/${categoria.idCampeonato}/categoria/${categoria.id}/jugadores/cargar`)}
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                            </svg>
+                                            Cargar Jugadores
+                                        </button>
+                                    </div>
+                                )}
                         </>
                     </>
                 )}
