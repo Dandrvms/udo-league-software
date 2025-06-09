@@ -9,14 +9,14 @@ import * as XLSX from "xlsx";
 
 
 
-export default function FileUploadArea({ campeonato, categoria }) {
+export default function EquipoFileUpload({ campeonato, categoria }) {
     const router = useRouter()
     const [file, setFile] = useState(null);
     const [isDragging, setIsDragging] = useState(false);
     const [error, setError] = useState("")
     const [excelData, setExcelData] = useState(null)
     const [success, setSuccess] = useState("")
-    const REQUIRED_COLUMNS = ["nombre", "abreviatura", "email", "telefono", "url_logo"]
+    const REQUIRED_COLUMNS = ["equipo", "nombre", "apellido", "edad", "posicion", "dorsal"]
 
 
 
@@ -122,24 +122,23 @@ export default function FileUploadArea({ campeonato, categoria }) {
 
         // Ordena por la columna 'nombre' 
         const sortedData = [...excelData].sort((a, b) => {
-            if (a.nombre < b.nombre) return -1;
-            if (a.nombre > b.nombre) return 1;
+            if (Number(a.equipo) < Number(b.equipo)) return -1;
+            if (Number(a.equipo) > Number(b.equipo)) return 1;
             return 0;
         })
             .map(equipo => ({
                 ...equipo,
-                idCampeonato: campeonato,
                 idCategoria: categoria
             }));
 
 
         try {
-            const res = await fetch("/api/equipo", {
+            const res = await fetch("/api/jugador", {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ equipos: sortedData }) // Envía los datos ordenados bajo la clave 'equipos'
+                body: JSON.stringify({ jugadores: sortedData })
             });
 
             if (!res.ok) {
@@ -149,7 +148,7 @@ export default function FileUploadArea({ campeonato, categoria }) {
                 setError("")
                 setFile(null)
                 setExcelData(null)
-                setSuccess("Equipos cargados con éxito")
+                setSuccess("Jugadores cargados con éxito")
                 setTimeout(() => router.push(`/administrador/campeonato/${campeonato}/categoria/${categoria}/equipos`), 2500)
             }
         } catch (err) {
@@ -185,7 +184,7 @@ export default function FileUploadArea({ campeonato, categoria }) {
                 <p className="mt-2 text-sm text-gray-600">
                     <span className="font-medium text-blue-600">Haz clic para cargar</span> o arrastra y suelta un archivo
                 </p>
-                <p className="text-xs text-gray-500 mt-1">CSV o Excel (máx. 5MB)</p>
+                <p className="text-xs text-gray-500 mt-1">Excel (máx. 5MB)</p>
                 <input
                     type="file"
                     className="hidden"
@@ -237,48 +236,58 @@ export default function FileUploadArea({ campeonato, categoria }) {
 
         {/* Vista previa */}
         {excelData && (
-            <div className="mt-6 bg-white shadow rounded-lg overflow-hidden">
-                <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
-                    <h2 className="text-lg font-semibold text-gray-800">Vista previa de equipos</h2>
-                    {/* <span className="text-sm text-gray-500">Mostrando 10 de 24 registros</span> */}
+            <>
+                <div className="mt-6 bg-white shadow rounded-lg overflow-auto">
+                    <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+                        <h2 className="text-lg font-semibold text-gray-800">Vista previa de jugadores</h2>
+                        {/* <span className="text-sm text-gray-500">Mostrando 10 de 24 registros</span> */}
+                    </div>
                 </div>
-
-                <div className="overflow-x-auto">
-                    <table className="min-w-full divide-y divide-gray-200">
-                        <thead className="bg-gray-50">
-                            <tr>
-                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
-                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Abreviatura</th>
-                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Teléfono</th>
-                                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estado</th>
-                            </tr>
-                        </thead>
-                        <tbody className="bg-white divide-y divide-gray-200">
-                            {excelData.slice(0, 10).map((row, index) => (
-                                <tr key={index} className="hover:bg-gray-50">
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        <div className="font-medium text-gray-900">{row.nombre}</div>
-                                    </td>
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        <div className="text-gray-900">{row.abreviatura}</div>
-                                    </td>
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        <div className="text-gray-900">{row.email}</div>
-                                    </td>
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        <div className="text-gray-900">{row.telefono}</div>
-                                    </td>
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                            Válido
-                                        </span>
-                                    </td>
+                    <div className="overflow-x-auto h-100">
+                        <table className="min-w-full divide-y divide-gray-200">
+                            <thead className="bg-gray-50">
+                                <tr>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Equipo</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Apellido</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Edad</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Posición</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Dorsal</th>
+                                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estado</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
+                            </thead>
+                            <tbody className="bg-white divide-y divide-gray-200">
+                                {excelData.slice(0, 40).map((row, index) => (
+                                    <tr key={index} className="hover:bg-gray-50">
+                                        <td className="px-6 py-4 whitespace-nowrap">
+                                            <div className="font-medium text-gray-900">{row.equipo}</div>
+                                        </td>
+                                        <td className="px-6 py-4 whitespace-nowrap">
+                                            <div className="text-gray-900">{row.nombre}</div>
+                                        </td>
+                                        <td className="px-6 py-4 whitespace-nowrap">
+                                            <div className="text-gray-900">{row.apellido}</div>
+                                        </td>
+                                        <td className="px-6 py-4 whitespace-nowrap">
+                                            <div className="text-gray-900">{row.edad}</div>
+                                        </td>
+                                        <td className="px-6 py-4 whitespace-nowrap">
+                                            <div className="text-gray-900">{row.posicion}</div>
+                                        </td>
+                                        <td className="px-6 py-4 whitespace-nowrap">
+                                            <div className="text-gray-900">{row.dorsal}</div>
+                                        </td>
+                                        <td className="px-6 py-4 whitespace-nowrap">
+                                            <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                Válido
+                                            </span>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+               
                 <div className="bg-gray-50 px-6 py-4 border-t border-gray-100 flex justify-end space-x-3">
                     <button
                         onClick={removeFile}
@@ -288,10 +297,10 @@ export default function FileUploadArea({ campeonato, categoria }) {
                     <button
                         onClick={handleSubmit}
                         className="px-4 py-2 cursor-pointer bg-blue-600 text-white rounded-md hover:bg-blue-700">
-                        Cargar Equipos
+                        Cargar Jugadores
                     </button>
                 </div>
-            </div>
+            </>
         )}
 
     </>
