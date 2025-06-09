@@ -33,6 +33,11 @@ export type Equipo = $Result.DefaultSelection<Prisma.$EquipoPayload>
  * 
  */
 export type Jugador = $Result.DefaultSelection<Prisma.$JugadorPayload>
+/**
+ * Model Calendario
+ * 
+ */
+export type Calendario = $Result.DefaultSelection<Prisma.$CalendarioPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -198,6 +203,16 @@ export class PrismaClient<
     * ```
     */
   get jugador(): Prisma.JugadorDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.calendario`: Exposes CRUD operations for the **Calendario** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Calendarios
+    * const calendarios = await prisma.calendario.findMany()
+    * ```
+    */
+  get calendario(): Prisma.CalendarioDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -641,7 +656,8 @@ export namespace Prisma {
     Campeonato: 'Campeonato',
     Categoria: 'Categoria',
     Equipo: 'Equipo',
-    Jugador: 'Jugador'
+    Jugador: 'Jugador',
+    Calendario: 'Calendario'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -660,7 +676,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "campeonato" | "categoria" | "equipo" | "jugador"
+      modelProps: "campeonato" | "categoria" | "equipo" | "jugador" | "calendario"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -960,6 +976,80 @@ export namespace Prisma {
           }
         }
       }
+      Calendario: {
+        payload: Prisma.$CalendarioPayload<ExtArgs>
+        fields: Prisma.CalendarioFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CalendarioFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CalendarioFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload>
+          }
+          findFirst: {
+            args: Prisma.CalendarioFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CalendarioFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload>
+          }
+          findMany: {
+            args: Prisma.CalendarioFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload>[]
+          }
+          create: {
+            args: Prisma.CalendarioCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload>
+          }
+          createMany: {
+            args: Prisma.CalendarioCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CalendarioCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload>[]
+          }
+          delete: {
+            args: Prisma.CalendarioDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload>
+          }
+          update: {
+            args: Prisma.CalendarioUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload>
+          }
+          deleteMany: {
+            args: Prisma.CalendarioDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CalendarioUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CalendarioUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload>[]
+          }
+          upsert: {
+            args: Prisma.CalendarioUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CalendarioPayload>
+          }
+          aggregate: {
+            args: Prisma.CalendarioAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCalendario>
+          }
+          groupBy: {
+            args: Prisma.CalendarioGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CalendarioGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CalendarioCountArgs<ExtArgs>
+            result: $Utils.Optional<CalendarioCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1048,6 +1138,7 @@ export namespace Prisma {
     categoria?: CategoriaOmit
     equipo?: EquipoOmit
     jugador?: JugadorOmit
+    calendario?: CalendarioOmit
   }
 
   /* Types for Logging */
@@ -5796,6 +5887,1092 @@ export namespace Prisma {
 
 
   /**
+   * Model Calendario
+   */
+
+  export type AggregateCalendario = {
+    _count: CalendarioCountAggregateOutputType | null
+    _avg: CalendarioAvgAggregateOutputType | null
+    _sum: CalendarioSumAggregateOutputType | null
+    _min: CalendarioMinAggregateOutputType | null
+    _max: CalendarioMaxAggregateOutputType | null
+  }
+
+  export type CalendarioAvgAggregateOutputType = {
+    id: number | null
+    idCampeonato: number | null
+    idCategoria: number | null
+    jornada: number | null
+    local: number | null
+    visitante: number | null
+  }
+
+  export type CalendarioSumAggregateOutputType = {
+    id: number | null
+    idCampeonato: number | null
+    idCategoria: number | null
+    jornada: number | null
+    local: number | null
+    visitante: number | null
+  }
+
+  export type CalendarioMinAggregateOutputType = {
+    id: number | null
+    idCampeonato: number | null
+    idCategoria: number | null
+    jornada: number | null
+    fecha: Date | null
+    local: number | null
+    visitante: number | null
+    estado: string | null
+  }
+
+  export type CalendarioMaxAggregateOutputType = {
+    id: number | null
+    idCampeonato: number | null
+    idCategoria: number | null
+    jornada: number | null
+    fecha: Date | null
+    local: number | null
+    visitante: number | null
+    estado: string | null
+  }
+
+  export type CalendarioCountAggregateOutputType = {
+    id: number
+    idCampeonato: number
+    idCategoria: number
+    jornada: number
+    fecha: number
+    local: number
+    visitante: number
+    estado: number
+    _all: number
+  }
+
+
+  export type CalendarioAvgAggregateInputType = {
+    id?: true
+    idCampeonato?: true
+    idCategoria?: true
+    jornada?: true
+    local?: true
+    visitante?: true
+  }
+
+  export type CalendarioSumAggregateInputType = {
+    id?: true
+    idCampeonato?: true
+    idCategoria?: true
+    jornada?: true
+    local?: true
+    visitante?: true
+  }
+
+  export type CalendarioMinAggregateInputType = {
+    id?: true
+    idCampeonato?: true
+    idCategoria?: true
+    jornada?: true
+    fecha?: true
+    local?: true
+    visitante?: true
+    estado?: true
+  }
+
+  export type CalendarioMaxAggregateInputType = {
+    id?: true
+    idCampeonato?: true
+    idCategoria?: true
+    jornada?: true
+    fecha?: true
+    local?: true
+    visitante?: true
+    estado?: true
+  }
+
+  export type CalendarioCountAggregateInputType = {
+    id?: true
+    idCampeonato?: true
+    idCategoria?: true
+    jornada?: true
+    fecha?: true
+    local?: true
+    visitante?: true
+    estado?: true
+    _all?: true
+  }
+
+  export type CalendarioAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Calendario to aggregate.
+     */
+    where?: CalendarioWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Calendarios to fetch.
+     */
+    orderBy?: CalendarioOrderByWithRelationInput | CalendarioOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CalendarioWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Calendarios from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Calendarios.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Calendarios
+    **/
+    _count?: true | CalendarioCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CalendarioAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CalendarioSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CalendarioMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CalendarioMaxAggregateInputType
+  }
+
+  export type GetCalendarioAggregateType<T extends CalendarioAggregateArgs> = {
+        [P in keyof T & keyof AggregateCalendario]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCalendario[P]>
+      : GetScalarType<T[P], AggregateCalendario[P]>
+  }
+
+
+
+
+  export type CalendarioGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CalendarioWhereInput
+    orderBy?: CalendarioOrderByWithAggregationInput | CalendarioOrderByWithAggregationInput[]
+    by: CalendarioScalarFieldEnum[] | CalendarioScalarFieldEnum
+    having?: CalendarioScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CalendarioCountAggregateInputType | true
+    _avg?: CalendarioAvgAggregateInputType
+    _sum?: CalendarioSumAggregateInputType
+    _min?: CalendarioMinAggregateInputType
+    _max?: CalendarioMaxAggregateInputType
+  }
+
+  export type CalendarioGroupByOutputType = {
+    id: number
+    idCampeonato: number
+    idCategoria: number
+    jornada: number
+    fecha: Date | null
+    local: number
+    visitante: number
+    estado: string
+    _count: CalendarioCountAggregateOutputType | null
+    _avg: CalendarioAvgAggregateOutputType | null
+    _sum: CalendarioSumAggregateOutputType | null
+    _min: CalendarioMinAggregateOutputType | null
+    _max: CalendarioMaxAggregateOutputType | null
+  }
+
+  type GetCalendarioGroupByPayload<T extends CalendarioGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CalendarioGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CalendarioGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CalendarioGroupByOutputType[P]>
+            : GetScalarType<T[P], CalendarioGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CalendarioSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    idCampeonato?: boolean
+    idCategoria?: boolean
+    jornada?: boolean
+    fecha?: boolean
+    local?: boolean
+    visitante?: boolean
+    estado?: boolean
+  }, ExtArgs["result"]["calendario"]>
+
+  export type CalendarioSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    idCampeonato?: boolean
+    idCategoria?: boolean
+    jornada?: boolean
+    fecha?: boolean
+    local?: boolean
+    visitante?: boolean
+    estado?: boolean
+  }, ExtArgs["result"]["calendario"]>
+
+  export type CalendarioSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    idCampeonato?: boolean
+    idCategoria?: boolean
+    jornada?: boolean
+    fecha?: boolean
+    local?: boolean
+    visitante?: boolean
+    estado?: boolean
+  }, ExtArgs["result"]["calendario"]>
+
+  export type CalendarioSelectScalar = {
+    id?: boolean
+    idCampeonato?: boolean
+    idCategoria?: boolean
+    jornada?: boolean
+    fecha?: boolean
+    local?: boolean
+    visitante?: boolean
+    estado?: boolean
+  }
+
+  export type CalendarioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "idCampeonato" | "idCategoria" | "jornada" | "fecha" | "local" | "visitante" | "estado", ExtArgs["result"]["calendario"]>
+
+  export type $CalendarioPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Calendario"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      idCampeonato: number
+      idCategoria: number
+      jornada: number
+      fecha: Date | null
+      local: number
+      visitante: number
+      estado: string
+    }, ExtArgs["result"]["calendario"]>
+    composites: {}
+  }
+
+  type CalendarioGetPayload<S extends boolean | null | undefined | CalendarioDefaultArgs> = $Result.GetResult<Prisma.$CalendarioPayload, S>
+
+  type CalendarioCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CalendarioFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CalendarioCountAggregateInputType | true
+    }
+
+  export interface CalendarioDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Calendario'], meta: { name: 'Calendario' } }
+    /**
+     * Find zero or one Calendario that matches the filter.
+     * @param {CalendarioFindUniqueArgs} args - Arguments to find a Calendario
+     * @example
+     * // Get one Calendario
+     * const calendario = await prisma.calendario.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CalendarioFindUniqueArgs>(args: SelectSubset<T, CalendarioFindUniqueArgs<ExtArgs>>): Prisma__CalendarioClient<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Calendario that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CalendarioFindUniqueOrThrowArgs} args - Arguments to find a Calendario
+     * @example
+     * // Get one Calendario
+     * const calendario = await prisma.calendario.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CalendarioFindUniqueOrThrowArgs>(args: SelectSubset<T, CalendarioFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CalendarioClient<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Calendario that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalendarioFindFirstArgs} args - Arguments to find a Calendario
+     * @example
+     * // Get one Calendario
+     * const calendario = await prisma.calendario.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CalendarioFindFirstArgs>(args?: SelectSubset<T, CalendarioFindFirstArgs<ExtArgs>>): Prisma__CalendarioClient<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Calendario that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalendarioFindFirstOrThrowArgs} args - Arguments to find a Calendario
+     * @example
+     * // Get one Calendario
+     * const calendario = await prisma.calendario.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CalendarioFindFirstOrThrowArgs>(args?: SelectSubset<T, CalendarioFindFirstOrThrowArgs<ExtArgs>>): Prisma__CalendarioClient<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Calendarios that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalendarioFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Calendarios
+     * const calendarios = await prisma.calendario.findMany()
+     * 
+     * // Get first 10 Calendarios
+     * const calendarios = await prisma.calendario.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const calendarioWithIdOnly = await prisma.calendario.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CalendarioFindManyArgs>(args?: SelectSubset<T, CalendarioFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Calendario.
+     * @param {CalendarioCreateArgs} args - Arguments to create a Calendario.
+     * @example
+     * // Create one Calendario
+     * const Calendario = await prisma.calendario.create({
+     *   data: {
+     *     // ... data to create a Calendario
+     *   }
+     * })
+     * 
+     */
+    create<T extends CalendarioCreateArgs>(args: SelectSubset<T, CalendarioCreateArgs<ExtArgs>>): Prisma__CalendarioClient<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Calendarios.
+     * @param {CalendarioCreateManyArgs} args - Arguments to create many Calendarios.
+     * @example
+     * // Create many Calendarios
+     * const calendario = await prisma.calendario.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CalendarioCreateManyArgs>(args?: SelectSubset<T, CalendarioCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Calendarios and returns the data saved in the database.
+     * @param {CalendarioCreateManyAndReturnArgs} args - Arguments to create many Calendarios.
+     * @example
+     * // Create many Calendarios
+     * const calendario = await prisma.calendario.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Calendarios and only return the `id`
+     * const calendarioWithIdOnly = await prisma.calendario.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CalendarioCreateManyAndReturnArgs>(args?: SelectSubset<T, CalendarioCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Calendario.
+     * @param {CalendarioDeleteArgs} args - Arguments to delete one Calendario.
+     * @example
+     * // Delete one Calendario
+     * const Calendario = await prisma.calendario.delete({
+     *   where: {
+     *     // ... filter to delete one Calendario
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CalendarioDeleteArgs>(args: SelectSubset<T, CalendarioDeleteArgs<ExtArgs>>): Prisma__CalendarioClient<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Calendario.
+     * @param {CalendarioUpdateArgs} args - Arguments to update one Calendario.
+     * @example
+     * // Update one Calendario
+     * const calendario = await prisma.calendario.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CalendarioUpdateArgs>(args: SelectSubset<T, CalendarioUpdateArgs<ExtArgs>>): Prisma__CalendarioClient<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Calendarios.
+     * @param {CalendarioDeleteManyArgs} args - Arguments to filter Calendarios to delete.
+     * @example
+     * // Delete a few Calendarios
+     * const { count } = await prisma.calendario.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CalendarioDeleteManyArgs>(args?: SelectSubset<T, CalendarioDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Calendarios.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalendarioUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Calendarios
+     * const calendario = await prisma.calendario.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CalendarioUpdateManyArgs>(args: SelectSubset<T, CalendarioUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Calendarios and returns the data updated in the database.
+     * @param {CalendarioUpdateManyAndReturnArgs} args - Arguments to update many Calendarios.
+     * @example
+     * // Update many Calendarios
+     * const calendario = await prisma.calendario.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Calendarios and only return the `id`
+     * const calendarioWithIdOnly = await prisma.calendario.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CalendarioUpdateManyAndReturnArgs>(args: SelectSubset<T, CalendarioUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Calendario.
+     * @param {CalendarioUpsertArgs} args - Arguments to update or create a Calendario.
+     * @example
+     * // Update or create a Calendario
+     * const calendario = await prisma.calendario.upsert({
+     *   create: {
+     *     // ... data to create a Calendario
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Calendario we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CalendarioUpsertArgs>(args: SelectSubset<T, CalendarioUpsertArgs<ExtArgs>>): Prisma__CalendarioClient<$Result.GetResult<Prisma.$CalendarioPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Calendarios.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalendarioCountArgs} args - Arguments to filter Calendarios to count.
+     * @example
+     * // Count the number of Calendarios
+     * const count = await prisma.calendario.count({
+     *   where: {
+     *     // ... the filter for the Calendarios we want to count
+     *   }
+     * })
+    **/
+    count<T extends CalendarioCountArgs>(
+      args?: Subset<T, CalendarioCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CalendarioCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Calendario.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalendarioAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CalendarioAggregateArgs>(args: Subset<T, CalendarioAggregateArgs>): Prisma.PrismaPromise<GetCalendarioAggregateType<T>>
+
+    /**
+     * Group by Calendario.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CalendarioGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CalendarioGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CalendarioGroupByArgs['orderBy'] }
+        : { orderBy?: CalendarioGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CalendarioGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCalendarioGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Calendario model
+   */
+  readonly fields: CalendarioFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Calendario.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CalendarioClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Calendario model
+   */
+  interface CalendarioFieldRefs {
+    readonly id: FieldRef<"Calendario", 'Int'>
+    readonly idCampeonato: FieldRef<"Calendario", 'Int'>
+    readonly idCategoria: FieldRef<"Calendario", 'Int'>
+    readonly jornada: FieldRef<"Calendario", 'Int'>
+    readonly fecha: FieldRef<"Calendario", 'DateTime'>
+    readonly local: FieldRef<"Calendario", 'Int'>
+    readonly visitante: FieldRef<"Calendario", 'Int'>
+    readonly estado: FieldRef<"Calendario", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Calendario findUnique
+   */
+  export type CalendarioFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Calendario
+     */
+    select?: CalendarioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Calendario
+     */
+    omit?: CalendarioOmit<ExtArgs> | null
+    /**
+     * Filter, which Calendario to fetch.
+     */
+    where: CalendarioWhereUniqueInput
+  }
+
+  /**
+   * Calendario findUniqueOrThrow
+   */
+  export type CalendarioFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Calendario
+     */
+    select?: CalendarioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Calendario
+     */
+    omit?: CalendarioOmit<ExtArgs> | null
+    /**
+     * Filter, which Calendario to fetch.
+     */
+    where: CalendarioWhereUniqueInput
+  }
+
+  /**
+   * Calendario findFirst
+   */
+  export type CalendarioFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Calendario
+     */
+    select?: CalendarioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Calendario
+     */
+    omit?: CalendarioOmit<ExtArgs> | null
+    /**
+     * Filter, which Calendario to fetch.
+     */
+    where?: CalendarioWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Calendarios to fetch.
+     */
+    orderBy?: CalendarioOrderByWithRelationInput | CalendarioOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Calendarios.
+     */
+    cursor?: CalendarioWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Calendarios from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Calendarios.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Calendarios.
+     */
+    distinct?: CalendarioScalarFieldEnum | CalendarioScalarFieldEnum[]
+  }
+
+  /**
+   * Calendario findFirstOrThrow
+   */
+  export type CalendarioFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Calendario
+     */
+    select?: CalendarioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Calendario
+     */
+    omit?: CalendarioOmit<ExtArgs> | null
+    /**
+     * Filter, which Calendario to fetch.
+     */
+    where?: CalendarioWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Calendarios to fetch.
+     */
+    orderBy?: CalendarioOrderByWithRelationInput | CalendarioOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Calendarios.
+     */
+    cursor?: CalendarioWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Calendarios from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Calendarios.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Calendarios.
+     */
+    distinct?: CalendarioScalarFieldEnum | CalendarioScalarFieldEnum[]
+  }
+
+  /**
+   * Calendario findMany
+   */
+  export type CalendarioFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Calendario
+     */
+    select?: CalendarioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Calendario
+     */
+    omit?: CalendarioOmit<ExtArgs> | null
+    /**
+     * Filter, which Calendarios to fetch.
+     */
+    where?: CalendarioWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Calendarios to fetch.
+     */
+    orderBy?: CalendarioOrderByWithRelationInput | CalendarioOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Calendarios.
+     */
+    cursor?: CalendarioWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Calendarios from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Calendarios.
+     */
+    skip?: number
+    distinct?: CalendarioScalarFieldEnum | CalendarioScalarFieldEnum[]
+  }
+
+  /**
+   * Calendario create
+   */
+  export type CalendarioCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Calendario
+     */
+    select?: CalendarioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Calendario
+     */
+    omit?: CalendarioOmit<ExtArgs> | null
+    /**
+     * The data needed to create a Calendario.
+     */
+    data: XOR<CalendarioCreateInput, CalendarioUncheckedCreateInput>
+  }
+
+  /**
+   * Calendario createMany
+   */
+  export type CalendarioCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Calendarios.
+     */
+    data: CalendarioCreateManyInput | CalendarioCreateManyInput[]
+  }
+
+  /**
+   * Calendario createManyAndReturn
+   */
+  export type CalendarioCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Calendario
+     */
+    select?: CalendarioSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Calendario
+     */
+    omit?: CalendarioOmit<ExtArgs> | null
+    /**
+     * The data used to create many Calendarios.
+     */
+    data: CalendarioCreateManyInput | CalendarioCreateManyInput[]
+  }
+
+  /**
+   * Calendario update
+   */
+  export type CalendarioUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Calendario
+     */
+    select?: CalendarioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Calendario
+     */
+    omit?: CalendarioOmit<ExtArgs> | null
+    /**
+     * The data needed to update a Calendario.
+     */
+    data: XOR<CalendarioUpdateInput, CalendarioUncheckedUpdateInput>
+    /**
+     * Choose, which Calendario to update.
+     */
+    where: CalendarioWhereUniqueInput
+  }
+
+  /**
+   * Calendario updateMany
+   */
+  export type CalendarioUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Calendarios.
+     */
+    data: XOR<CalendarioUpdateManyMutationInput, CalendarioUncheckedUpdateManyInput>
+    /**
+     * Filter which Calendarios to update
+     */
+    where?: CalendarioWhereInput
+    /**
+     * Limit how many Calendarios to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Calendario updateManyAndReturn
+   */
+  export type CalendarioUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Calendario
+     */
+    select?: CalendarioSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Calendario
+     */
+    omit?: CalendarioOmit<ExtArgs> | null
+    /**
+     * The data used to update Calendarios.
+     */
+    data: XOR<CalendarioUpdateManyMutationInput, CalendarioUncheckedUpdateManyInput>
+    /**
+     * Filter which Calendarios to update
+     */
+    where?: CalendarioWhereInput
+    /**
+     * Limit how many Calendarios to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Calendario upsert
+   */
+  export type CalendarioUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Calendario
+     */
+    select?: CalendarioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Calendario
+     */
+    omit?: CalendarioOmit<ExtArgs> | null
+    /**
+     * The filter to search for the Calendario to update in case it exists.
+     */
+    where: CalendarioWhereUniqueInput
+    /**
+     * In case the Calendario found by the `where` argument doesn't exist, create a new Calendario with this data.
+     */
+    create: XOR<CalendarioCreateInput, CalendarioUncheckedCreateInput>
+    /**
+     * In case the Calendario was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CalendarioUpdateInput, CalendarioUncheckedUpdateInput>
+  }
+
+  /**
+   * Calendario delete
+   */
+  export type CalendarioDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Calendario
+     */
+    select?: CalendarioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Calendario
+     */
+    omit?: CalendarioOmit<ExtArgs> | null
+    /**
+     * Filter which Calendario to delete.
+     */
+    where: CalendarioWhereUniqueInput
+  }
+
+  /**
+   * Calendario deleteMany
+   */
+  export type CalendarioDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Calendarios to delete
+     */
+    where?: CalendarioWhereInput
+    /**
+     * Limit how many Calendarios to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Calendario without action
+   */
+  export type CalendarioDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Calendario
+     */
+    select?: CalendarioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Calendario
+     */
+    omit?: CalendarioOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -5854,12 +7031,34 @@ export namespace Prisma {
   export type JugadorScalarFieldEnum = (typeof JugadorScalarFieldEnum)[keyof typeof JugadorScalarFieldEnum]
 
 
+  export const CalendarioScalarFieldEnum: {
+    id: 'id',
+    idCampeonato: 'idCampeonato',
+    idCategoria: 'idCategoria',
+    jornada: 'jornada',
+    fecha: 'fecha',
+    local: 'local',
+    visitante: 'visitante',
+    estado: 'estado'
+  };
+
+  export type CalendarioScalarFieldEnum = (typeof CalendarioScalarFieldEnum)[keyof typeof CalendarioScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -6158,6 +7357,75 @@ export namespace Prisma {
     dorsal?: IntWithAggregatesFilter<"Jugador"> | number
   }
 
+  export type CalendarioWhereInput = {
+    AND?: CalendarioWhereInput | CalendarioWhereInput[]
+    OR?: CalendarioWhereInput[]
+    NOT?: CalendarioWhereInput | CalendarioWhereInput[]
+    id?: IntFilter<"Calendario"> | number
+    idCampeonato?: IntFilter<"Calendario"> | number
+    idCategoria?: IntFilter<"Calendario"> | number
+    jornada?: IntFilter<"Calendario"> | number
+    fecha?: DateTimeNullableFilter<"Calendario"> | Date | string | null
+    local?: IntFilter<"Calendario"> | number
+    visitante?: IntFilter<"Calendario"> | number
+    estado?: StringFilter<"Calendario"> | string
+  }
+
+  export type CalendarioOrderByWithRelationInput = {
+    id?: SortOrder
+    idCampeonato?: SortOrder
+    idCategoria?: SortOrder
+    jornada?: SortOrder
+    fecha?: SortOrderInput | SortOrder
+    local?: SortOrder
+    visitante?: SortOrder
+    estado?: SortOrder
+  }
+
+  export type CalendarioWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: CalendarioWhereInput | CalendarioWhereInput[]
+    OR?: CalendarioWhereInput[]
+    NOT?: CalendarioWhereInput | CalendarioWhereInput[]
+    idCampeonato?: IntFilter<"Calendario"> | number
+    idCategoria?: IntFilter<"Calendario"> | number
+    jornada?: IntFilter<"Calendario"> | number
+    fecha?: DateTimeNullableFilter<"Calendario"> | Date | string | null
+    local?: IntFilter<"Calendario"> | number
+    visitante?: IntFilter<"Calendario"> | number
+    estado?: StringFilter<"Calendario"> | string
+  }, "id">
+
+  export type CalendarioOrderByWithAggregationInput = {
+    id?: SortOrder
+    idCampeonato?: SortOrder
+    idCategoria?: SortOrder
+    jornada?: SortOrder
+    fecha?: SortOrderInput | SortOrder
+    local?: SortOrder
+    visitante?: SortOrder
+    estado?: SortOrder
+    _count?: CalendarioCountOrderByAggregateInput
+    _avg?: CalendarioAvgOrderByAggregateInput
+    _max?: CalendarioMaxOrderByAggregateInput
+    _min?: CalendarioMinOrderByAggregateInput
+    _sum?: CalendarioSumOrderByAggregateInput
+  }
+
+  export type CalendarioScalarWhereWithAggregatesInput = {
+    AND?: CalendarioScalarWhereWithAggregatesInput | CalendarioScalarWhereWithAggregatesInput[]
+    OR?: CalendarioScalarWhereWithAggregatesInput[]
+    NOT?: CalendarioScalarWhereWithAggregatesInput | CalendarioScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Calendario"> | number
+    idCampeonato?: IntWithAggregatesFilter<"Calendario"> | number
+    idCategoria?: IntWithAggregatesFilter<"Calendario"> | number
+    jornada?: IntWithAggregatesFilter<"Calendario"> | number
+    fecha?: DateTimeNullableWithAggregatesFilter<"Calendario"> | Date | string | null
+    local?: IntWithAggregatesFilter<"Calendario"> | number
+    visitante?: IntWithAggregatesFilter<"Calendario"> | number
+    estado?: StringWithAggregatesFilter<"Calendario"> | string
+  }
+
   export type CampeonatoCreateInput = {
     nombre: string
     creacion?: Date | string
@@ -6408,6 +7676,80 @@ export namespace Prisma {
     edad?: IntFieldUpdateOperationsInput | number
     posicion?: StringFieldUpdateOperationsInput | string
     dorsal?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type CalendarioCreateInput = {
+    idCampeonato: number
+    idCategoria: number
+    jornada: number
+    fecha?: Date | string | null
+    local: number
+    visitante: number
+    estado?: string
+  }
+
+  export type CalendarioUncheckedCreateInput = {
+    id?: number
+    idCampeonato: number
+    idCategoria: number
+    jornada: number
+    fecha?: Date | string | null
+    local: number
+    visitante: number
+    estado?: string
+  }
+
+  export type CalendarioUpdateInput = {
+    idCampeonato?: IntFieldUpdateOperationsInput | number
+    idCategoria?: IntFieldUpdateOperationsInput | number
+    jornada?: IntFieldUpdateOperationsInput | number
+    fecha?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    local?: IntFieldUpdateOperationsInput | number
+    visitante?: IntFieldUpdateOperationsInput | number
+    estado?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CalendarioUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    idCampeonato?: IntFieldUpdateOperationsInput | number
+    idCategoria?: IntFieldUpdateOperationsInput | number
+    jornada?: IntFieldUpdateOperationsInput | number
+    fecha?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    local?: IntFieldUpdateOperationsInput | number
+    visitante?: IntFieldUpdateOperationsInput | number
+    estado?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CalendarioCreateManyInput = {
+    id?: number
+    idCampeonato: number
+    idCategoria: number
+    jornada: number
+    fecha?: Date | string | null
+    local: number
+    visitante: number
+    estado?: string
+  }
+
+  export type CalendarioUpdateManyMutationInput = {
+    idCampeonato?: IntFieldUpdateOperationsInput | number
+    idCategoria?: IntFieldUpdateOperationsInput | number
+    jornada?: IntFieldUpdateOperationsInput | number
+    fecha?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    local?: IntFieldUpdateOperationsInput | number
+    visitante?: IntFieldUpdateOperationsInput | number
+    estado?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CalendarioUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    idCampeonato?: IntFieldUpdateOperationsInput | number
+    idCategoria?: IntFieldUpdateOperationsInput | number
+    jornada?: IntFieldUpdateOperationsInput | number
+    fecha?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    local?: IntFieldUpdateOperationsInput | number
+    visitante?: IntFieldUpdateOperationsInput | number
+    estado?: StringFieldUpdateOperationsInput | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -6694,6 +8036,87 @@ export namespace Prisma {
     dorsal?: SortOrder
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type CalendarioCountOrderByAggregateInput = {
+    id?: SortOrder
+    idCampeonato?: SortOrder
+    idCategoria?: SortOrder
+    jornada?: SortOrder
+    fecha?: SortOrder
+    local?: SortOrder
+    visitante?: SortOrder
+    estado?: SortOrder
+  }
+
+  export type CalendarioAvgOrderByAggregateInput = {
+    id?: SortOrder
+    idCampeonato?: SortOrder
+    idCategoria?: SortOrder
+    jornada?: SortOrder
+    local?: SortOrder
+    visitante?: SortOrder
+  }
+
+  export type CalendarioMaxOrderByAggregateInput = {
+    id?: SortOrder
+    idCampeonato?: SortOrder
+    idCategoria?: SortOrder
+    jornada?: SortOrder
+    fecha?: SortOrder
+    local?: SortOrder
+    visitante?: SortOrder
+    estado?: SortOrder
+  }
+
+  export type CalendarioMinOrderByAggregateInput = {
+    id?: SortOrder
+    idCampeonato?: SortOrder
+    idCategoria?: SortOrder
+    jornada?: SortOrder
+    fecha?: SortOrder
+    local?: SortOrder
+    visitante?: SortOrder
+    estado?: SortOrder
+  }
+
+  export type CalendarioSumOrderByAggregateInput = {
+    id?: SortOrder
+    idCampeonato?: SortOrder
+    idCategoria?: SortOrder
+    jornada?: SortOrder
+    local?: SortOrder
+    visitante?: SortOrder
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
   export type CategoriaCreateNestedManyWithoutCampeonatoInput = {
     create?: XOR<CategoriaCreateWithoutCampeonatoInput, CategoriaUncheckedCreateWithoutCampeonatoInput> | CategoriaCreateWithoutCampeonatoInput[] | CategoriaUncheckedCreateWithoutCampeonatoInput[]
     connectOrCreate?: CategoriaCreateOrConnectWithoutCampeonatoInput | CategoriaCreateOrConnectWithoutCampeonatoInput[]
@@ -6934,6 +8357,10 @@ export namespace Prisma {
     update?: XOR<XOR<EquipoUpdateToOneWithWhereWithoutJugadoresInput, EquipoUpdateWithoutJugadoresInput>, EquipoUncheckedUpdateWithoutJugadoresInput>
   }
 
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -7026,6 +8453,42 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type CategoriaCreateWithoutCampeonatoInput = {

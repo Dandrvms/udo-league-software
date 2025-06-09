@@ -12,16 +12,56 @@ datasource db {
 }
 
 model Campeonato {
-  id         Int      @id @default(autoincrement())
+  id         Int         @id @default(autoincrement())
   nombre     String
-  categorias Int
-  creacion   DateTime @default(now())
+  categorias Categoria[]
+  equipos    Equipo[]
+  creacion   DateTime    @default(now())
 }
 
 model Categoria {
-  id           Int      @id @default(autoincrement())
+  id           Int        @id @default(autoincrement())
   idCampeonato Int
+  campeonato   Campeonato @relation(references: [id], fields: [idCampeonato])
   nombre       String
-  equipos      Int
-  creacion     DateTime @default(now())
+  nEquipos     Int        @default(0)
+  equipos      Equipo[]
+  creacion     DateTime   @default(now())
+}
+
+model Equipo {
+  id           Int        @id @default(autoincrement())
+  nombre       String
+  abreviatura  String
+  idCategoria  Int
+  categoria    Categoria  @relation(references: [id], fields: [idCategoria])
+  idCampeonato Int
+  campeonato   Campeonato @relation(references: [id], fields: [idCampeonato])
+  email        String
+  telefono     String
+  url_logo     String
+  jugadores    Jugador[]
+}
+
+model Jugador {
+  id          Int    @id @default(autoincrement())
+  equipo      Int
+  equipoRef   Equipo @relation(references: [id], fields: [equipo])
+  idCategoria Int
+  nombre      String
+  apellido    String
+  edad        Int
+  posicion    String
+  dorsal      Int
+}
+
+model Calendario {
+  id           Int       @id @default(autoincrement())
+  idCampeonato Int
+  idCategoria  Int
+  jornada      Int
+  fecha        DateTime?
+  local        Int
+  visitante    Int
+  estado       String    @default("pendiente") // "pendiente", "jugado", "cancelado"
 }
