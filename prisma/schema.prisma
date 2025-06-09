@@ -40,4 +40,17 @@ model Equipo {
   email String
   telefono String
   url_logo String
+  jugadores Jugador[]
+}
+
+model Jugador {
+  id Int @id @default(autoincrement())
+  equipo Int
+  equipoRef Equipo @relation(references: [id], fields: [equipo])
+  idCategoria Int
+  nombre String
+  apellido String
+  edad Int
+  posicion String 
+  dorsal Int
 }

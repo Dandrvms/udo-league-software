@@ -3,11 +3,12 @@ import { prisma } from "@/libs/prisma"
 
 export async function POST(request){
     const body = await request.json()
-    
 
-    const res = await prisma.equipo.createMany({
-        data: body.equipos
+    const res = await prisma.jugador.createMany({
+        data: body.jugadores
     })
 
     return NextResponse.json(res)
 }
+
+// export async function GET()

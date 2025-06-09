@@ -28,6 +28,11 @@ export type Categoria = $Result.DefaultSelection<Prisma.$CategoriaPayload>
  * 
  */
 export type Equipo = $Result.DefaultSelection<Prisma.$EquipoPayload>
+/**
+ * Model Jugador
+ * 
+ */
+export type Jugador = $Result.DefaultSelection<Prisma.$JugadorPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -183,6 +188,16 @@ export class PrismaClient<
     * ```
     */
   get equipo(): Prisma.EquipoDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.jugador`: Exposes CRUD operations for the **Jugador** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Jugadors
+    * const jugadors = await prisma.jugador.findMany()
+    * ```
+    */
+  get jugador(): Prisma.JugadorDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -625,7 +640,8 @@ export namespace Prisma {
   export const ModelName: {
     Campeonato: 'Campeonato',
     Categoria: 'Categoria',
-    Equipo: 'Equipo'
+    Equipo: 'Equipo',
+    Jugador: 'Jugador'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -644,7 +660,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "campeonato" | "categoria" | "equipo"
+      modelProps: "campeonato" | "categoria" | "equipo" | "jugador"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -870,6 +886,80 @@ export namespace Prisma {
           }
         }
       }
+      Jugador: {
+        payload: Prisma.$JugadorPayload<ExtArgs>
+        fields: Prisma.JugadorFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.JugadorFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JugadorPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.JugadorFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JugadorPayload>
+          }
+          findFirst: {
+            args: Prisma.JugadorFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JugadorPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.JugadorFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JugadorPayload>
+          }
+          findMany: {
+            args: Prisma.JugadorFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JugadorPayload>[]
+          }
+          create: {
+            args: Prisma.JugadorCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JugadorPayload>
+          }
+          createMany: {
+            args: Prisma.JugadorCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.JugadorCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JugadorPayload>[]
+          }
+          delete: {
+            args: Prisma.JugadorDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JugadorPayload>
+          }
+          update: {
+            args: Prisma.JugadorUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JugadorPayload>
+          }
+          deleteMany: {
+            args: Prisma.JugadorDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.JugadorUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.JugadorUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JugadorPayload>[]
+          }
+          upsert: {
+            args: Prisma.JugadorUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JugadorPayload>
+          }
+          aggregate: {
+            args: Prisma.JugadorAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateJugador>
+          }
+          groupBy: {
+            args: Prisma.JugadorGroupByArgs<ExtArgs>
+            result: $Utils.Optional<JugadorGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.JugadorCountArgs<ExtArgs>
+            result: $Utils.Optional<JugadorCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -957,6 +1047,7 @@ export namespace Prisma {
     campeonato?: CampeonatoOmit
     categoria?: CategoriaOmit
     equipo?: EquipoOmit
+    jugador?: JugadorOmit
   }
 
   /* Types for Logging */
@@ -1114,6 +1205,37 @@ export namespace Prisma {
    */
   export type CategoriaCountOutputTypeCountEquiposArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: EquipoWhereInput
+  }
+
+
+  /**
+   * Count Type EquipoCountOutputType
+   */
+
+  export type EquipoCountOutputType = {
+    jugadores: number
+  }
+
+  export type EquipoCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    jugadores?: boolean | EquipoCountOutputTypeCountJugadoresArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * EquipoCountOutputType without action
+   */
+  export type EquipoCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EquipoCountOutputType
+     */
+    select?: EquipoCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * EquipoCountOutputType without action
+   */
+  export type EquipoCountOutputTypeCountJugadoresArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JugadorWhereInput
   }
 
 
@@ -3585,6 +3707,8 @@ export namespace Prisma {
     url_logo?: boolean
     categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
     campeonato?: boolean | CampeonatoDefaultArgs<ExtArgs>
+    jugadores?: boolean | Equipo$jugadoresArgs<ExtArgs>
+    _count?: boolean | EquipoCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["equipo"]>
 
   export type EquipoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3628,6 +3752,8 @@ export namespace Prisma {
   export type EquipoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
     campeonato?: boolean | CampeonatoDefaultArgs<ExtArgs>
+    jugadores?: boolean | Equipo$jugadoresArgs<ExtArgs>
+    _count?: boolean | EquipoCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type EquipoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     categoria?: boolean | CategoriaDefaultArgs<ExtArgs>
@@ -3643,6 +3769,7 @@ export namespace Prisma {
     objects: {
       categoria: Prisma.$CategoriaPayload<ExtArgs>
       campeonato: Prisma.$CampeonatoPayload<ExtArgs>
+      jugadores: Prisma.$JugadorPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4049,6 +4176,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     categoria<T extends CategoriaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CategoriaDefaultArgs<ExtArgs>>): Prisma__CategoriaClient<$Result.GetResult<Prisma.$CategoriaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     campeonato<T extends CampeonatoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CampeonatoDefaultArgs<ExtArgs>>): Prisma__CampeonatoClient<$Result.GetResult<Prisma.$CampeonatoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    jugadores<T extends Equipo$jugadoresArgs<ExtArgs> = {}>(args?: Subset<T, Equipo$jugadoresArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JugadorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4480,6 +4608,30 @@ export namespace Prisma {
   }
 
   /**
+   * Equipo.jugadores
+   */
+  export type Equipo$jugadoresArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jugador
+     */
+    select?: JugadorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jugador
+     */
+    omit?: JugadorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JugadorInclude<ExtArgs> | null
+    where?: JugadorWhereInput
+    orderBy?: JugadorOrderByWithRelationInput | JugadorOrderByWithRelationInput[]
+    cursor?: JugadorWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JugadorScalarFieldEnum | JugadorScalarFieldEnum[]
+  }
+
+  /**
    * Equipo without action
    */
   export type EquipoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4495,6 +4647,1151 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: EquipoInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Jugador
+   */
+
+  export type AggregateJugador = {
+    _count: JugadorCountAggregateOutputType | null
+    _avg: JugadorAvgAggregateOutputType | null
+    _sum: JugadorSumAggregateOutputType | null
+    _min: JugadorMinAggregateOutputType | null
+    _max: JugadorMaxAggregateOutputType | null
+  }
+
+  export type JugadorAvgAggregateOutputType = {
+    id: number | null
+    equipo: number | null
+    idCategoria: number | null
+    edad: number | null
+    dorsal: number | null
+  }
+
+  export type JugadorSumAggregateOutputType = {
+    id: number | null
+    equipo: number | null
+    idCategoria: number | null
+    edad: number | null
+    dorsal: number | null
+  }
+
+  export type JugadorMinAggregateOutputType = {
+    id: number | null
+    equipo: number | null
+    idCategoria: number | null
+    nombre: string | null
+    apellido: string | null
+    edad: number | null
+    posicion: string | null
+    dorsal: number | null
+  }
+
+  export type JugadorMaxAggregateOutputType = {
+    id: number | null
+    equipo: number | null
+    idCategoria: number | null
+    nombre: string | null
+    apellido: string | null
+    edad: number | null
+    posicion: string | null
+    dorsal: number | null
+  }
+
+  export type JugadorCountAggregateOutputType = {
+    id: number
+    equipo: number
+    idCategoria: number
+    nombre: number
+    apellido: number
+    edad: number
+    posicion: number
+    dorsal: number
+    _all: number
+  }
+
+
+  export type JugadorAvgAggregateInputType = {
+    id?: true
+    equipo?: true
+    idCategoria?: true
+    edad?: true
+    dorsal?: true
+  }
+
+  export type JugadorSumAggregateInputType = {
+    id?: true
+    equipo?: true
+    idCategoria?: true
+    edad?: true
+    dorsal?: true
+  }
+
+  export type JugadorMinAggregateInputType = {
+    id?: true
+    equipo?: true
+    idCategoria?: true
+    nombre?: true
+    apellido?: true
+    edad?: true
+    posicion?: true
+    dorsal?: true
+  }
+
+  export type JugadorMaxAggregateInputType = {
+    id?: true
+    equipo?: true
+    idCategoria?: true
+    nombre?: true
+    apellido?: true
+    edad?: true
+    posicion?: true
+    dorsal?: true
+  }
+
+  export type JugadorCountAggregateInputType = {
+    id?: true
+    equipo?: true
+    idCategoria?: true
+    nombre?: true
+    apellido?: true
+    edad?: true
+    posicion?: true
+    dorsal?: true
+    _all?: true
+  }
+
+  export type JugadorAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Jugador to aggregate.
+     */
+    where?: JugadorWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Jugadors to fetch.
+     */
+    orderBy?: JugadorOrderByWithRelationInput | JugadorOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: JugadorWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Jugadors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Jugadors.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Jugadors
+    **/
+    _count?: true | JugadorCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: JugadorAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: JugadorSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: JugadorMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: JugadorMaxAggregateInputType
+  }
+
+  export type GetJugadorAggregateType<T extends JugadorAggregateArgs> = {
+        [P in keyof T & keyof AggregateJugador]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateJugador[P]>
+      : GetScalarType<T[P], AggregateJugador[P]>
+  }
+
+
+
+
+  export type JugadorGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JugadorWhereInput
+    orderBy?: JugadorOrderByWithAggregationInput | JugadorOrderByWithAggregationInput[]
+    by: JugadorScalarFieldEnum[] | JugadorScalarFieldEnum
+    having?: JugadorScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: JugadorCountAggregateInputType | true
+    _avg?: JugadorAvgAggregateInputType
+    _sum?: JugadorSumAggregateInputType
+    _min?: JugadorMinAggregateInputType
+    _max?: JugadorMaxAggregateInputType
+  }
+
+  export type JugadorGroupByOutputType = {
+    id: number
+    equipo: number
+    idCategoria: number
+    nombre: string
+    apellido: string
+    edad: number
+    posicion: string
+    dorsal: number
+    _count: JugadorCountAggregateOutputType | null
+    _avg: JugadorAvgAggregateOutputType | null
+    _sum: JugadorSumAggregateOutputType | null
+    _min: JugadorMinAggregateOutputType | null
+    _max: JugadorMaxAggregateOutputType | null
+  }
+
+  type GetJugadorGroupByPayload<T extends JugadorGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<JugadorGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof JugadorGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], JugadorGroupByOutputType[P]>
+            : GetScalarType<T[P], JugadorGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type JugadorSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    equipo?: boolean
+    idCategoria?: boolean
+    nombre?: boolean
+    apellido?: boolean
+    edad?: boolean
+    posicion?: boolean
+    dorsal?: boolean
+    equipoRef?: boolean | EquipoDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["jugador"]>
+
+  export type JugadorSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    equipo?: boolean
+    idCategoria?: boolean
+    nombre?: boolean
+    apellido?: boolean
+    edad?: boolean
+    posicion?: boolean
+    dorsal?: boolean
+    equipoRef?: boolean | EquipoDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["jugador"]>
+
+  export type JugadorSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    equipo?: boolean
+    idCategoria?: boolean
+    nombre?: boolean
+    apellido?: boolean
+    edad?: boolean
+    posicion?: boolean
+    dorsal?: boolean
+    equipoRef?: boolean | EquipoDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["jugador"]>
+
+  export type JugadorSelectScalar = {
+    id?: boolean
+    equipo?: boolean
+    idCategoria?: boolean
+    nombre?: boolean
+    apellido?: boolean
+    edad?: boolean
+    posicion?: boolean
+    dorsal?: boolean
+  }
+
+  export type JugadorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "equipo" | "idCategoria" | "nombre" | "apellido" | "edad" | "posicion" | "dorsal", ExtArgs["result"]["jugador"]>
+  export type JugadorInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    equipoRef?: boolean | EquipoDefaultArgs<ExtArgs>
+  }
+  export type JugadorIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    equipoRef?: boolean | EquipoDefaultArgs<ExtArgs>
+  }
+  export type JugadorIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    equipoRef?: boolean | EquipoDefaultArgs<ExtArgs>
+  }
+
+  export type $JugadorPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Jugador"
+    objects: {
+      equipoRef: Prisma.$EquipoPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      equipo: number
+      idCategoria: number
+      nombre: string
+      apellido: string
+      edad: number
+      posicion: string
+      dorsal: number
+    }, ExtArgs["result"]["jugador"]>
+    composites: {}
+  }
+
+  type JugadorGetPayload<S extends boolean | null | undefined | JugadorDefaultArgs> = $Result.GetResult<Prisma.$JugadorPayload, S>
+
+  type JugadorCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<JugadorFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: JugadorCountAggregateInputType | true
+    }
+
+  export interface JugadorDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Jugador'], meta: { name: 'Jugador' } }
+    /**
+     * Find zero or one Jugador that matches the filter.
+     * @param {JugadorFindUniqueArgs} args - Arguments to find a Jugador
+     * @example
+     * // Get one Jugador
+     * const jugador = await prisma.jugador.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends JugadorFindUniqueArgs>(args: SelectSubset<T, JugadorFindUniqueArgs<ExtArgs>>): Prisma__JugadorClient<$Result.GetResult<Prisma.$JugadorPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Jugador that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {JugadorFindUniqueOrThrowArgs} args - Arguments to find a Jugador
+     * @example
+     * // Get one Jugador
+     * const jugador = await prisma.jugador.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends JugadorFindUniqueOrThrowArgs>(args: SelectSubset<T, JugadorFindUniqueOrThrowArgs<ExtArgs>>): Prisma__JugadorClient<$Result.GetResult<Prisma.$JugadorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Jugador that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JugadorFindFirstArgs} args - Arguments to find a Jugador
+     * @example
+     * // Get one Jugador
+     * const jugador = await prisma.jugador.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends JugadorFindFirstArgs>(args?: SelectSubset<T, JugadorFindFirstArgs<ExtArgs>>): Prisma__JugadorClient<$Result.GetResult<Prisma.$JugadorPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Jugador that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JugadorFindFirstOrThrowArgs} args - Arguments to find a Jugador
+     * @example
+     * // Get one Jugador
+     * const jugador = await prisma.jugador.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends JugadorFindFirstOrThrowArgs>(args?: SelectSubset<T, JugadorFindFirstOrThrowArgs<ExtArgs>>): Prisma__JugadorClient<$Result.GetResult<Prisma.$JugadorPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Jugadors that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JugadorFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Jugadors
+     * const jugadors = await prisma.jugador.findMany()
+     * 
+     * // Get first 10 Jugadors
+     * const jugadors = await prisma.jugador.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const jugadorWithIdOnly = await prisma.jugador.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends JugadorFindManyArgs>(args?: SelectSubset<T, JugadorFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JugadorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Jugador.
+     * @param {JugadorCreateArgs} args - Arguments to create a Jugador.
+     * @example
+     * // Create one Jugador
+     * const Jugador = await prisma.jugador.create({
+     *   data: {
+     *     // ... data to create a Jugador
+     *   }
+     * })
+     * 
+     */
+    create<T extends JugadorCreateArgs>(args: SelectSubset<T, JugadorCreateArgs<ExtArgs>>): Prisma__JugadorClient<$Result.GetResult<Prisma.$JugadorPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Jugadors.
+     * @param {JugadorCreateManyArgs} args - Arguments to create many Jugadors.
+     * @example
+     * // Create many Jugadors
+     * const jugador = await prisma.jugador.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends JugadorCreateManyArgs>(args?: SelectSubset<T, JugadorCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Jugadors and returns the data saved in the database.
+     * @param {JugadorCreateManyAndReturnArgs} args - Arguments to create many Jugadors.
+     * @example
+     * // Create many Jugadors
+     * const jugador = await prisma.jugador.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Jugadors and only return the `id`
+     * const jugadorWithIdOnly = await prisma.jugador.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends JugadorCreateManyAndReturnArgs>(args?: SelectSubset<T, JugadorCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JugadorPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Jugador.
+     * @param {JugadorDeleteArgs} args - Arguments to delete one Jugador.
+     * @example
+     * // Delete one Jugador
+     * const Jugador = await prisma.jugador.delete({
+     *   where: {
+     *     // ... filter to delete one Jugador
+     *   }
+     * })
+     * 
+     */
+    delete<T extends JugadorDeleteArgs>(args: SelectSubset<T, JugadorDeleteArgs<ExtArgs>>): Prisma__JugadorClient<$Result.GetResult<Prisma.$JugadorPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Jugador.
+     * @param {JugadorUpdateArgs} args - Arguments to update one Jugador.
+     * @example
+     * // Update one Jugador
+     * const jugador = await prisma.jugador.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends JugadorUpdateArgs>(args: SelectSubset<T, JugadorUpdateArgs<ExtArgs>>): Prisma__JugadorClient<$Result.GetResult<Prisma.$JugadorPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Jugadors.
+     * @param {JugadorDeleteManyArgs} args - Arguments to filter Jugadors to delete.
+     * @example
+     * // Delete a few Jugadors
+     * const { count } = await prisma.jugador.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends JugadorDeleteManyArgs>(args?: SelectSubset<T, JugadorDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Jugadors.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JugadorUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Jugadors
+     * const jugador = await prisma.jugador.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends JugadorUpdateManyArgs>(args: SelectSubset<T, JugadorUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Jugadors and returns the data updated in the database.
+     * @param {JugadorUpdateManyAndReturnArgs} args - Arguments to update many Jugadors.
+     * @example
+     * // Update many Jugadors
+     * const jugador = await prisma.jugador.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Jugadors and only return the `id`
+     * const jugadorWithIdOnly = await prisma.jugador.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends JugadorUpdateManyAndReturnArgs>(args: SelectSubset<T, JugadorUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JugadorPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Jugador.
+     * @param {JugadorUpsertArgs} args - Arguments to update or create a Jugador.
+     * @example
+     * // Update or create a Jugador
+     * const jugador = await prisma.jugador.upsert({
+     *   create: {
+     *     // ... data to create a Jugador
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Jugador we want to update
+     *   }
+     * })
+     */
+    upsert<T extends JugadorUpsertArgs>(args: SelectSubset<T, JugadorUpsertArgs<ExtArgs>>): Prisma__JugadorClient<$Result.GetResult<Prisma.$JugadorPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Jugadors.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JugadorCountArgs} args - Arguments to filter Jugadors to count.
+     * @example
+     * // Count the number of Jugadors
+     * const count = await prisma.jugador.count({
+     *   where: {
+     *     // ... the filter for the Jugadors we want to count
+     *   }
+     * })
+    **/
+    count<T extends JugadorCountArgs>(
+      args?: Subset<T, JugadorCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], JugadorCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Jugador.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JugadorAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends JugadorAggregateArgs>(args: Subset<T, JugadorAggregateArgs>): Prisma.PrismaPromise<GetJugadorAggregateType<T>>
+
+    /**
+     * Group by Jugador.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JugadorGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends JugadorGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: JugadorGroupByArgs['orderBy'] }
+        : { orderBy?: JugadorGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, JugadorGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJugadorGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Jugador model
+   */
+  readonly fields: JugadorFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Jugador.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__JugadorClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    equipoRef<T extends EquipoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EquipoDefaultArgs<ExtArgs>>): Prisma__EquipoClient<$Result.GetResult<Prisma.$EquipoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Jugador model
+   */
+  interface JugadorFieldRefs {
+    readonly id: FieldRef<"Jugador", 'Int'>
+    readonly equipo: FieldRef<"Jugador", 'Int'>
+    readonly idCategoria: FieldRef<"Jugador", 'Int'>
+    readonly nombre: FieldRef<"Jugador", 'String'>
+    readonly apellido: FieldRef<"Jugador", 'String'>
+    readonly edad: FieldRef<"Jugador", 'Int'>
+    readonly posicion: FieldRef<"Jugador", 'String'>
+    readonly dorsal: FieldRef<"Jugador", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Jugador findUnique
+   */
+  export type JugadorFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jugador
+     */
+    select?: JugadorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jugador
+     */
+    omit?: JugadorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JugadorInclude<ExtArgs> | null
+    /**
+     * Filter, which Jugador to fetch.
+     */
+    where: JugadorWhereUniqueInput
+  }
+
+  /**
+   * Jugador findUniqueOrThrow
+   */
+  export type JugadorFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jugador
+     */
+    select?: JugadorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jugador
+     */
+    omit?: JugadorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JugadorInclude<ExtArgs> | null
+    /**
+     * Filter, which Jugador to fetch.
+     */
+    where: JugadorWhereUniqueInput
+  }
+
+  /**
+   * Jugador findFirst
+   */
+  export type JugadorFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jugador
+     */
+    select?: JugadorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jugador
+     */
+    omit?: JugadorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JugadorInclude<ExtArgs> | null
+    /**
+     * Filter, which Jugador to fetch.
+     */
+    where?: JugadorWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Jugadors to fetch.
+     */
+    orderBy?: JugadorOrderByWithRelationInput | JugadorOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Jugadors.
+     */
+    cursor?: JugadorWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Jugadors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Jugadors.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Jugadors.
+     */
+    distinct?: JugadorScalarFieldEnum | JugadorScalarFieldEnum[]
+  }
+
+  /**
+   * Jugador findFirstOrThrow
+   */
+  export type JugadorFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jugador
+     */
+    select?: JugadorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jugador
+     */
+    omit?: JugadorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JugadorInclude<ExtArgs> | null
+    /**
+     * Filter, which Jugador to fetch.
+     */
+    where?: JugadorWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Jugadors to fetch.
+     */
+    orderBy?: JugadorOrderByWithRelationInput | JugadorOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Jugadors.
+     */
+    cursor?: JugadorWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Jugadors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Jugadors.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Jugadors.
+     */
+    distinct?: JugadorScalarFieldEnum | JugadorScalarFieldEnum[]
+  }
+
+  /**
+   * Jugador findMany
+   */
+  export type JugadorFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jugador
+     */
+    select?: JugadorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jugador
+     */
+    omit?: JugadorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JugadorInclude<ExtArgs> | null
+    /**
+     * Filter, which Jugadors to fetch.
+     */
+    where?: JugadorWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Jugadors to fetch.
+     */
+    orderBy?: JugadorOrderByWithRelationInput | JugadorOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Jugadors.
+     */
+    cursor?: JugadorWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Jugadors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Jugadors.
+     */
+    skip?: number
+    distinct?: JugadorScalarFieldEnum | JugadorScalarFieldEnum[]
+  }
+
+  /**
+   * Jugador create
+   */
+  export type JugadorCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jugador
+     */
+    select?: JugadorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jugador
+     */
+    omit?: JugadorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JugadorInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Jugador.
+     */
+    data: XOR<JugadorCreateInput, JugadorUncheckedCreateInput>
+  }
+
+  /**
+   * Jugador createMany
+   */
+  export type JugadorCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Jugadors.
+     */
+    data: JugadorCreateManyInput | JugadorCreateManyInput[]
+  }
+
+  /**
+   * Jugador createManyAndReturn
+   */
+  export type JugadorCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jugador
+     */
+    select?: JugadorSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jugador
+     */
+    omit?: JugadorOmit<ExtArgs> | null
+    /**
+     * The data used to create many Jugadors.
+     */
+    data: JugadorCreateManyInput | JugadorCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JugadorIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Jugador update
+   */
+  export type JugadorUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jugador
+     */
+    select?: JugadorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jugador
+     */
+    omit?: JugadorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JugadorInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Jugador.
+     */
+    data: XOR<JugadorUpdateInput, JugadorUncheckedUpdateInput>
+    /**
+     * Choose, which Jugador to update.
+     */
+    where: JugadorWhereUniqueInput
+  }
+
+  /**
+   * Jugador updateMany
+   */
+  export type JugadorUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Jugadors.
+     */
+    data: XOR<JugadorUpdateManyMutationInput, JugadorUncheckedUpdateManyInput>
+    /**
+     * Filter which Jugadors to update
+     */
+    where?: JugadorWhereInput
+    /**
+     * Limit how many Jugadors to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Jugador updateManyAndReturn
+   */
+  export type JugadorUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jugador
+     */
+    select?: JugadorSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jugador
+     */
+    omit?: JugadorOmit<ExtArgs> | null
+    /**
+     * The data used to update Jugadors.
+     */
+    data: XOR<JugadorUpdateManyMutationInput, JugadorUncheckedUpdateManyInput>
+    /**
+     * Filter which Jugadors to update
+     */
+    where?: JugadorWhereInput
+    /**
+     * Limit how many Jugadors to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JugadorIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Jugador upsert
+   */
+  export type JugadorUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jugador
+     */
+    select?: JugadorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jugador
+     */
+    omit?: JugadorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JugadorInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Jugador to update in case it exists.
+     */
+    where: JugadorWhereUniqueInput
+    /**
+     * In case the Jugador found by the `where` argument doesn't exist, create a new Jugador with this data.
+     */
+    create: XOR<JugadorCreateInput, JugadorUncheckedCreateInput>
+    /**
+     * In case the Jugador was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<JugadorUpdateInput, JugadorUncheckedUpdateInput>
+  }
+
+  /**
+   * Jugador delete
+   */
+  export type JugadorDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jugador
+     */
+    select?: JugadorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jugador
+     */
+    omit?: JugadorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JugadorInclude<ExtArgs> | null
+    /**
+     * Filter which Jugador to delete.
+     */
+    where: JugadorWhereUniqueInput
+  }
+
+  /**
+   * Jugador deleteMany
+   */
+  export type JugadorDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Jugadors to delete
+     */
+    where?: JugadorWhereInput
+    /**
+     * Limit how many Jugadors to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Jugador without action
+   */
+  export type JugadorDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jugador
+     */
+    select?: JugadorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jugador
+     */
+    omit?: JugadorOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JugadorInclude<ExtArgs> | null
   }
 
 
@@ -4541,6 +5838,20 @@ export namespace Prisma {
   };
 
   export type EquipoScalarFieldEnum = (typeof EquipoScalarFieldEnum)[keyof typeof EquipoScalarFieldEnum]
+
+
+  export const JugadorScalarFieldEnum: {
+    id: 'id',
+    equipo: 'equipo',
+    idCategoria: 'idCategoria',
+    nombre: 'nombre',
+    apellido: 'apellido',
+    edad: 'edad',
+    posicion: 'posicion',
+    dorsal: 'dorsal'
+  };
+
+  export type JugadorScalarFieldEnum = (typeof JugadorScalarFieldEnum)[keyof typeof JugadorScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -4711,6 +6022,7 @@ export namespace Prisma {
     url_logo?: StringFilter<"Equipo"> | string
     categoria?: XOR<CategoriaScalarRelationFilter, CategoriaWhereInput>
     campeonato?: XOR<CampeonatoScalarRelationFilter, CampeonatoWhereInput>
+    jugadores?: JugadorListRelationFilter
   }
 
   export type EquipoOrderByWithRelationInput = {
@@ -4724,6 +6036,7 @@ export namespace Prisma {
     url_logo?: SortOrder
     categoria?: CategoriaOrderByWithRelationInput
     campeonato?: CampeonatoOrderByWithRelationInput
+    jugadores?: JugadorOrderByRelationAggregateInput
   }
 
   export type EquipoWhereUniqueInput = Prisma.AtLeast<{
@@ -4740,6 +6053,7 @@ export namespace Prisma {
     url_logo?: StringFilter<"Equipo"> | string
     categoria?: XOR<CategoriaScalarRelationFilter, CategoriaWhereInput>
     campeonato?: XOR<CampeonatoScalarRelationFilter, CampeonatoWhereInput>
+    jugadores?: JugadorListRelationFilter
   }, "id">
 
   export type EquipoOrderByWithAggregationInput = {
@@ -4770,6 +6084,78 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"Equipo"> | string
     telefono?: StringWithAggregatesFilter<"Equipo"> | string
     url_logo?: StringWithAggregatesFilter<"Equipo"> | string
+  }
+
+  export type JugadorWhereInput = {
+    AND?: JugadorWhereInput | JugadorWhereInput[]
+    OR?: JugadorWhereInput[]
+    NOT?: JugadorWhereInput | JugadorWhereInput[]
+    id?: IntFilter<"Jugador"> | number
+    equipo?: IntFilter<"Jugador"> | number
+    idCategoria?: IntFilter<"Jugador"> | number
+    nombre?: StringFilter<"Jugador"> | string
+    apellido?: StringFilter<"Jugador"> | string
+    edad?: IntFilter<"Jugador"> | number
+    posicion?: StringFilter<"Jugador"> | string
+    dorsal?: IntFilter<"Jugador"> | number
+    equipoRef?: XOR<EquipoScalarRelationFilter, EquipoWhereInput>
+  }
+
+  export type JugadorOrderByWithRelationInput = {
+    id?: SortOrder
+    equipo?: SortOrder
+    idCategoria?: SortOrder
+    nombre?: SortOrder
+    apellido?: SortOrder
+    edad?: SortOrder
+    posicion?: SortOrder
+    dorsal?: SortOrder
+    equipoRef?: EquipoOrderByWithRelationInput
+  }
+
+  export type JugadorWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: JugadorWhereInput | JugadorWhereInput[]
+    OR?: JugadorWhereInput[]
+    NOT?: JugadorWhereInput | JugadorWhereInput[]
+    equipo?: IntFilter<"Jugador"> | number
+    idCategoria?: IntFilter<"Jugador"> | number
+    nombre?: StringFilter<"Jugador"> | string
+    apellido?: StringFilter<"Jugador"> | string
+    edad?: IntFilter<"Jugador"> | number
+    posicion?: StringFilter<"Jugador"> | string
+    dorsal?: IntFilter<"Jugador"> | number
+    equipoRef?: XOR<EquipoScalarRelationFilter, EquipoWhereInput>
+  }, "id">
+
+  export type JugadorOrderByWithAggregationInput = {
+    id?: SortOrder
+    equipo?: SortOrder
+    idCategoria?: SortOrder
+    nombre?: SortOrder
+    apellido?: SortOrder
+    edad?: SortOrder
+    posicion?: SortOrder
+    dorsal?: SortOrder
+    _count?: JugadorCountOrderByAggregateInput
+    _avg?: JugadorAvgOrderByAggregateInput
+    _max?: JugadorMaxOrderByAggregateInput
+    _min?: JugadorMinOrderByAggregateInput
+    _sum?: JugadorSumOrderByAggregateInput
+  }
+
+  export type JugadorScalarWhereWithAggregatesInput = {
+    AND?: JugadorScalarWhereWithAggregatesInput | JugadorScalarWhereWithAggregatesInput[]
+    OR?: JugadorScalarWhereWithAggregatesInput[]
+    NOT?: JugadorScalarWhereWithAggregatesInput | JugadorScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Jugador"> | number
+    equipo?: IntWithAggregatesFilter<"Jugador"> | number
+    idCategoria?: IntWithAggregatesFilter<"Jugador"> | number
+    nombre?: StringWithAggregatesFilter<"Jugador"> | string
+    apellido?: StringWithAggregatesFilter<"Jugador"> | string
+    edad?: IntWithAggregatesFilter<"Jugador"> | number
+    posicion?: StringWithAggregatesFilter<"Jugador"> | string
+    dorsal?: IntWithAggregatesFilter<"Jugador"> | number
   }
 
   export type CampeonatoCreateInput = {
@@ -4883,6 +6269,7 @@ export namespace Prisma {
     url_logo: string
     categoria: CategoriaCreateNestedOneWithoutEquiposInput
     campeonato: CampeonatoCreateNestedOneWithoutEquiposInput
+    jugadores?: JugadorCreateNestedManyWithoutEquipoRefInput
   }
 
   export type EquipoUncheckedCreateInput = {
@@ -4894,6 +6281,7 @@ export namespace Prisma {
     email: string
     telefono: string
     url_logo: string
+    jugadores?: JugadorUncheckedCreateNestedManyWithoutEquipoRefInput
   }
 
   export type EquipoUpdateInput = {
@@ -4904,6 +6292,7 @@ export namespace Prisma {
     url_logo?: StringFieldUpdateOperationsInput | string
     categoria?: CategoriaUpdateOneRequiredWithoutEquiposNestedInput
     campeonato?: CampeonatoUpdateOneRequiredWithoutEquiposNestedInput
+    jugadores?: JugadorUpdateManyWithoutEquipoRefNestedInput
   }
 
   export type EquipoUncheckedUpdateInput = {
@@ -4915,6 +6304,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     telefono?: StringFieldUpdateOperationsInput | string
     url_logo?: StringFieldUpdateOperationsInput | string
+    jugadores?: JugadorUncheckedUpdateManyWithoutEquipoRefNestedInput
   }
 
   export type EquipoCreateManyInput = {
@@ -4945,6 +6335,79 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     telefono?: StringFieldUpdateOperationsInput | string
     url_logo?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type JugadorCreateInput = {
+    idCategoria: number
+    nombre: string
+    apellido: string
+    edad: number
+    posicion: string
+    dorsal: number
+    equipoRef: EquipoCreateNestedOneWithoutJugadoresInput
+  }
+
+  export type JugadorUncheckedCreateInput = {
+    id?: number
+    equipo: number
+    idCategoria: number
+    nombre: string
+    apellido: string
+    edad: number
+    posicion: string
+    dorsal: number
+  }
+
+  export type JugadorUpdateInput = {
+    idCategoria?: IntFieldUpdateOperationsInput | number
+    nombre?: StringFieldUpdateOperationsInput | string
+    apellido?: StringFieldUpdateOperationsInput | string
+    edad?: IntFieldUpdateOperationsInput | number
+    posicion?: StringFieldUpdateOperationsInput | string
+    dorsal?: IntFieldUpdateOperationsInput | number
+    equipoRef?: EquipoUpdateOneRequiredWithoutJugadoresNestedInput
+  }
+
+  export type JugadorUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    equipo?: IntFieldUpdateOperationsInput | number
+    idCategoria?: IntFieldUpdateOperationsInput | number
+    nombre?: StringFieldUpdateOperationsInput | string
+    apellido?: StringFieldUpdateOperationsInput | string
+    edad?: IntFieldUpdateOperationsInput | number
+    posicion?: StringFieldUpdateOperationsInput | string
+    dorsal?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type JugadorCreateManyInput = {
+    id?: number
+    equipo: number
+    idCategoria: number
+    nombre: string
+    apellido: string
+    edad: number
+    posicion: string
+    dorsal: number
+  }
+
+  export type JugadorUpdateManyMutationInput = {
+    idCategoria?: IntFieldUpdateOperationsInput | number
+    nombre?: StringFieldUpdateOperationsInput | string
+    apellido?: StringFieldUpdateOperationsInput | string
+    edad?: IntFieldUpdateOperationsInput | number
+    posicion?: StringFieldUpdateOperationsInput | string
+    dorsal?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type JugadorUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    equipo?: IntFieldUpdateOperationsInput | number
+    idCategoria?: IntFieldUpdateOperationsInput | number
+    nombre?: StringFieldUpdateOperationsInput | string
+    apellido?: StringFieldUpdateOperationsInput | string
+    edad?: IntFieldUpdateOperationsInput | number
+    posicion?: StringFieldUpdateOperationsInput | string
+    dorsal?: IntFieldUpdateOperationsInput | number
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -5122,6 +6585,16 @@ export namespace Prisma {
     isNot?: CategoriaWhereInput
   }
 
+  export type JugadorListRelationFilter = {
+    every?: JugadorWhereInput
+    some?: JugadorWhereInput
+    none?: JugadorWhereInput
+  }
+
+  export type JugadorOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type EquipoCountOrderByAggregateInput = {
     id?: SortOrder
     nombre?: SortOrder
@@ -5165,6 +6638,60 @@ export namespace Prisma {
     id?: SortOrder
     idCategoria?: SortOrder
     idCampeonato?: SortOrder
+  }
+
+  export type EquipoScalarRelationFilter = {
+    is?: EquipoWhereInput
+    isNot?: EquipoWhereInput
+  }
+
+  export type JugadorCountOrderByAggregateInput = {
+    id?: SortOrder
+    equipo?: SortOrder
+    idCategoria?: SortOrder
+    nombre?: SortOrder
+    apellido?: SortOrder
+    edad?: SortOrder
+    posicion?: SortOrder
+    dorsal?: SortOrder
+  }
+
+  export type JugadorAvgOrderByAggregateInput = {
+    id?: SortOrder
+    equipo?: SortOrder
+    idCategoria?: SortOrder
+    edad?: SortOrder
+    dorsal?: SortOrder
+  }
+
+  export type JugadorMaxOrderByAggregateInput = {
+    id?: SortOrder
+    equipo?: SortOrder
+    idCategoria?: SortOrder
+    nombre?: SortOrder
+    apellido?: SortOrder
+    edad?: SortOrder
+    posicion?: SortOrder
+    dorsal?: SortOrder
+  }
+
+  export type JugadorMinOrderByAggregateInput = {
+    id?: SortOrder
+    equipo?: SortOrder
+    idCategoria?: SortOrder
+    nombre?: SortOrder
+    apellido?: SortOrder
+    edad?: SortOrder
+    posicion?: SortOrder
+    dorsal?: SortOrder
+  }
+
+  export type JugadorSumOrderByAggregateInput = {
+    id?: SortOrder
+    equipo?: SortOrder
+    idCategoria?: SortOrder
+    edad?: SortOrder
+    dorsal?: SortOrder
   }
 
   export type CategoriaCreateNestedManyWithoutCampeonatoInput = {
@@ -5335,6 +6862,20 @@ export namespace Prisma {
     connect?: CampeonatoWhereUniqueInput
   }
 
+  export type JugadorCreateNestedManyWithoutEquipoRefInput = {
+    create?: XOR<JugadorCreateWithoutEquipoRefInput, JugadorUncheckedCreateWithoutEquipoRefInput> | JugadorCreateWithoutEquipoRefInput[] | JugadorUncheckedCreateWithoutEquipoRefInput[]
+    connectOrCreate?: JugadorCreateOrConnectWithoutEquipoRefInput | JugadorCreateOrConnectWithoutEquipoRefInput[]
+    createMany?: JugadorCreateManyEquipoRefInputEnvelope
+    connect?: JugadorWhereUniqueInput | JugadorWhereUniqueInput[]
+  }
+
+  export type JugadorUncheckedCreateNestedManyWithoutEquipoRefInput = {
+    create?: XOR<JugadorCreateWithoutEquipoRefInput, JugadorUncheckedCreateWithoutEquipoRefInput> | JugadorCreateWithoutEquipoRefInput[] | JugadorUncheckedCreateWithoutEquipoRefInput[]
+    connectOrCreate?: JugadorCreateOrConnectWithoutEquipoRefInput | JugadorCreateOrConnectWithoutEquipoRefInput[]
+    createMany?: JugadorCreateManyEquipoRefInputEnvelope
+    connect?: JugadorWhereUniqueInput | JugadorWhereUniqueInput[]
+  }
+
   export type CategoriaUpdateOneRequiredWithoutEquiposNestedInput = {
     create?: XOR<CategoriaCreateWithoutEquiposInput, CategoriaUncheckedCreateWithoutEquiposInput>
     connectOrCreate?: CategoriaCreateOrConnectWithoutEquiposInput
@@ -5349,6 +6890,48 @@ export namespace Prisma {
     upsert?: CampeonatoUpsertWithoutEquiposInput
     connect?: CampeonatoWhereUniqueInput
     update?: XOR<XOR<CampeonatoUpdateToOneWithWhereWithoutEquiposInput, CampeonatoUpdateWithoutEquiposInput>, CampeonatoUncheckedUpdateWithoutEquiposInput>
+  }
+
+  export type JugadorUpdateManyWithoutEquipoRefNestedInput = {
+    create?: XOR<JugadorCreateWithoutEquipoRefInput, JugadorUncheckedCreateWithoutEquipoRefInput> | JugadorCreateWithoutEquipoRefInput[] | JugadorUncheckedCreateWithoutEquipoRefInput[]
+    connectOrCreate?: JugadorCreateOrConnectWithoutEquipoRefInput | JugadorCreateOrConnectWithoutEquipoRefInput[]
+    upsert?: JugadorUpsertWithWhereUniqueWithoutEquipoRefInput | JugadorUpsertWithWhereUniqueWithoutEquipoRefInput[]
+    createMany?: JugadorCreateManyEquipoRefInputEnvelope
+    set?: JugadorWhereUniqueInput | JugadorWhereUniqueInput[]
+    disconnect?: JugadorWhereUniqueInput | JugadorWhereUniqueInput[]
+    delete?: JugadorWhereUniqueInput | JugadorWhereUniqueInput[]
+    connect?: JugadorWhereUniqueInput | JugadorWhereUniqueInput[]
+    update?: JugadorUpdateWithWhereUniqueWithoutEquipoRefInput | JugadorUpdateWithWhereUniqueWithoutEquipoRefInput[]
+    updateMany?: JugadorUpdateManyWithWhereWithoutEquipoRefInput | JugadorUpdateManyWithWhereWithoutEquipoRefInput[]
+    deleteMany?: JugadorScalarWhereInput | JugadorScalarWhereInput[]
+  }
+
+  export type JugadorUncheckedUpdateManyWithoutEquipoRefNestedInput = {
+    create?: XOR<JugadorCreateWithoutEquipoRefInput, JugadorUncheckedCreateWithoutEquipoRefInput> | JugadorCreateWithoutEquipoRefInput[] | JugadorUncheckedCreateWithoutEquipoRefInput[]
+    connectOrCreate?: JugadorCreateOrConnectWithoutEquipoRefInput | JugadorCreateOrConnectWithoutEquipoRefInput[]
+    upsert?: JugadorUpsertWithWhereUniqueWithoutEquipoRefInput | JugadorUpsertWithWhereUniqueWithoutEquipoRefInput[]
+    createMany?: JugadorCreateManyEquipoRefInputEnvelope
+    set?: JugadorWhereUniqueInput | JugadorWhereUniqueInput[]
+    disconnect?: JugadorWhereUniqueInput | JugadorWhereUniqueInput[]
+    delete?: JugadorWhereUniqueInput | JugadorWhereUniqueInput[]
+    connect?: JugadorWhereUniqueInput | JugadorWhereUniqueInput[]
+    update?: JugadorUpdateWithWhereUniqueWithoutEquipoRefInput | JugadorUpdateWithWhereUniqueWithoutEquipoRefInput[]
+    updateMany?: JugadorUpdateManyWithWhereWithoutEquipoRefInput | JugadorUpdateManyWithWhereWithoutEquipoRefInput[]
+    deleteMany?: JugadorScalarWhereInput | JugadorScalarWhereInput[]
+  }
+
+  export type EquipoCreateNestedOneWithoutJugadoresInput = {
+    create?: XOR<EquipoCreateWithoutJugadoresInput, EquipoUncheckedCreateWithoutJugadoresInput>
+    connectOrCreate?: EquipoCreateOrConnectWithoutJugadoresInput
+    connect?: EquipoWhereUniqueInput
+  }
+
+  export type EquipoUpdateOneRequiredWithoutJugadoresNestedInput = {
+    create?: XOR<EquipoCreateWithoutJugadoresInput, EquipoUncheckedCreateWithoutJugadoresInput>
+    connectOrCreate?: EquipoCreateOrConnectWithoutJugadoresInput
+    upsert?: EquipoUpsertWithoutJugadoresInput
+    connect?: EquipoWhereUniqueInput
+    update?: XOR<XOR<EquipoUpdateToOneWithWhereWithoutJugadoresInput, EquipoUpdateWithoutJugadoresInput>, EquipoUncheckedUpdateWithoutJugadoresInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -5476,6 +7059,7 @@ export namespace Prisma {
     telefono: string
     url_logo: string
     categoria: CategoriaCreateNestedOneWithoutEquiposInput
+    jugadores?: JugadorCreateNestedManyWithoutEquipoRefInput
   }
 
   export type EquipoUncheckedCreateWithoutCampeonatoInput = {
@@ -5486,6 +7070,7 @@ export namespace Prisma {
     email: string
     telefono: string
     url_logo: string
+    jugadores?: JugadorUncheckedCreateNestedManyWithoutEquipoRefInput
   }
 
   export type EquipoCreateOrConnectWithoutCampeonatoInput = {
@@ -5579,6 +7164,7 @@ export namespace Prisma {
     telefono: string
     url_logo: string
     campeonato: CampeonatoCreateNestedOneWithoutEquiposInput
+    jugadores?: JugadorCreateNestedManyWithoutEquipoRefInput
   }
 
   export type EquipoUncheckedCreateWithoutCategoriaInput = {
@@ -5589,6 +7175,7 @@ export namespace Prisma {
     email: string
     telefono: string
     url_logo: string
+    jugadores?: JugadorUncheckedCreateNestedManyWithoutEquipoRefInput
   }
 
   export type EquipoCreateOrConnectWithoutCategoriaInput = {
@@ -5678,6 +7265,34 @@ export namespace Prisma {
     create: XOR<CampeonatoCreateWithoutEquiposInput, CampeonatoUncheckedCreateWithoutEquiposInput>
   }
 
+  export type JugadorCreateWithoutEquipoRefInput = {
+    idCategoria: number
+    nombre: string
+    apellido: string
+    edad: number
+    posicion: string
+    dorsal: number
+  }
+
+  export type JugadorUncheckedCreateWithoutEquipoRefInput = {
+    id?: number
+    idCategoria: number
+    nombre: string
+    apellido: string
+    edad: number
+    posicion: string
+    dorsal: number
+  }
+
+  export type JugadorCreateOrConnectWithoutEquipoRefInput = {
+    where: JugadorWhereUniqueInput
+    create: XOR<JugadorCreateWithoutEquipoRefInput, JugadorUncheckedCreateWithoutEquipoRefInput>
+  }
+
+  export type JugadorCreateManyEquipoRefInputEnvelope = {
+    data: JugadorCreateManyEquipoRefInput | JugadorCreateManyEquipoRefInput[]
+  }
+
   export type CategoriaUpsertWithoutEquiposInput = {
     update: XOR<CategoriaUpdateWithoutEquiposInput, CategoriaUncheckedUpdateWithoutEquiposInput>
     create: XOR<CategoriaCreateWithoutEquiposInput, CategoriaUncheckedCreateWithoutEquiposInput>
@@ -5728,6 +7343,94 @@ export namespace Prisma {
     categorias?: CategoriaUncheckedUpdateManyWithoutCampeonatoNestedInput
   }
 
+  export type JugadorUpsertWithWhereUniqueWithoutEquipoRefInput = {
+    where: JugadorWhereUniqueInput
+    update: XOR<JugadorUpdateWithoutEquipoRefInput, JugadorUncheckedUpdateWithoutEquipoRefInput>
+    create: XOR<JugadorCreateWithoutEquipoRefInput, JugadorUncheckedCreateWithoutEquipoRefInput>
+  }
+
+  export type JugadorUpdateWithWhereUniqueWithoutEquipoRefInput = {
+    where: JugadorWhereUniqueInput
+    data: XOR<JugadorUpdateWithoutEquipoRefInput, JugadorUncheckedUpdateWithoutEquipoRefInput>
+  }
+
+  export type JugadorUpdateManyWithWhereWithoutEquipoRefInput = {
+    where: JugadorScalarWhereInput
+    data: XOR<JugadorUpdateManyMutationInput, JugadorUncheckedUpdateManyWithoutEquipoRefInput>
+  }
+
+  export type JugadorScalarWhereInput = {
+    AND?: JugadorScalarWhereInput | JugadorScalarWhereInput[]
+    OR?: JugadorScalarWhereInput[]
+    NOT?: JugadorScalarWhereInput | JugadorScalarWhereInput[]
+    id?: IntFilter<"Jugador"> | number
+    equipo?: IntFilter<"Jugador"> | number
+    idCategoria?: IntFilter<"Jugador"> | number
+    nombre?: StringFilter<"Jugador"> | string
+    apellido?: StringFilter<"Jugador"> | string
+    edad?: IntFilter<"Jugador"> | number
+    posicion?: StringFilter<"Jugador"> | string
+    dorsal?: IntFilter<"Jugador"> | number
+  }
+
+  export type EquipoCreateWithoutJugadoresInput = {
+    nombre: string
+    abreviatura: string
+    email: string
+    telefono: string
+    url_logo: string
+    categoria: CategoriaCreateNestedOneWithoutEquiposInput
+    campeonato: CampeonatoCreateNestedOneWithoutEquiposInput
+  }
+
+  export type EquipoUncheckedCreateWithoutJugadoresInput = {
+    id?: number
+    nombre: string
+    abreviatura: string
+    idCategoria: number
+    idCampeonato: number
+    email: string
+    telefono: string
+    url_logo: string
+  }
+
+  export type EquipoCreateOrConnectWithoutJugadoresInput = {
+    where: EquipoWhereUniqueInput
+    create: XOR<EquipoCreateWithoutJugadoresInput, EquipoUncheckedCreateWithoutJugadoresInput>
+  }
+
+  export type EquipoUpsertWithoutJugadoresInput = {
+    update: XOR<EquipoUpdateWithoutJugadoresInput, EquipoUncheckedUpdateWithoutJugadoresInput>
+    create: XOR<EquipoCreateWithoutJugadoresInput, EquipoUncheckedCreateWithoutJugadoresInput>
+    where?: EquipoWhereInput
+  }
+
+  export type EquipoUpdateToOneWithWhereWithoutJugadoresInput = {
+    where?: EquipoWhereInput
+    data: XOR<EquipoUpdateWithoutJugadoresInput, EquipoUncheckedUpdateWithoutJugadoresInput>
+  }
+
+  export type EquipoUpdateWithoutJugadoresInput = {
+    nombre?: StringFieldUpdateOperationsInput | string
+    abreviatura?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    telefono?: StringFieldUpdateOperationsInput | string
+    url_logo?: StringFieldUpdateOperationsInput | string
+    categoria?: CategoriaUpdateOneRequiredWithoutEquiposNestedInput
+    campeonato?: CampeonatoUpdateOneRequiredWithoutEquiposNestedInput
+  }
+
+  export type EquipoUncheckedUpdateWithoutJugadoresInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nombre?: StringFieldUpdateOperationsInput | string
+    abreviatura?: StringFieldUpdateOperationsInput | string
+    idCategoria?: IntFieldUpdateOperationsInput | number
+    idCampeonato?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    telefono?: StringFieldUpdateOperationsInput | string
+    url_logo?: StringFieldUpdateOperationsInput | string
+  }
+
   export type CategoriaCreateManyCampeonatoInput = {
     id?: number
     nombre: string
@@ -5774,6 +7477,7 @@ export namespace Prisma {
     telefono?: StringFieldUpdateOperationsInput | string
     url_logo?: StringFieldUpdateOperationsInput | string
     categoria?: CategoriaUpdateOneRequiredWithoutEquiposNestedInput
+    jugadores?: JugadorUpdateManyWithoutEquipoRefNestedInput
   }
 
   export type EquipoUncheckedUpdateWithoutCampeonatoInput = {
@@ -5784,6 +7488,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     telefono?: StringFieldUpdateOperationsInput | string
     url_logo?: StringFieldUpdateOperationsInput | string
+    jugadores?: JugadorUncheckedUpdateManyWithoutEquipoRefNestedInput
   }
 
   export type EquipoUncheckedUpdateManyWithoutCampeonatoInput = {
@@ -5813,6 +7518,7 @@ export namespace Prisma {
     telefono?: StringFieldUpdateOperationsInput | string
     url_logo?: StringFieldUpdateOperationsInput | string
     campeonato?: CampeonatoUpdateOneRequiredWithoutEquiposNestedInput
+    jugadores?: JugadorUpdateManyWithoutEquipoRefNestedInput
   }
 
   export type EquipoUncheckedUpdateWithoutCategoriaInput = {
@@ -5823,6 +7529,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     telefono?: StringFieldUpdateOperationsInput | string
     url_logo?: StringFieldUpdateOperationsInput | string
+    jugadores?: JugadorUncheckedUpdateManyWithoutEquipoRefNestedInput
   }
 
   export type EquipoUncheckedUpdateManyWithoutCategoriaInput = {
@@ -5833,6 +7540,45 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     telefono?: StringFieldUpdateOperationsInput | string
     url_logo?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type JugadorCreateManyEquipoRefInput = {
+    id?: number
+    idCategoria: number
+    nombre: string
+    apellido: string
+    edad: number
+    posicion: string
+    dorsal: number
+  }
+
+  export type JugadorUpdateWithoutEquipoRefInput = {
+    idCategoria?: IntFieldUpdateOperationsInput | number
+    nombre?: StringFieldUpdateOperationsInput | string
+    apellido?: StringFieldUpdateOperationsInput | string
+    edad?: IntFieldUpdateOperationsInput | number
+    posicion?: StringFieldUpdateOperationsInput | string
+    dorsal?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type JugadorUncheckedUpdateWithoutEquipoRefInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    idCategoria?: IntFieldUpdateOperationsInput | number
+    nombre?: StringFieldUpdateOperationsInput | string
+    apellido?: StringFieldUpdateOperationsInput | string
+    edad?: IntFieldUpdateOperationsInput | number
+    posicion?: StringFieldUpdateOperationsInput | string
+    dorsal?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type JugadorUncheckedUpdateManyWithoutEquipoRefInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    idCategoria?: IntFieldUpdateOperationsInput | number
+    nombre?: StringFieldUpdateOperationsInput | string
+    apellido?: StringFieldUpdateOperationsInput | string
+    edad?: IntFieldUpdateOperationsInput | number
+    posicion?: StringFieldUpdateOperationsInput | string
+    dorsal?: IntFieldUpdateOperationsInput | number
   }
 
 
