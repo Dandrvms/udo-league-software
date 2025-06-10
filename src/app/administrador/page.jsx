@@ -1,13 +1,14 @@
-"use client";
-import {useRouter} from "next/navigation";
+
+import {prisma} from "@/libs/prisma"
 
 import ListaCampeonatos from "@/app/components/ListaCampeonatos";
-export default function AdministradorPage() {
-    const router = useRouter();
-
-    const handleCreateCampeonato = () => {
-        router.push("/administrador/campeonato/nuevo");
-    };
+export default async function AdministradorPage() {
+    
+    const campeonatos = await prisma.campeonato.findMany({
+        include: {
+            categorias: true
+        }
+    })
 
     return (
         <>
@@ -16,16 +17,10 @@ export default function AdministradorPage() {
 
                 <div >
                     
-                        <ListaCampeonatos camps={[]} />
+                        <ListaCampeonatos camps={campeonatos} />
                     
                 </div>
-                <div>
-                    <button className="cursor-pointer mt-5 bg-emerald-600 text-white px-5 py-3 rounded-lg shadow-md font-medium tracking-wide hover:bg-emerald-700 hover:scale-104 transition duration-200"
-                        onClick={handleCreateCampeonato}
-                    >
-                        Crear Campeonato
-                    </button>
-                </div>
+                
             </div>
 
         </>

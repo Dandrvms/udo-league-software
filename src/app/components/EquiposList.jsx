@@ -7,6 +7,7 @@ export default function EquiposList({ categoria }) {
     const router = useRouter()
     return (
         <>
+            
             <div className="bg-white m-3 max-w-full">
                 <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
                     <h3 className="text-lg font-semibold text-gray-800">Equipos de la categoría {categoria.nombre}</h3>

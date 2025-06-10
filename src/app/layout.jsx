@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import {Inter} from 'next/font/google';
-
+import Navbar from "./components/Navbar";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -26,7 +26,8 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" /> 
       </head>
         <body className={lato.className}>
-          {children}
+          <Navbar/>
+          <div className="pt-14">{children}</div>
         </body>
     </html>
   );
