@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Loader from "@/app/components/Loader";
 
 export default function CalendarioC({ categoria }) {
     const router = useRouter();
@@ -198,9 +199,7 @@ export default function CalendarioC({ categoria }) {
             )}
 
             {cargando && (
-                <div className="flex justify-center py-10">
-                    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-                </div>
+                <Loader/>
             )}
 
             {tieneJornadas ? (
